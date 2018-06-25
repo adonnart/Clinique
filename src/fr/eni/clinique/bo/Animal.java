@@ -23,6 +23,13 @@ public class Animal {
 		this.antecedents = antecedents;
 	}
 
+	@Override
+	public String toString() {
+		return "Animal [sexe=" + sexe + ", codeAnimal=" + codeAnimal + ", codeClient=" + codeClient + ", archive="
+				+ archive + ", nomAnimal=" + nomAnimal + ", couleur=" + couleur + ", race=" + race + ", espece="
+				+ espece + ", tatouage=" + tatouage + ", antecedents=" + antecedents + "]";
+	}
+
 	public char getSexe() { return sexe; }
 	public void setSexe(char sexe) { this.sexe = sexe; }
 
