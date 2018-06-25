@@ -1,10 +1,10 @@
 package fr.eni.clinique.bo;
 
-public class Races {
+public class Race {
 
 	private String race, espece;
 
-	public Races(String race, String espece) {
+	public Race(String race, String espece) {
 		super();
 		this.race = race;
 		this.espece = espece;

@@ -1,6 +1,6 @@
 package fr.eni.clinique.bo;
 
-public class Animaux {
+public class Animal {
 
 	private char sexe;
 	private int codeAnimal;
@@ -8,7 +8,7 @@ public class Animaux {
 	private boolean archive;
 	private String nomAnimal, couleur, race, espece, tatouage, antecedents;
 
-	public Animaux(char sexe, int codeAnimal, long codeClient, boolean archive, String nomAnimal, 
+	public Animal(char sexe, int codeAnimal, long codeClient, boolean archive, String nomAnimal, 
 				   String couleur, String race, String espece, String tatouage, String antecedents) {
 		super();
 		this.sexe = sexe;

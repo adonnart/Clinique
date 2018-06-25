@@ -2,12 +2,12 @@ package fr.eni.clinique.bo;
 
 import java.util.Date;
 
-public class Agendas {
+public class Agenda {
 
 	private long codeVeto, codeAnimal;
 	private Date dateRdv; // 00 - 15 - 30 - 45 ?
 
-	public Agendas(long codeVeto, long codeAnimal, Date dateRdv) {
+	public Agenda(long codeVeto, long codeAnimal, Date dateRdv) {
 		super();
 		this.codeVeto = codeVeto;
 		this.codeAnimal = codeAnimal;
