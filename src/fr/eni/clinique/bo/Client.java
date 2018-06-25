@@ -41,6 +41,15 @@ public class Client {
 		this.archive = archive;
 		this.listAnimal = listAnimal;
 	}
+	
+
+	@Override
+	public String toString() {
+		return "Client [codeClient=" + codeClient + ", nomClient=" + nomClient + ", prenomClient=" + prenomClient
+				+ ", adresse1=" + adresse1 + ", adresse2=" + adresse2 + ", codePostal=" + codePostal + ", Ville="
+				+ Ville + ", numTel=" + numTel + ", assurance=" + assurance + ", email=" + email + ", remarque="
+				+ remarque + ", archive=" + archive + "]";
+	}
 
 	public Integer getCodeClient() {
 		return codeClient;
