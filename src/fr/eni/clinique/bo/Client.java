@@ -48,11 +48,15 @@ public class Client {
 		return "Client [codeClient=" + codeClient + ", nomClient=" + nomClient + ", prenomClient=" + prenomClient
 				+ ", adresse1=" + adresse1 + ", adresse2=" + adresse2 + ", codePostal=" + codePostal + ", Ville="
 				+ Ville + ", numTel=" + numTel + ", assurance=" + assurance + ", email=" + email + ", remarque="
-				+ remarque + ", archive=" + archive + "]";
+				+ remarque + ", archive=" + archive + listAnimal+"]";
 	}
 
 	public Integer getCodeClient() {
 		return codeClient;
+	}
+	
+	public void addAnimal(Animal animal){
+		listAnimal.add(animal);	
 	}
 
 	public void setCodeClient(Integer codeClient) {
