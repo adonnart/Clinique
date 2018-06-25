@@ -2,9 +2,8 @@ package fr.eni.clinique.bo;
 
 public class Animal {
 
+	private long codeAnimal, codeClient;
 	private char sexe;
-	private int codeAnimal;
-	private long codeClient;
 	private boolean archive;
 	private String nomAnimal, couleur, race, espece, tatouage, antecedents;
 
@@ -14,26 +13,23 @@ public class Animal {
 		this.sexe = sexe;
 		this.codeAnimal = codeAnimal;
 		this.codeClient = codeClient;
-		this.archive = archive;
 		this.nomAnimal = nomAnimal;
 		this.couleur = couleur;
 		this.race = race;
 		this.espece = espece;
 		this.tatouage = tatouage;
 		this.antecedents = antecedents;
+		this.archive = archive;
 	}
 
 	public char getSexe() { return sexe; }
 	public void setSexe(char sexe) { this.sexe = sexe; }
 
-	public int getCodeAnimal() { return codeAnimal; }
+	public long getCodeAnimal() { return codeAnimal; }
 	public void setCodeAnimal(int codeAnimal) { this.codeAnimal = codeAnimal; }
 
 	public long getCodeClient() { return codeClient; }
 	public void setCodeClient(long codeClient) { this.codeClient = codeClient; }
-
-	public boolean isArchive() { return archive; }
-	public void setArchive(boolean archive) { this.archive = archive; }
 
 	public String getNomAnimal() { return nomAnimal; }
 	public void setNomAnimal(String nomAnimal) { this.nomAnimal = nomAnimal; }
@@ -52,6 +48,9 @@ public class Animal {
 
 	public String getAntecedents() { return antecedents; }
 	public void setAntecedents(String antecedents) { this.antecedents = antecedents; }
+
+	public boolean isArchive() { return archive; }
+	public void setArchive(boolean archive) { this.archive = archive; }
 
 	@Override
 	public String toString() {
