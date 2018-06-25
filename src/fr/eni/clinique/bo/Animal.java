@@ -53,4 +53,11 @@ public class Animal {
 	public String getAntecedents() { return antecedents; }
 	public void setAntecedents(String antecedents) { this.antecedents = antecedents; }
 
+	@Override
+	public String toString() {
+		return "Animal [sexe=" + sexe + ", codeAnimal=" + codeAnimal + ", codeClient=" + codeClient + ", archive="
+				+ archive + ", nomAnimal=" + nomAnimal + ", couleur=" + couleur + ", race=" + race + ", espece="
+				+ espece + ", tatouage=" + tatouage + ", antecedents=" + antecedents + "]";
+	}
+
 }

@@ -40,8 +40,7 @@ public class Agenda {
 
 	@Override
 	public String toString() {
-		return "Agenda [p=" + p + ", a=" + a + ", codeVeto=" + codeVeto + ", codeAnimal=" + codeAnimal + ", dateRdv="
-				+ dateRdv + "]";
+		return "Agenda [codeVeto=" + codeVeto + ", codeAnimal=" + codeAnimal + ", dateRdv=" + dateRdv + "]";
 	}
 
 }
