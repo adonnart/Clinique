@@ -32,8 +32,8 @@ public class Personnel {
 
 	@Override
 	public String toString() {
-		return "Personnel [codePers=" + codePers + ", nom=" + nom + ", motPasse=" + motPasse + ", role=" + role
-				+ ", archive=" + archive + "]";
+		return "Personnel [codePers=" + codePers + ", nom=" + nom + ", motPasse=" + motPasse 
+				+ ", role=" + role + ", archive=" + archive + "]";
 	}
 
 }
