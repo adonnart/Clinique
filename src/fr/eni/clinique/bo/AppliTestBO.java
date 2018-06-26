@@ -1,22 +1,17 @@
 package fr.eni.clinique.bo;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-
 
 public class AppliTestBO {
 
 	public static void main(String[] args) {
-		
-		List<Animal> listAnimal = new ArrayList<Animal>();
-
+	
 		Animal unAnimal = new Animal('M', 1, 1, true, "testnomanimal", 
 				   "Blanc", "chien", "Chien", "Non", "Aucun");
 		
 		Client unClient = new Client(1, "nomtest", "prenomtest", "15 rue de ", "15 rue de ",
 				"35000", "Rennes", "054215612", "Oui", "test@test.com", "remarque",
-				true, listAnimal);
+				true);
 		unClient.addAnimal(unAnimal);
 				
 		System.out.println(unClient);

@@ -12,7 +12,7 @@ public class Client {
 
 	public Client(long codeClient, String nomClient, String prenomClient, String adresse1, String adresse2,
 				  String codePostal, String ville, String numTel, String assurance, String email, 
-				  String remarque, boolean archive, List<Animal> listAnimal) {
+				  String remarque, boolean archive) {
 		super();
 		this.codeClient = codeClient;
 		this.nomClient = nomClient;
@@ -26,7 +26,6 @@ public class Client {
 		this.email = email;
 		this.remarque = remarque;
 		this.archive = archive;
-		this.listAnimal = listAnimal;
 	}
 
 	public void addAnimal(Animal animal){ listAnimal.add(animal); }
