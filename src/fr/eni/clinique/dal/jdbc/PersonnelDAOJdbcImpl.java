@@ -17,22 +17,14 @@ public class PersonnelDAOJdbcImpl implements PersonnelDAO {
 	
 	public Personnel selectById(int id) throws DALException {
 		try (Statement stm = JdbcTools.getConnection().createStatement()) {
-			ResultSet rc = stm.executeQuery(Request.getClientRequestSelectById(id));
+			ResultSet rc = stm.executeQuery(Request.getPersonnelRequestSelectById(id));
 			while (rc.next()) {
-				String nomClient = rc.getString("nomclient");
-				String prenomClient = rc.getString("prenomClient");
-				String adresse1 = rc.getString("adresse1");
-				String adresse2 = rc.getString("adresse2");
-				String codePostal = rc.getString("codepostal");
-				String ville = rc.getString("ville");
-				String numTel = rc.getString("numtel");
-				String assurance = rc.getString("assurance");
-				String email = rc.getString("email");
-				String remarque = rc.getString("remarque");
+				String nom = rc.getString("nom");
+				String motPasse = rc.getString("motPasse");
+				String role = rc.getString("role");
 				Boolean archive = rc.getBoolean("archive");
 				
-				pers = new Personnel(nomClient, prenomClient, adresse1, adresse2, codePostal, 
-									ville, numTel, assurance, email, remarque, archive);
+				pers = new Personnel(nom, motPasse, role, archive);
 			}
 		} catch (Exception e) {
 			throw new DALException(e.getMessage());
@@ -44,23 +36,15 @@ public class PersonnelDAOJdbcImpl implements PersonnelDAO {
 	public List<Personnel> selectAll() throws DALException {
 		List<Personnel> clientList = new ArrayList<>();
 		try (Statement stm = JdbcTools.getConnection().createStatement()) {
-			ResultSet rc = stm.executeQuery(Request.getClientRequestSelectAll());
+			ResultSet rc = stm.executeQuery(Request.getPersonnelRequestSelectAll());
 			while (rc.next()) {
-				Integer codeClient = rc.getInt("codeclient");
-				String nomClient = rc.getString("nomclient");
-				String prenomClient = rc.getString("prenomClient");
-				String adresse1 = rc.getString("adresse1");
-				String adresse2 = rc.getString("adresse2");
-				String codePostal = rc.getString("codepostal");
-				String ville = rc.getString("ville");
-				String numTel = rc.getString("numtel");
-				String assurance = rc.getString("assurance");
-				String email = rc.getString("email");
-				String remarque = rc.getString("remarque");
+				Integer codePers = rc.getInt("codePers");
+				String nom = rc.getString("nom");
+				String motPasse = rc.getString("motPasse");
+				String role = rc.getString("role");
 				Boolean archive = rc.getBoolean("archive");
 					
-				clientList.add(new Personnel(codeClient, nomClient, prenomClient, adresse1, adresse2, codePostal, 
-										  ville, numTel, assurance, email, remarque, archive));
+				clientList.add(new Personnel(codePers, nom, motPasse, role, archive));
 			}
 		} catch (Exception e) {
 			throw new DALException(e.getMessage());
