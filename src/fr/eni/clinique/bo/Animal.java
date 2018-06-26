@@ -3,14 +3,15 @@ package fr.eni.clinique.bo;
 public class Animal {
 
 	private Integer codeAnimal, codeClient;
+	private String nomAnimal, couleur, race, espece, tatouage, antecedents;
 	private char sexe;
 	private boolean archive;
-	private String nomAnimal, couleur, race, espece, tatouage, antecedents;
 
-	public Animal(char sexe, Integer codeClient, boolean archive, String nomAnimal, 
-				   String couleur, String race, String espece, String tatouage, String antecedents) {
+	public Animal() { }
+
+	public Animal(Integer codeClient, String nomAnimal, String couleur, String race, 
+				  String espece, String tatouage, String antecedents, char sexe, boolean archive) {
 		super();
-		this.sexe = sexe;
 		this.codeClient = codeClient;
 		this.nomAnimal = nomAnimal;
 		this.couleur = couleur;
@@ -18,14 +19,12 @@ public class Animal {
 		this.espece = espece;
 		this.tatouage = tatouage;
 		this.antecedents = antecedents;
+		this.sexe = sexe;
 		this.archive = archive;
 	}
 
-	public char getSexe() { return sexe; }
-	public void setSexe(char sexe) { this.sexe = sexe; }
-
 	public Integer getCodeAnimal() { return codeAnimal; }
-	public void setCodeAnimal(int codeAnimal) { this.codeAnimal = codeAnimal; }
+	public void setCodeAnimal(Integer codeAnimal) { this.codeAnimal = codeAnimal; }
 
 	public Integer getCodeClient() { return codeClient; }
 	public void setCodeClient(Integer codeClient) { this.codeClient = codeClient; }
@@ -47,6 +46,9 @@ public class Animal {
 
 	public String getAntecedents() { return antecedents; }
 	public void setAntecedents(String antecedents) { this.antecedents = antecedents; }
+
+	public char getSexe() { return sexe; }
+	public void setSexe(char sexe) { this.sexe = sexe; }
 
 	public boolean isArchive() { return archive; }
 	public void setArchive(boolean archive) { this.archive = archive; }

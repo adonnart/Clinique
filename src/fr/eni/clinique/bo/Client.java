@@ -5,15 +5,14 @@ import java.util.List;
 public class Client {
 
 	private Integer codeClient;
-	private boolean archive;
 	private String nomClient, prenomClient, adresse1, adresse2;
 	private String codePostal, ville, numTel, email, assurance, remarque;
 	private List<Animal> listAnimal;
+	private boolean archive;
 
-	public Client(){
-	}
-	
-	public Client(String nomClient, String prenomClient, String adresse1, String adresse2,
+	public Client() { }
+
+	public Client(String nomClient, String prenomClient, String adresse1, String adresse2, 
 			  String codePostal, String ville, String numTel, String assurance, String email, 
 			  String remarque, boolean archive) {
 	super();
@@ -32,7 +31,7 @@ public class Client {
 
 	public void addAnimal(Animal animal){ listAnimal.add(animal); }
 
-	public long getCodeClient() { return codeClient; }
+	public Integer getCodeClient() { return codeClient; }
 	public void setCodeClient(Integer codeClient) { this.codeClient = codeClient; }
 
 	public String getNomClient() { return nomClient; }

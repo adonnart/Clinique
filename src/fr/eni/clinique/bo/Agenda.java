@@ -9,6 +9,8 @@ public class Agenda {
 	private Integer codeVeto, codeAnimal;
 	private Date dateRdv; // 00 - 15 - 30 - 45 ?
 
+	public Agenda() { }
+
 	public Agenda(Personnel p, Animal a, Date dateRdv) {
 		super();
 		this.codeVeto = p.getCodePers();

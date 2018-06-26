@@ -3,8 +3,10 @@ package fr.eni.clinique.bo;
 public class Personnel {
 
 	private Integer codePers;
-	private boolean archive;
 	private String nom, motPasse, role;
+	private boolean archive;
+
+	public Personnel() { }
 
 	public Personnel(String nom, String motPasse, String role, boolean archive) {
 		super();
