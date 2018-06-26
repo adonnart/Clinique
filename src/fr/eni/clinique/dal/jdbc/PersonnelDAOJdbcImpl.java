@@ -9,95 +9,76 @@ import fr.eni.clinique.bo.Personnel;
 
 import fr.eni.clinique.dal.DALException;
 import fr.eni.clinique.dal.JdbcTools;
-import fr.eni.clinique.dal.Request;
+import fr.eni.clinique.dal.Queries;
 
 public class PersonnelDAOJdbcImpl implements PersonnelDAO {
-	
-	Personnel pers;
+
+	private static ResultSet rs = null;
 	
 	public Personnel selectById(int id) throws DALException {
+		Personnel pers = null;
 		try (Statement stm = JdbcTools.getConnection().createStatement()) {
-			ResultSet rc = stm.executeQuery(Request.getPersonnelRequestSelectById(id));
-			while (rc.next()) {
-				String nom = rc.getString("nom");
-				String motPasse = rc.getString("motPasse");
-				String role = rc.getString("role");
-				Boolean archive = rc.getBoolean("archive");
-				
-				pers = new Personnel(nom, motPasse, role, archive);
+			rs = stm.executeQuery(Queries.getPersonnelQuerySelectById(id));
+			while (rs.next()) {
+				pers = new Personnel(
+						rs.getString("Nom"),
+						rs.getString("MotPasse"),
+						rs.getString("Role"),
+						rs.getBoolean("Archive")
+				);
 			}
 		} catch (Exception e) {
-			throw new DALException(e.getMessage());
+			e.printStackTrace();
 		}
 		
 		return pers;
 	}
-
+	
 	public List<Personnel> selectAll() throws DALException {
-		List<Personnel> clientList = new ArrayList<>();
+		List<Personnel> personnelList = new ArrayList<>();
 		try (Statement stm = JdbcTools.getConnection().createStatement()) {
-			ResultSet rc = stm.executeQuery(Request.getPersonnelRequestSelectAll());
-			while (rc.next()) {
-				Integer codePers = rc.getInt("codePers");
-				String nom = rc.getString("nom");
-				String motPasse = rc.getString("motPasse");
-				String role = rc.getString("role");
-				Boolean archive = rc.getBoolean("archive");
-					
-				clientList.add(new Personnel(codePers, nom, motPasse, role, archive));
+			rs = stm.executeQuery(Queries.getPersonnelQuerySelectAll());
+			while (rs.next()) {
+				personnelList.add(new Personnel(
+						rs.getInt("CodePers"),
+						rs.getString("Nom"),
+						rs.getString("MotPasse"),
+						rs.getString("Role"),
+						rs.getBoolean("Archive")
+				));
 			}
 		} catch (Exception e) {
-			throw new DALException(e.getMessage());
+			e.printStackTrace();
 		}
 		
-		return clientList;
+		return personnelList;
 	}
-
-	public boolean update(Personnel pers) throws DALException {
-		StringBuilder SQL = new StringBuilder("UPDATE dbo.ARTICLES SET ");
-		SQL.append("', nomclient = '");
-		SQL.append(pers.getNomClient());
-		SQL.append("', prenomclient = '");
-		SQL.append(pers.getPrenomClient());
-		SQL.append("', adresse1 = ");
-		SQL.append(pers.getAdresse1());
-		SQL.append(", adresse2 = ");
-		SQL.append(pers.getAdresse2());
-		SQL.append(", codepostal = ");
-		SQL.append(pers.getCodePostal());
-		SQL.append(", ville = ");
-		SQL.append(pers.getVille());
-		SQL.append(", numtel= ");
-		SQL.append(pers.getNumTel());
-		SQL.append(", assurance = ");
-		SQL.append(pers.getAssurance());
 	
-		SQL.append(" WHERE codeclient = ");
-		SQL.append(pers.getCodeClient());
+	public void insert(Personnel personnel) throws DALException {
 		try (Statement stm = JdbcTools.getConnection().createStatement()) {
-			stm.executeUpdate(SQL.toString());
-			return true;
-		} catch (Exception e) {
-			throw new DALException(e.getMessage());
-		}
-	}
-
-	public void insert(Personnel pers) throws DALException {
-		try (Statement stm = JdbcTools.getConnection().createStatement()) {
-			if (stm.executeUpdate(Request.getPersonnelRequestInsert(pers), Statement.RETURN_GENERATED_KEYS) == 1) {
-				ResultSet rs = stm.getGeneratedKeys();
+			if (stm.executeUpdate(Queries.getPersonnelQueryInsert(personnel), Statement.RETURN_GENERATED_KEYS) == 1) {
+				rs = stm.getGeneratedKeys();
 				if (rs.next()) {
-					pers.setCodePers(rs.getInt(1));
+					personnel.setCodePers(rs.getInt(1));
 				}
 			}
 		} catch (Exception e) {
 			throw new DALException(e.getMessage());
 		}
 	}
-
-	public boolean delete(Personnel pers) throws DALException {
+	
+	public boolean update(Personnel personnel) throws DALException {
 		try (Statement stm = JdbcTools.getConnection().createStatement()) {
-			stm.executeUpdate(Request.getPersonnelRequestDelete(pers));
+			stm.executeUpdate(Queries.getPersonnelQueryUpdate(personnel));
+			return true;
+		} catch (Exception e) {
+			throw new DALException(e.getMessage());
+		}
+	}
+	
+	public boolean delete(Personnel personnel) throws DALException {
+		try (Statement stm = JdbcTools.getConnection().createStatement()) {
+			stm.executeUpdate(Queries.getPersonnelQueryDelete(personnel));
 			return true;
 		} catch (Exception e) {
 			throw new DALException(e.getMessage());
