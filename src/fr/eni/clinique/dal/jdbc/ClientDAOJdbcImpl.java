@@ -11,10 +11,8 @@ import fr.eni.clinique.dal.DALException;
 import fr.eni.clinique.dal.JdbcTools;
 import fr.eni.clinique.dal.Request;
 
-public class ClientDAOJdbcImpl implements ClientDAO {
-
+public class ClientDAOJdbcImpl implements ClientDAO{
 	Client client;
-
 	public Client selectById(int id) throws DALException {
 		try (Statement stm = JdbcTools.getConnection().createStatement()) {
 			ResultSet rc = stm.executeQuery(Request.getClientRequestSelectById(id));
@@ -30,17 +28,14 @@ public class ClientDAOJdbcImpl implements ClientDAO {
 				String email = rc.getString("email");
 				String remarque = rc.getString("remarque");
 				Boolean archive = rc.getBoolean("archive");
-				
-				client = new Client(nomClient, prenomClient, adresse1, adresse2, codePostal, 
-									ville, numTel, assurance, email, remarque, archive);
+		client = new Client(nomClient,prenomClient, adresse1,adresse2, codePostal, ville, numTel,assurance,email,remarque,archive);
 			}
 		} catch (Exception e) {
-			throw new DALException(e.getMessage());
+			e.printStackTrace();
 		}
-		
 		return client;
-	}
 
+	}
 	public List<Client> selectAll() throws DALException {
 		List<Client> clientList = new ArrayList<>();
 		try (Statement stm = JdbcTools.getConnection().createStatement()) {
@@ -59,11 +54,10 @@ public class ClientDAOJdbcImpl implements ClientDAO {
 				String remarque = rc.getString("remarque");
 				Boolean archive = rc.getBoolean("archive");
 					
-				clientList.add(new Client(codeClient, nomClient, prenomClient, adresse1, adresse2, codePostal, 
-										  ville, numTel, assurance, email, remarque, archive));
+				clientList.add(new Client(codeClient,nomClient,prenomClient, adresse1,adresse2, codePostal, ville, numTel,assurance,email,remarque,archive));
 			}
 		} catch (Exception e) {
-			throw new DALException(e.getMessage());
+			e.printStackTrace();
 		}
 		
 		return clientList;
@@ -87,6 +81,7 @@ public class ClientDAOJdbcImpl implements ClientDAO {
 		SQL.append(client.getNumTel());
 		SQL.append(", assurance = ");
 		SQL.append(client.getAssurance());
+	
 		SQL.append(" WHERE codeclient = ");
 		SQL.append(client.getCodeClient());
 		try (Statement stm = JdbcTools.getConnection().createStatement()) {
@@ -99,7 +94,8 @@ public class ClientDAOJdbcImpl implements ClientDAO {
 
 	public void insert(Client client) throws DALException {
 		try (Statement stm = JdbcTools.getConnection().createStatement()) {
-			if (stm.executeUpdate(Request.getClientRequestInsert(client), Statement.RETURN_GENERATED_KEYS) == 1) {
+			int nbRow = stm.executeUpdate(Request.getClientRequestInsert(client), Statement.RETURN_GENERATED_KEYS);
+			if (nbRow == 1) {
 				ResultSet rs = stm.getGeneratedKeys();
 				if (rs.next()) {
 					client.setCodeClient(rs.getInt(1));
@@ -118,5 +114,4 @@ public class ClientDAOJdbcImpl implements ClientDAO {
 			throw new DALException(e.getMessage());
 		}
 	}
-
 }

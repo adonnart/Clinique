@@ -5,13 +5,13 @@ import fr.eni.clinique.dal.jdbc.ClientDAOJdbcImpl;
 
 public class DAOFactory {
 
-	private static ClientDAO articleDAO;
+	private static ClientDAO clientDAO;
 	
-	public static ClientDAO getArticleDAO() {
-		if(articleDAO == null) {
+	public static ClientDAO getClientDAO() {
+		if(clientDAO == null) {
 			return new ClientDAOJdbcImpl();
 		}
-		return articleDAO;
+		return clientDAO;
 	}
 	
 }
