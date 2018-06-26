@@ -2,9 +2,8 @@ package fr.eni.clinique.dal;
 
 import fr.eni.clinique.bo.Client;
 
-
 public abstract class Request {
-	
+
 	public static String getClientRequestInsert(Client client) {
 		
 		StringBuilder sql = new StringBuilder("INSERT INTO dbo.clients");
@@ -35,19 +34,17 @@ public abstract class Request {
 		sql.append("')");
 		return sql.toString();
 	}
-	
+
 	public static String getClientRequestSelectAll() {
 		return "SELECT * FROM dbo.clients";
 	}
-	
+
 	public static String getClientRequestSelectById(int id) {
-		return "SELECT * FROM dbo.clients WHERE idArticle = " + id;
+		return "SELECT * FROM dbo.clients WHERE codeClient = " + id;
 	}
 
 	public static String getClientRequestDelete(Client client) {
-		return "DELETE FROM dbo.clients WHERE idArticle = " + client.getCodeClient();
+		return "DELETE FROM dbo.clients WHERE codeClient = " + client.getCodeClient();
 	}
-	
-	
-	
+
 }
