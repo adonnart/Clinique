@@ -4,6 +4,8 @@ public class Race {
 
 	private String race, espece;
 
+	public Race() { }
+
 	public Race(String race, String espece) {
 		super();
 		this.race = race;

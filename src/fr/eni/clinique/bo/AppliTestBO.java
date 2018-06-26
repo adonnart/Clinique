@@ -6,8 +6,8 @@ public class AppliTestBO {
 
 	public static void main(String[] args) {
 	
-		Animal unAnimal = new Animal('M', 1, true, "testnomanimal", 
-				   "Blanc", "chien", "Chien", "Non", "Aucun");
+		Animal unAnimal = new Animal("testnomanimal", 
+				   "Blanc", "chien", "Chien", "Non", "Aucun",'M',true);
 		
 		Client unClient = new Client( "nomtest", "prenomtest", "15 rue de ", "15 rue de ",
 				"35000", "Rennes", "054215612", "Oui", "test@test.com", "remarque",

@@ -5,10 +5,8 @@ import fr.eni.clinique.bo.Client;
 
 public abstract class Request {
 	
-	public static String getArticleRequestInsert(Client client) {
-		
+	public static String getClientRequestInsert(Client client) {
 		StringBuilder sql = new StringBuilder("INSERT INTO clients");
-
 		sql.append("(codeclient,nomclient,prenomclient,adresse1,adresse2,codepostal,ville,numtel,"
 				+ "assurance,email,remarque,archive)");
 		sql.append(" VALUES ('");

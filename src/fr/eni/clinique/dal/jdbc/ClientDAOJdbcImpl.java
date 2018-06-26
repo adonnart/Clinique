@@ -24,7 +24,6 @@ public class ClientDAOJdbcImpl implements ClientDAO{
 		try (Statement stm = JdbcTools.getConnection().createStatement()) {
 			ResultSet rc = stm.executeQuery(Request.getClientRequestSelectById(id));
 			while (rc.next()) {
-				long codeClient = rc.getLong("codeclient");
 				String nomClient = rc.getString("nomclient");
 				String prenomClient = rc.getString("prenomClient");
 				String adresse1 = rc.getString("adresse1");
@@ -36,7 +35,7 @@ public class ClientDAOJdbcImpl implements ClientDAO{
 				String email = rc.getString("email");
 				String remarque = rc.getString("remarque");
 				Boolean archive = rc.getBoolean("archive");
-		client = new Client(codeClient,nomClient,prenomClient, adresse1,adresse2, codePostal, ville, numTel,assurance,email,remarque,archive);
+		client = new Client(nomClient,prenomClient, adresse1,adresse2, codePostal, ville, numTel,assurance,email,remarque,archive);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -102,11 +101,11 @@ public class ClientDAOJdbcImpl implements ClientDAO{
 
 	public void insert(Client client) throws DALException {
 		try (Statement stm = JdbcTools.getConnection().createStatement()) {
-			int nbRow = stm.executeUpdate(Request.getArticleRequestInsert(article), Statement.RETURN_GENERATED_KEYS);
+			int nbRow = stm.executeUpdate(Request.getClientRequestInsert(client), Statement.RETURN_GENERATED_KEYS);
 			if (nbRow == 1) {
 				ResultSet rs = stm.getGeneratedKeys();
 				if (rs.next()) {
-					article.setIdArticle(rs.getInt(1));
+					client.setCodeClient(rs.getInt(1));
 				}
 			}
 		} catch (Exception e) {
@@ -114,9 +113,9 @@ public class ClientDAOJdbcImpl implements ClientDAO{
 		}
 	}
 
-	public Boolean delete(Article article) throws DALException {
+	public Boolean delete(Client client) throws DALException {
 		try (Statement stm = JdbcTools.getConnection().createStatement()) {
-			stm.executeUpdate(Request.getArticleRequestDelete(article));
+			stm.executeUpdate(Request.getClientRequestDelete(client));
 			return true;
 		} catch (Exception e) {
 			throw new DALException(e.getMessage());
