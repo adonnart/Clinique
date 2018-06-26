@@ -2,16 +2,15 @@ package fr.eni.clinique.bo;
 
 public class Animal {
 
-	private long codeAnimal, codeClient;
+	private Integer codeAnimal, codeClient;
 	private char sexe;
 	private boolean archive;
 	private String nomAnimal, couleur, race, espece, tatouage, antecedents;
 
-	public Animal(char sexe, int codeAnimal, long codeClient, boolean archive, String nomAnimal, 
+	public Animal(char sexe, Integer codeClient, boolean archive, String nomAnimal, 
 				   String couleur, String race, String espece, String tatouage, String antecedents) {
 		super();
 		this.sexe = sexe;
-		this.codeAnimal = codeAnimal;
 		this.codeClient = codeClient;
 		this.nomAnimal = nomAnimal;
 		this.couleur = couleur;
@@ -25,11 +24,11 @@ public class Animal {
 	public char getSexe() { return sexe; }
 	public void setSexe(char sexe) { this.sexe = sexe; }
 
-	public long getCodeAnimal() { return codeAnimal; }
+	public Integer getCodeAnimal() { return codeAnimal; }
 	public void setCodeAnimal(int codeAnimal) { this.codeAnimal = codeAnimal; }
 
-	public long getCodeClient() { return codeClient; }
-	public void setCodeClient(long codeClient) { this.codeClient = codeClient; }
+	public Integer getCodeClient() { return codeClient; }
+	public void setCodeClient(Integer codeClient) { this.codeClient = codeClient; }
 
 	public String getNomAnimal() { return nomAnimal; }
 	public void setNomAnimal(String nomAnimal) { this.nomAnimal = nomAnimal; }

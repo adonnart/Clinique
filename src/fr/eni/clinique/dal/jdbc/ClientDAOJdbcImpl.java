@@ -73,19 +73,25 @@ public class ClientDAOJdbcImpl implements ClientDAO{
 
 	public Boolean update(Client cli) throws DALException {
 		StringBuilder SQL = new StringBuilder("UPDATE dbo.ARTICLES SET ");
-		SQL.append("reference = '");
+		SQL.append("', nomclient = '");
+		SQL.append(client.getNomClient());
+		SQL.append("', prenomclient = '");
+		SQL.append(client.getPrenomClient());
+		SQL.append("', adresse1 = ");
+		SQL.append(client.getAdresse1());
+		SQL.append(", adresse2 = ");
+		SQL.append(client.getAdresse2());
+		SQL.append(", codepostal = ");
+		SQL.append(client.getCodePostal());
+		SQL.append(", ville = ");
+		SQL.append(client.getVille());
+		SQL.append(", numtel= ");
+		SQL.append(client.getNumTel());
+		SQL.append(", assurance = ");
+		SQL.append(client.getAssurance());
+	
+		SQL.append(" WHERE codeclient = ");
 		SQL.append(client.getCodeClient());
-		SQL.append("', designation = '");
-		SQL.append(article.getDesignation().trim());
-		SQL.append("', marque = '");
-		SQL.append(article.getMarque().trim());
-		SQL.append("', prixUnitaire = ");
-		SQL.append(article.getPrixUnitaire());
-		SQL.append(", qteStock = ");
-		SQL.append(article.getQteStock());
-
-		SQL.append(" WHERE idArticle = ");
-		SQL.append(article.getIdArticle());
 		try (Statement stm = JdbcTools.getConnection().createStatement()) {
 			stm.executeUpdate(SQL.toString());
 			return true;
@@ -116,77 +122,4 @@ public class ClientDAOJdbcImpl implements ClientDAO{
 			throw new DALException(e.getMessage());
 		}
 	}
-	
-	@Override
-	public List<Article> selectByMark(String mark) throws DALException {
-		List<Stylo> stylo = new ArrayList<>();
-		List<Ramette> ramette = new ArrayList<>();
-		List<Article> articleList = new ArrayList<>();
-		try (Statement stm = JdbcTools.getConnection().createStatement()) {
-			ResultSet rc = stm.executeQuery(Request.getArticleRequestSelectByMark(mark));
-			while (rc.next()) {
-				int idArticle = rc.getInt("idArticle");
-				String reference = rc.getString("reference");
-				String couleur = rc.getString("couleur");
-				String designation = rc.getString("designation");
-				String marque = rc.getString("marque");
-				float prixUnitaire = rc.getFloat("prixUnitaire");
-				int qteStock = rc.getInt("qteStock");
-				int grammage = rc.getInt("grammage");
-
-				if (Type.STYLO.name().equals(rc.getString("Type").trim().toUpperCase())) {
-					stylo.add(new Stylo(idArticle, marque, reference, designation, prixUnitaire, qteStock, couleur));
-				} else {
-					ramette.add(new Ramette(idArticle, marque, reference, designation, prixUnitaire, qteStock, grammage));
-				}
-			}
-		}catch (Exception e) {
-			e.printStackTrace();
-		}
-		if (!stylo.isEmpty()) {
-			articleList.addAll(stylo);
-		}
-
-		if (!ramette.isEmpty()) {
-			articleList.addAll(ramette);
-		}
-		return articleList;
-	}
-
-	@Override
-	public List<Article> selectByKeyWord(String word) throws DALException {
-		List<Stylo> stylo = new ArrayList<>();
-		List<Ramette> ramette = new ArrayList<>();
-		List<Article> articleList = new ArrayList<>();
-		try (Statement stm = JdbcTools.getConnection().createStatement()) {
-			ResultSet rc = stm.executeQuery(Request.getArticleRequestSelectByKeyWord(word));
-			while (rc.next()) {
-				int idArticle = rc.getInt("idArticle");
-				String reference = rc.getString("reference");
-				String couleur = rc.getString("couleur");
-				String designation = rc.getString("designation");
-				String marque = rc.getString("marque");
-				float prixUnitaire = rc.getFloat("prixUnitaire");
-				int qteStock = rc.getInt("qteStock");
-				int grammage = rc.getInt("grammage");
-
-				if (Type.STYLO.name().equals(rc.getString("Type").trim().toUpperCase())) {
-					stylo.add(new Stylo(idArticle, marque, reference, designation, prixUnitaire, qteStock, couleur));
-				} else {
-					ramette.add(new Ramette(idArticle, marque, reference, designation, prixUnitaire, qteStock, grammage));
-				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		if (!stylo.isEmpty()) {
-			articleList.addAll(stylo);
-		}
-
-		if (!ramette.isEmpty()) {
-			articleList.addAll(ramette);
-		}
-		return articleList;
-	}
-
 }

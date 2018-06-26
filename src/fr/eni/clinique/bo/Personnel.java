@@ -2,20 +2,19 @@ package fr.eni.clinique.bo;
 
 public class Personnel {
 
-	private long codePers;
+	private Integer codePers;
 	private boolean archive;
 	private String nom, motPasse, role;
 
-	public Personnel(long codePers, String nom, String motPasse, String role, boolean archive) {
+	public Personnel(String nom, String motPasse, String role, boolean archive) {
 		super();
-		this.codePers = codePers;
 		this.nom = nom;
 		this.motPasse = motPasse;
 		this.role = role;
 		this.archive = archive;
 	}
 
-	public long getCodePers() { return codePers; }
+	public Integer getCodePers() { return codePers; }
 	public void setCodePers(Integer codePers) { this.codePers = codePers; }
 
 	public String getNom() { return nom; }

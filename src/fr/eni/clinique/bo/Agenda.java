@@ -6,7 +6,7 @@ public class Agenda {
 
 	private Personnel p;
 	private Animal a;
-	private long codeVeto, codeAnimal;
+	private Integer codeVeto, codeAnimal;
 	private Date dateRdv; // 00 - 15 - 30 - 45 ?
 
 	public Agenda(Personnel p, Animal a, Date dateRdv) {
@@ -16,7 +16,7 @@ public class Agenda {
 		this.dateRdv = dateRdv;
 	}
 
-	public Agenda(long codeV, long codeA, Date dateRdv) {
+	public Agenda(Integer codeV, Integer codeA, Date dateRdv) {
 		super();
 		this.codeVeto = codeV;
 		this.codeAnimal = codeA;
@@ -29,11 +29,11 @@ public class Agenda {
 	public Animal getAnimal() { return a; }
 	public void setAnimal(Animal a) { this.a = a; }
 
-	public long getCodeVeto() { return codeVeto; }
-	public void setCodeVeto(long codeVeto) { this.codeVeto = codeVeto; }
+	public Integer getCodeVeto() { return codeVeto; }
+	public void setCodeVeto(Integer codeVeto) { this.codeVeto = codeVeto; }
 
-	public long getCodeAnimal() { return codeAnimal; }
-	public void setCodeAnimal(long codeAnimal) { this.codeAnimal = codeAnimal; }
+	public Integer getCodeAnimal() { return codeAnimal; }
+	public void setCodeAnimal(Integer codeAnimal) { this.codeAnimal = codeAnimal; }
 
 	public Date getDateRdv() { return dateRdv; }
 	public void setDateRdv(Date dateRdv) { this.dateRdv = dateRdv; }

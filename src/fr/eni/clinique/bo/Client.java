@@ -4,28 +4,30 @@ import java.util.List;
 
 public class Client {
 
-	private long codeClient;
+	private Integer codeClient;
 	private boolean archive;
 	private String nomClient, prenomClient, adresse1, adresse2;
 	private String codePostal, ville, numTel, email, assurance, remarque;
 	private List<Animal> listAnimal;
 
-	public Client(long codeClient, String nomClient, String prenomClient, String adresse1, String adresse2,
-				  String codePostal, String ville, String numTel, String assurance, String email, 
-				  String remarque, boolean archive) {
-		super();
-		this.codeClient = codeClient;
-		this.nomClient = nomClient;
-		this.prenomClient = prenomClient;
-		this.adresse1 = adresse1;
-		this.adresse2 = adresse2;
-		this.codePostal = codePostal;
-		this.ville = ville;
-		this.numTel = numTel;
-		this.assurance = assurance;
-		this.email = email;
-		this.remarque = remarque;
-		this.archive = archive;
+	public Client(){
+	}
+	
+	public Client(String nomClient, String prenomClient, String adresse1, String adresse2,
+			  String codePostal, String ville, String numTel, String assurance, String email, 
+			  String remarque, boolean archive) {
+	super();
+	this.nomClient = nomClient;
+	this.prenomClient = prenomClient;
+	this.adresse1 = adresse1;
+	this.adresse2 = adresse2;
+	this.codePostal = codePostal;
+	this.ville = ville;
+	this.numTel = numTel;
+	this.assurance = assurance;
+	this.email = email;
+	this.remarque = remarque;
+	this.archive = archive;
 	}
 
 	public void addAnimal(Animal animal){ listAnimal.add(animal); }
