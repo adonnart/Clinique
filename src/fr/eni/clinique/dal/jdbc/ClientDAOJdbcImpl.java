@@ -12,8 +12,8 @@ import fr.eni.clinique.dal.JdbcTools;
 import fr.eni.clinique.dal.Request;
 
 public class ClientDAOJdbcImpl implements ClientDAO{
-	Client client;
 	public Client selectById(int id) throws DALException {
+		Client client = null;
 		try (Statement stm = JdbcTools.getConnection().createStatement()) {
 			ResultSet rc = stm.executeQuery(Request.getClientRequestSelectById(id));
 			while (rc.next()) {
@@ -63,27 +63,27 @@ public class ClientDAOJdbcImpl implements ClientDAO{
 		return clientList;
 	}
 
-	public boolean update(Client cli) throws DALException {
-		StringBuilder SQL = new StringBuilder("UPDATE dbo.ARTICLES SET ");
-		SQL.append("', nomclient = '");
+	public boolean update(Client client) throws DALException {
+		StringBuilder SQL = new StringBuilder("UPDATE dbo.CLIENTS SET ");
+		SQL.append("nomclient = '");
 		SQL.append(client.getNomClient());
 		SQL.append("', prenomclient = '");
 		SQL.append(client.getPrenomClient());
-		SQL.append("', adresse1 = ");
+		SQL.append("', adresse1 = '");
 		SQL.append(client.getAdresse1());
-		SQL.append(", adresse2 = ");
+		SQL.append("', adresse2 = '");
 		SQL.append(client.getAdresse2());
-		SQL.append(", codepostal = ");
+		SQL.append("', codepostal = '");
 		SQL.append(client.getCodePostal());
-		SQL.append(", ville = ");
+		SQL.append("', ville = '");
 		SQL.append(client.getVille());
-		SQL.append(", numtel= ");
+		SQL.append("', numtel= '");
 		SQL.append(client.getNumTel());
-		SQL.append(", assurance = ");
+		SQL.append("', assurance = '");
 		SQL.append(client.getAssurance());
-	
-		SQL.append(" WHERE codeclient = ");
+		SQL.append("' WHERE codeclient = ");
 		SQL.append(client.getCodeClient());
+		SQL.append(";");
 		try (Statement stm = JdbcTools.getConnection().createStatement()) {
 			stm.executeUpdate(SQL.toString());
 			return true;
