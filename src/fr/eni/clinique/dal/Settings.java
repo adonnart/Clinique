@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class Settings {
+
 	private static Properties properties;
 	
 	static {
@@ -19,5 +20,4 @@ public class Settings {
 		return properties.getProperty(key);
 	}
 
-	
 }

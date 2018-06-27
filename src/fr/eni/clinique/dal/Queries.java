@@ -3,7 +3,7 @@ package fr.eni.clinique.dal;
 import fr.eni.clinique.bo.Client;
 import fr.eni.clinique.bo.Personnel;
 import fr.eni.clinique.bo.Animal;
-//import fr.eni.clinique.bo.Agenda;
+import fr.eni.clinique.bo.Agenda;
 //import fr.eni.clinique.bo.Race;
 
 public abstract class Queries {
@@ -91,7 +91,7 @@ public abstract class Queries {
 	}
 	
 	public static String getPersonnelQueryDelete(Personnel pl) {
-		return "DELETE FROM Personnels WHERE codePers = " + pl.getCodePers();
+		return "DELETE FROM Personnels WHERE CodePers = " + pl.getCodePers();
 	}
 	
 	// Animaux
@@ -137,36 +137,38 @@ public abstract class Queries {
 	}
 	
 	// Agendas
-	/*
+	
 	public static String getAgendaQueryInsert(Agenda ag) {
 		sql = new StringBuilder();
-		sql.append("INSERT INTO Personnels (");
-		sql.append("Nom, MotPasse, Role, Archive");
+		sql.append("INSERT INTO Agendas (");
+		sql.append("CodeVeto, CodeAnimal, DateRdv");
 		sql.append(") VALUES ('");
-		sql.append(pl.getNom()).append("', '");
-		sql.append(pl.getMotPasse()).append("', '");
-		sql.append(pl.getRole()).append("', '");
-		sql.append(pl.isArchive()).append("')");
+		sql.append(ag.getCodeVeto()).append("', '");
+		sql.append(ag.getCodeAnimal()).append("', '");
+		sql.append(ag.getDateRdv()).append("')");
 		
 		return sql.toString();
 	}
 	
 	public static String getAgendaQueryUpdate(Agenda ag) {
 		sql = new StringBuilder();
-		sql.append("UPDATE Personnels SET ");
-		sql.append("Nom = '").append(pl.getNom());
-		sql.append("', MotPasse = '").append(pl.getMotPasse());
-		sql.append("', Role = '").append(pl.getRole());
-		sql.append("', Archive = '").append(pl.isArchive());
-		sql.append("' WHERE CodePers = ").append(pl.getCodePers());
+		sql.append("UPDATE Agendas SET ");
+		sql.append("DateRdv = '").append(ag.getDateRdv());
+		sql.append("' WHERE CodeVeto = ").append(ag.getCodeVeto());
+		sql.append("' AND CodeAnimal = ").append(ag.getCodeAnimal());
 		
 		return sql.toString();
 	}
 	
 	public static String getAgendaQueryDelete(Agenda ag) {
-		return "DELETE FROM Personnels WHERE codePers = " + pl.getCodePers();
+		sql = new StringBuilder();
+		sql.append("DELETE FROM Agendas ");
+		sql.append("WHERE CodeVeto = ").append(ag.getCodeVeto());
+		sql.append("AND CodeAnimal = ").append(ag.getCodeAnimal());
+		
+		return sql.toString();
 	}
-	*/
+	
 	// Races
 
 }

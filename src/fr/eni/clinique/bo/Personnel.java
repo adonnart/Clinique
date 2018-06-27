@@ -6,6 +6,8 @@ public class Personnel {
 	private String nom, motPasse, role;
 	private boolean archive;
 	
+	public Personnel() { }
+	
 	public Personnel(Integer codePers,String nom, String motPasse, String role, boolean archive) {
 		super();
 		this.codePers= codePers;

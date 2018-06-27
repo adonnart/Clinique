@@ -8,38 +8,38 @@ public class Agenda {
 	private Animal a;
 	private Integer codeVeto, codeAnimal;
 	private Date dateRdv; // 00 - 15 - 30 - 45 ?
-
+	
 	public Agenda() { }
-
+	
 	public Agenda(Personnel p, Animal a, Date dateRdv) {
 		super();
 		this.codeVeto = p.getCodePers();
 		this.codeAnimal = a.getCodeAnimal();
 		this.dateRdv = dateRdv;
 	}
-
+	
 	public Agenda(Integer codeV, Integer codeA, Date dateRdv) {
 		super();
 		this.codeVeto = codeV;
 		this.codeAnimal = codeA;
 		this.dateRdv = dateRdv;
 	}
-
+	
 	public Personnel getPersonnel() { return p; }
 	public void setPersonnel(Personnel p) { this.p = p; }
-
+	
 	public Animal getAnimal() { return a; }
 	public void setAnimal(Animal a) { this.a = a; }
-
+	
 	public Integer getCodeVeto() { return codeVeto; }
 	public void setCodeVeto(Integer codeVeto) { this.codeVeto = codeVeto; }
-
+	
 	public Integer getCodeAnimal() { return codeAnimal; }
 	public void setCodeAnimal(Integer codeAnimal) { this.codeAnimal = codeAnimal; }
-
+	
 	public Date getDateRdv() { return dateRdv; }
 	public void setDateRdv(Date dateRdv) { this.dateRdv = dateRdv; }
-
+	
 	@Override
 	public String toString() {
 		return "Agenda [codeVeto=" + codeVeto + ", codeAnimal=" + codeAnimal + ", dateRdv=" + dateRdv + "]";

@@ -9,8 +9,7 @@ public class JdbcTools {
 	private static String urldb;
 	private static String userdb;
 	private static String passworddb;
-
-	//bloc d'initialisation statique
+	
 	static {
 		try {
 			Class.forName(Settings.getProperty("driverdb"));
@@ -28,7 +27,5 @@ public class JdbcTools {
 		
 		return connection;
 	}
-	
+
 }
-
-
