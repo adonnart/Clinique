@@ -18,7 +18,7 @@ public class PersonnelDAOJdbcImpl implements PersonnelDAO {
 	public Personnel selectById(int id) throws DALException {
 		Personnel pers = null;
 		try (Statement stm = JdbcTools.getConnection().createStatement()) {
-			rs = stm.executeQuery(Queries.getPersonnelQuerySelectById(id));
+			rs = stm.executeQuery(Queries.getQuerySelectById("Personnels", "CodePers", id));
 			while (rs.next()) {
 				pers = new Personnel(
 						rs.getString("Nom"),
@@ -37,7 +37,7 @@ public class PersonnelDAOJdbcImpl implements PersonnelDAO {
 	public List<Personnel> selectAll() throws DALException {
 		List<Personnel> personnelList = new ArrayList<>();
 		try (Statement stm = JdbcTools.getConnection().createStatement()) {
-			rs = stm.executeQuery(Queries.getPersonnelQuerySelectAll());
+			rs = stm.executeQuery(Queries.getQuerySelectAll("Personnels"));
 			while (rs.next()) {
 				personnelList.add(new Personnel(
 						rs.getInt("CodePers"),

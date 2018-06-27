@@ -2,13 +2,21 @@ package fr.eni.clinique.dal;
 
 import fr.eni.clinique.bo.Client;
 import fr.eni.clinique.bo.Personnel;
-//import fr.eni.clinique.bo.Animal;
+import fr.eni.clinique.bo.Animal;
 //import fr.eni.clinique.bo.Agenda;
 //import fr.eni.clinique.bo.Race;
 
 public abstract class Queries {
 
 	private static StringBuilder sql;
+	
+	public static String getQuerySelectAll(String table) {
+		return "SELECT * FROM " + table;
+	}
+	
+	public static String getQuerySelectById(String table, String code, int id) {
+		return "SELECT * FROM " + table + " WHERE " + code + " = " + id;
+	}
 	
 	// Clients
 	
@@ -51,14 +59,6 @@ public abstract class Queries {
 		return sql.toString();
 	}
 	
-	public static String getClientQuerySelectAll() {
-		return "SELECT * FROM Clients";
-	}
-	
-	public static String getClientQuerySelectById(int id) {
-		return "SELECT * FROM Clients WHERE CodeClient = " + id;
-	}
-	
 	public static String getClientQueryDelete(Client cl) {
 		return "DELETE FROM Clients WHERE CodeClient = " + cl.getCodeClient();
 	}
@@ -90,26 +90,83 @@ public abstract class Queries {
 		return sql.toString();
 	}
 	
-	public static String getPersonnelQuerySelectAll() {
-		return "SELECT * FROM Personnels";
-	}
-	
-	public static String getPersonnelQuerySelectById(int id) {
-		return "SELECT * FROM Personnels WHERE codePers = " + id;
-	}
-	
 	public static String getPersonnelQueryDelete(Personnel pl) {
 		return "DELETE FROM Personnels WHERE codePers = " + pl.getCodePers();
 	}
 	
 	// Animaux
 	
+	public static String getAnimalQueryInsert(Animal an) {
+		sql = new StringBuilder();
+		sql.append("INSERT INTO Animaux (");
+		sql.append("NomAnimal, Sexe, Couleur, Race, Espece, ");
+		sql.append("CodeClient, Tatouage, Antecedents, Archive");
+		sql.append(") VALUES ('");
+		sql.append(an.getNomAnimal()).append("', '");
+		sql.append(an.getSexe()).append("', '");
+		sql.append(an.getCouleur()).append("', '");
+		sql.append(an.getRace()).append("', '");
+		sql.append(an.getEspece()).append("', '");
+		sql.append(an.getCodeClient()).append("', '");
+		sql.append(an.getTatouage()).append("', '");
+		sql.append(an.getAntecedents()).append("', '");
+		sql.append(an.isArchive()).append("')");
+		
+		return sql.toString();
+	}
 	
+	public static String getAnimalQueryUpdate(Animal an) {
+		sql = new StringBuilder();
+		sql.append("UPDATE Animaux SET ");
+		sql.append("NomAnimal = '").append(an.getNomAnimal());
+		sql.append("', Sexe = '").append(an.getSexe());
+		sql.append("', Couleur = '").append(an.getCouleur());
+		sql.append("', Race = '").append(an.getRace());
+		sql.append("', Espece = '").append(an.getEspece());
+		sql.append("', CodeClient = '").append(an.getCodeClient());
+		sql.append("', Tatouage = '").append(an.getTatouage());
+		sql.append("', Antecedents = '").append(an.getAntecedents());
+		sql.append("', Archive = '").append(an.isArchive());
+		sql.append("' WHERE CodeAnimal = ").append(an.getCodeAnimal());
+		
+		return sql.toString();
+	}
+	
+	public static String getAnimalQueryDelete(Animal an) {
+		return "DELETE FROM Animaux WHERE codeAnimal = " + an.getCodeAnimal();
+	}
 	
 	// Agendas
+	/*
+	public static String getAgendaQueryInsert(Agenda ag) {
+		sql = new StringBuilder();
+		sql.append("INSERT INTO Personnels (");
+		sql.append("Nom, MotPasse, Role, Archive");
+		sql.append(") VALUES ('");
+		sql.append(pl.getNom()).append("', '");
+		sql.append(pl.getMotPasse()).append("', '");
+		sql.append(pl.getRole()).append("', '");
+		sql.append(pl.isArchive()).append("')");
+		
+		return sql.toString();
+	}
 	
+	public static String getAgendaQueryUpdate(Agenda ag) {
+		sql = new StringBuilder();
+		sql.append("UPDATE Personnels SET ");
+		sql.append("Nom = '").append(pl.getNom());
+		sql.append("', MotPasse = '").append(pl.getMotPasse());
+		sql.append("', Role = '").append(pl.getRole());
+		sql.append("', Archive = '").append(pl.isArchive());
+		sql.append("' WHERE CodePers = ").append(pl.getCodePers());
+		
+		return sql.toString();
+	}
 	
-	
+	public static String getAgendaQueryDelete(Agenda ag) {
+		return "DELETE FROM Personnels WHERE codePers = " + pl.getCodePers();
+	}
+	*/
 	// Races
 
 }

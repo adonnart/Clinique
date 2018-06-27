@@ -18,7 +18,7 @@ public class ClientDAOJdbcImpl implements ClientDAO {
 	public Client selectById(int id) throws DALException {
 		Client client = null;
 		try (Statement stm = JdbcTools.getConnection().createStatement()) {
-			rs = stm.executeQuery(Queries.getClientQuerySelectById(id));
+			rs = stm.executeQuery(Queries.getQuerySelectById("Clients", "CodeClient", id));
 			while (rs.next()) {
 				client = new Client(
 						rs.getString("NomClient"),
@@ -44,7 +44,7 @@ public class ClientDAOJdbcImpl implements ClientDAO {
 	public List<Client> selectAll() throws DALException {
 		List<Client> clientList = new ArrayList<>();
 		try (Statement stm = JdbcTools.getConnection().createStatement()) {
-			rs = stm.executeQuery(Queries.getClientQuerySelectAll());
+			rs = stm.executeQuery(Queries.getQuerySelectAll("Clients"));
 			while (rs.next()) {
 				clientList.add(new Client(
 						rs.getInt("CodeClient"),

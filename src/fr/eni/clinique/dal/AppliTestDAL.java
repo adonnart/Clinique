@@ -4,14 +4,25 @@ import java.util.List;
 
 import fr.eni.clinique.bo.Client;
 import fr.eni.clinique.bo.Personnel;
+import fr.eni.clinique.bo.Animal;
+import fr.eni.clinique.bo.Agenda;
 import fr.eni.clinique.dal.jdbc.ClientDAO;
 import fr.eni.clinique.dal.jdbc.PersonnelDAO;
+import fr.eni.clinique.dal.jdbc.AnimalDAO;
+import fr.eni.clinique.dal.jdbc.AgendaDAO;
 
 public class AppliTestDAL {
 
 	public static void main(String[] args) {
 		
-		/* Clients */
+		testClient();
+		testPersonnel();
+		testAnimal();
+		testAgenda();
+		
+	}
+	
+	public static void testClient() {
 		
 		// Déclaration et instanciation de la DAO
 		ClientDAO clientDAO = DAOFactory.getClientDAO();
@@ -81,11 +92,14 @@ public class AppliTestDAL {
 				sb.append(cl.getNomClient()).append("\n");
 			}
 			System.out.println(sb.toString());
+			
 		} catch (DALException e) {
 			e.printStackTrace();
 		}
 		
-		/* Personnels */
+	}
+	
+	public static void testPersonnel() {
 		
 		// Déclaration et instanciation de la DAO
 		PersonnelDAO personnelDAO = DAOFactory.getPersonnelDAO();
@@ -152,9 +166,22 @@ public class AppliTestDAL {
 				sb.append(cl.getNom()).append("\n");
 			}
 			System.out.println(sb.toString());
+			
 		} catch (DALException e) {
 			e.printStackTrace();
 		}
+		
+	}
+	
+	public static void testAnimal() {
+		
+		
+		
+	}
+	
+	public static void testAgenda() {
+		
+		
 		
 	}
 
