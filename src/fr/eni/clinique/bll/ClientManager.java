@@ -1,11 +1,11 @@
 package fr.eni.clinique.bll;
 
 import fr.eni.clinique.bo.Client;
-import fr.eni.clinique.dal.ClientDAO;
+import fr.eni.clinique.dal.DAO;
 import fr.eni.clinique.dal.DAOFactory;
 
 public class ClientManager {
-	private ClientDAO clientDao = DAOFactory.getClientDAO();
+	private DAO<Client> clientDao = DAOFactory.getClientDAO();
 	private static ClientManager clientManager;
 
 	public ClientManager() {

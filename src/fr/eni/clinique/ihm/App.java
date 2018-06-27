@@ -2,8 +2,6 @@ package fr.eni.clinique.ihm;
 
 import javax.swing.SwingUtilities;
 
-import fr.eni.clinique.ihm.EcranLogin;
-
 public class App {
 
 	// Lancement de l'application
@@ -12,8 +10,7 @@ public class App {
 
 			@Override
 			public void run() {
-				EcranLogin ecran = new EcranLogin();
-				ecran.setVisible(true);
+				EcranLoginController.get().startApp();
 			}
 		});
 
