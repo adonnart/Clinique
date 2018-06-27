@@ -10,6 +10,8 @@ public class Client {
 	private List<Animal> listAnimal;
 	private boolean archive;
 	
+	public Client() { }
+	
 	public Client(Integer codeClient,String nomClient, String prenomClient, 
 				  String adresse1, String adresse2, String codePostal, String ville, 
 				  String numTel, String assurance, String email, String remarque, boolean archive) {

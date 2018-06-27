@@ -7,6 +7,8 @@ public class Animal {
 	private char sexe;
 	private boolean archive;
 	
+	public Animal() { }
+	
 	public Animal(Integer codeAnimal, String nomAnimal, char sexe, String couleur, String race, 
 				  String espece, Integer codeClient, String tatouage, String antecedents, boolean archive) {
 		super();
