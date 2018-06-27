@@ -6,10 +6,6 @@ import fr.eni.clinique.bo.Client;
 import fr.eni.clinique.bo.Personnel;
 import fr.eni.clinique.bo.Animal;
 import fr.eni.clinique.bo.Agenda;
-import fr.eni.clinique.dal.jdbc.ClientDAO;
-import fr.eni.clinique.dal.jdbc.PersonnelDAO;
-import fr.eni.clinique.dal.jdbc.AnimalDAO;
-import fr.eni.clinique.dal.jdbc.AgendaDAO;
 
 public class AppliTestDAL {
 

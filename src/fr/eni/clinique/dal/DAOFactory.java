@@ -1,8 +1,6 @@
 package fr.eni.clinique.dal;
 
-import fr.eni.clinique.dal.jdbc.ClientDAO;
 import fr.eni.clinique.dal.jdbc.ClientDAOJdbcImpl;
-import fr.eni.clinique.dal.jdbc.PersonnelDAO;
 import fr.eni.clinique.dal.jdbc.PersonnelDAOJdbcImpl;
 
 public class DAOFactory {

@@ -1,6 +1,4 @@
-package fr.eni.clinique.dal.jdbc;
-
-import fr.eni.clinique.dal.DALException;
+package fr.eni.clinique.dal;
 
 public interface DAO<T> {
 
