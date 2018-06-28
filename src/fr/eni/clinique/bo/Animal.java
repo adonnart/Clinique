@@ -41,11 +41,11 @@ public class Animal {
 	public Integer getCodeAnimal() { return codeAnimal; }
 	public void setCodeAnimal(Integer codeAnimal) { this.codeAnimal = codeAnimal; }
 	
-	public Integer getCodeClient() { return codeClient; }
-	public void setCodeClient(Integer codeClient) { this.codeClient = codeClient; }
-	
 	public String getNomAnimal() { return nomAnimal; }
 	public void setNomAnimal(String nomAnimal) { this.nomAnimal = nomAnimal; }
+
+	public char getSexe() { return sexe; }
+	public void setSexe(char sexe) { this.sexe = sexe; }
 	
 	public String getCouleur() { return couleur; }
 	public void setCouleur(String couleur) { this.couleur = couleur; }
@@ -56,14 +56,14 @@ public class Animal {
 	public String getEspece() { return espece; }
 	public void setEspece(String espece) { this.espece = espece; }
 	
+	public Integer getCodeClient() { return codeClient; }
+	public void setCodeClient(Integer codeClient) { this.codeClient = codeClient; }
+	
 	public String getTatouage() { return tatouage; }
 	public void setTatouage(String tatouage) { this.tatouage = tatouage; }
 	
 	public String getAntecedents() { return antecedents; }
 	public void setAntecedents(String antecedents) { this.antecedents = antecedents; }
-	
-	public char getSexe() { return sexe; }
-	public void setSexe(char sexe) { this.sexe = sexe; }
 	
 	public boolean isArchive() { return archive; }
 	public void setArchive(boolean archive) { this.archive = archive; }
@@ -72,16 +72,16 @@ public class Animal {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("\n[");
-		sb.append("\n\tCodeAnimal\t=\t").append(codeAnimal);
-		sb.append("\n\tNomAnimal\t=\t").append(nomAnimal);
-		sb.append("\n\tSexe\t\t=\t").append(sexe);
-		sb.append("\n\tCouleur\t\t=\t").append(couleur);
-		sb.append("\n\tRace\t\t=\t").append(race);
-		sb.append("\n\tEspece\t\t=\t").append(espece);
-		sb.append("\n\tCodeClient\t=\t").append(codeClient);
-		sb.append("\n\tTatouage\t=\t").append(tatouage);
-		sb.append("\n\tAntecedents\t=\t").append(antecedents);
-		sb.append("\n\tArchive\t\t=\t").append(archive);
+		sb.append("\n\t").append("CodeAnimal").append("\t\t=\t").append(codeAnimal);
+		sb.append("\n\t").append("NomAnimal").append("\t\t=\t").append(nomAnimal);
+		sb.append("\n\t").append("Sexe").append("\t\t=\t").append(sexe);
+		sb.append("\n\t").append("Couleur").append("\t\t=\t").append(couleur);
+		sb.append("\n\t").append("Race").append("\t\t=\t").append(race);
+		sb.append("\n\t").append("Espece").append("\t\t=\t").append(espece);
+		sb.append("\n\t").append("CodeClient").append("\t\t=\t").append(codeClient);
+		sb.append("\n\t").append("Tatouage").append("\t\t=\t").append(tatouage);
+		sb.append("\n\t").append("Antecedents").append("\t\t=\t").append(antecedents);
+		sb.append("\n\t").append("Archive").append("\t\t=\t").append(archive);
 		sb.append("\n]");
 		
 		return sb.toString();

@@ -7,7 +7,7 @@ public class Agenda {
 	private Personnel p;
 	private Animal a;
 	private Integer codeVeto, codeAnimal;
-	private Date dateRdv; // 00 - 15 - 30 - 45 ?
+	private Date dateRdv;
 	
 	public Agenda() { }
 	
@@ -42,7 +42,14 @@ public class Agenda {
 	
 	@Override
 	public String toString() {
-		return "Agenda [codeVeto=" + codeVeto + ", codeAnimal=" + codeAnimal + ", dateRdv=" + dateRdv + "]";
+		StringBuilder sb = new StringBuilder();
+		sb.append("\n[");
+		sb.append("\n\t").append("CodeVeto").append("\t\t=\t").append(codeVeto);
+		sb.append("\n\t").append("CodeAnimal").append("\t\t=\t").append(codeAnimal);
+		sb.append("\n\t").append("DateRdv").append("\t\t=\t").append(dateRdv);
+		sb.append("\n]");
+		
+		return sb.toString();
 	}
 
 }

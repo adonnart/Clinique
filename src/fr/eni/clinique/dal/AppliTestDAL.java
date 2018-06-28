@@ -176,9 +176,9 @@ public class AppliTestDAL {
 		List<Animal> listAnimaux;
 		
 		// Jeu d'essai
-		Animal unAnimal1 = new Animal("nomtest1", 'M', "Blanc", "Dalmatien", "Chien", 7, "Non", "Aucun", true);
-		Animal unAnimal2 = new Animal("nomtest2", 'F', "Beige", "Siamois", "Chat", 8, "Non", "Aucun", true);
-		Animal unAnimal3 = new Animal("nomtest3", 'M', "Gris", "Chartreux", "Chat", 9, "Oui", "Oui", true);
+		Animal unAnimal1 = new Animal("nomtest1", 'M', "Blanc", "Dalmatien", "Chien", 1, "Non", "Aucun", true);
+		Animal unAnimal2 = new Animal("nomtest2", 'F', "Beige", "Siamois", "Chat", 1, "Non", "Aucun", true);
+		Animal unAnimal3 = new Animal("nomtest3", 'M', "Gris", "Chartreux", "Chat", 1, "Oui", "Oui", true);
 		
 		try {
 			// Ajout des animaux
@@ -204,7 +204,7 @@ public class AppliTestDAL {
 			
 			unAnimal1.setNomAnimal("nouveauNom");
 			unAnimal1.setCouleur("Beige");
-			unAnimal1.setRace("golden");
+			unAnimal1.setRace("Retriever");
 			
 			animalDAO.update(unAnimal1);
 			
