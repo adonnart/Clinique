@@ -15,8 +15,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.SwingConstants;
 
-import fr.eni.clinique.ihm.client.EcranClient;
 import fr.eni.clinique.ihm.login.EcranLoginController;
+import fr.eni.clinique.ihm.personnel.EcranPersonnel;
 
 public class MainFrame extends JFrame implements ActionListener {
 
@@ -25,7 +25,7 @@ public class MainFrame extends JFrame implements ActionListener {
 	private JDesktopPane desktopPane;
 	private JMenuBar menuBarre;
 	private JMenu menuAgenda;
-	private EcranClient frmClient;
+	private EcranPersonnel frmClient;
 
 
 	public MainFrame() {
@@ -145,9 +145,9 @@ public class MainFrame extends JFrame implements ActionListener {
 		return menuBarre;
 	}
 
-	public EcranClient getClient(){
+	public EcranPersonnel getClient(){
 		if(frmClient== null){
-			frmClient = new EcranClient();
+			frmClient = new EcranPersonnel();
 		}
 		return frmClient ;
 	}

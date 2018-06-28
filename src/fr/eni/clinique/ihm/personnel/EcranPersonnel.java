@@ -1,4 +1,4 @@
-package fr.eni.clinique.ihm.client;
+package fr.eni.clinique.ihm.personnel;
 
 
 import javax.swing.JInternalFrame;
@@ -12,7 +12,7 @@ import java.awt.Font;
 import javax.swing.border.MatteBorder;
 import java.awt.Color;
 
-public class EcranClient extends JInternalFrame {
+public class EcranPersonnel extends JInternalFrame {
 
 	/**
 	 * 
@@ -21,7 +21,7 @@ public class EcranClient extends JInternalFrame {
 	private JTable table;
 
 
-	public EcranClient() {
+	public EcranPersonnel() {
 		setResizable(false);
 		setBorder(null);
 		setBounds(0,-22,1200, 600);
