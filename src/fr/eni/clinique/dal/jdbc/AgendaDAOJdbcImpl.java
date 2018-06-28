@@ -54,7 +54,6 @@ public class AgendaDAOJdbcImpl implements AgendaDAO {
 	
 	public void insert(Agenda agenda) throws DALException {
 		try (Statement stm = JdbcTools.getConnection().createStatement()) {
-			System.out.println(Queries.getAgendaQueryInsert(agenda));
 			stm.executeUpdate(Queries.getAgendaQueryInsert(agenda));
 		} catch (Exception e) {
 			throw new DALException(e.getMessage());
@@ -63,7 +62,6 @@ public class AgendaDAOJdbcImpl implements AgendaDAO {
 	
 	public boolean update(Agenda agenda) throws DALException {
 		try (Statement stm = JdbcTools.getConnection().createStatement()) {
-			System.out.println(Queries.getAgendaQueryUpdate(agenda));
 			stm.executeUpdate(Queries.getAgendaQueryUpdate(agenda));
 			return true;
 		} catch (Exception e) {
@@ -73,7 +71,6 @@ public class AgendaDAOJdbcImpl implements AgendaDAO {
 	
 	public boolean delete(Agenda agenda) throws DALException {
 		try (Statement stm = JdbcTools.getConnection().createStatement()) {
-			System.out.println(Queries.getAgendaQueryDelete(agenda));
 			stm.executeUpdate(Queries.getAgendaQueryDelete(agenda));
 			return true;
 		} catch (Exception e) {

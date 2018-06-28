@@ -10,32 +10,44 @@ import fr.eni.clinique.bo.Agenda;
 
 public class AppliTestDAL {
 
-	private static int id, idV, idA;
+	private static ClientDAO clientDAO = DAOFactory.getClientDAO();
+	private static PersonnelDAO personnelDAO = DAOFactory.getPersonnelDAO();
+	private static AnimalDAO animalDAO = DAOFactory.getAnimalDAO();
+	private static AgendaDAO agendaDAO = DAOFactory.getAgendaDAO();
+	
+	private static List<Client> listClients;
+	private static List<Personnel> listPersonnels;
+	private static List<Animal> listAnimaux;
+	private static List<Agenda> listAgendas;
+	
+	private static Client unClient1, unClient2, unClient3, unClient4;
+	private static Personnel unPersonnel1, unPersonnel2, unPersonnel3, unPersonnel4;
+	private static Animal unAnimal1, unAnimal2, unAnimal3, unAnimal4;
+	private static Agenda unAgenda1, unAgenda2, unAgenda3;
+	
+	private static Date d = new Date();
 	private static StringBuffer sb;
 	
 	public static void main(String[] args) {
 		
 		testClient();
-		//testPersonnel();
+		testPersonnel();
 		testAnimal();
 		testAgenda();
+		//testRaz();
 		
 	}
 	
 	public static void testClient() {
 		
-		// Déclarations
-		ClientDAO clientDAO = DAOFactory.getClientDAO();
-		List<Client> listClients;
-		
 		// Jeu d'essai
-		Client unClient1 = new Client("nomtest1", "prenomtest1", "1 rue ce", "appt 1", 
+		unClient1 = new Client("nomtest1", "prenomtest1", "1 rue ce", "appt 1", 
 				"35000", "Rennes", "0123456789", "Oui", "test@test.com", "remarque", true);
-		Client unClient2 = new Client("nomtest2", "prenomtest2", "1 rue ce", "appt 1", 
+		unClient2 = new Client("nomtest2", "prenomtest2", "1 rue ce", "appt 1", 
 				"35000", "Rennes", "0123456789", "Oui", "test@test.com", "remarque", true);
-		Client unClient3 = new Client("nomtest3", "prenomtest3", "1 rue ce", "appt 1", 
+		unClient3 = new Client("nomtest3", "prenomtest3", "1 rue ce", "appt 1", 
 				"35000", "Rennes", "0123456789", "Oui", "test@test.com", "remarque", true);
-		Client unClient4 = new Client("nomtest4", "prenomtest4", "1 rue ce", "appt 1", 
+		unClient4 = new Client("nomtest4", "prenomtest4", "1 rue ce", "appt 1", 
 				"35000", "Rennes", "0123456789", "Oui", "test@test.com", "remarque", true);
 		
 		try {
@@ -51,8 +63,7 @@ public class AppliTestDAL {
 			System.out.println("Client ajouté :" + unClient4.toString());
 			
 			// Sélection d'un client par id
-			id = unClient1.getCodeClient();
-			System.out.println("Sélection d'un client par id (" + id + ") :" + clientDAO.selectById(id));
+			System.out.println("Sélection d'un client par id :" + clientDAO.selectById(3));
 			
 			// Sélection de tous les clients
 			listClients = clientDAO.selectAll();
@@ -103,15 +114,11 @@ public class AppliTestDAL {
 	
 	public static void testPersonnel() {
 		
-		// Déclarations
-		PersonnelDAO personnelDAO = DAOFactory.getPersonnelDAO();
-		List<Personnel> listPersonnels;
-		
 		// Jeu d'essai
-		Personnel unPersonnel1 = new Personnel("nomtest1", "pwtest1", "VET", true);
-		Personnel unPersonnel2 = new Personnel("nomtest2", "pwtest2", "SEC", true);
-		Personnel unPersonnel3 = new Personnel("nomtest3", "pwtest3", "ADM", true);
-		Personnel unPersonnel4 = new Personnel("nomtest4", "pwtest4", "SEC", true);
+		unPersonnel1 = new Personnel("nomtest1", "pwtest1", "VET", true);
+		unPersonnel2 = new Personnel("nomtest2", "pwtest2", "SEC", true);
+		unPersonnel3 = new Personnel("nomtest3", "pwtest3", "ADM", true);
+		unPersonnel4 = new Personnel("nomtest4", "pwtest4", "SEC", true);
 		
 		try {
 			// Ajout des personnels
@@ -126,8 +133,7 @@ public class AppliTestDAL {
 			System.out.println("Personnel ajouté :" + unPersonnel4.toString());
 			
 			// Sélection d'un personnel par id
-			id = unPersonnel1.getCodePers();
-			System.out.println("Sélection d'un personnel par id (" + id + ") :" + personnelDAO.selectById(id));
+			System.out.println("Sélection d'un personnel par id :" + personnelDAO.selectById(3));
 			
 			// Sélection de tous les personnels
 			listPersonnels = personnelDAO.selectAll();
@@ -178,15 +184,11 @@ public class AppliTestDAL {
 	
 	public static void testAnimal() {
 		
-		// Déclarations
-		AnimalDAO animalDAO = DAOFactory.getAnimalDAO();
-		List<Animal> listAnimaux;
-		
 		// Jeu d'essai
-		Animal unAnimal1 = new Animal("nomtest1", 'M', "Blanc", "Dalmatien", "Chien", 1, "Non", "Aucun", true);
-		Animal unAnimal2 = new Animal("nomtest2", 'F', "Beige", "Siamois", "Chat", 2, "Non", "Aucun", true);
-		Animal unAnimal3 = new Animal("nomtest3", 'M', "Gris", "Chartreux", "Chat", 3, "Oui", "Oui", true);
-		Animal unAnimal4 = new Animal("nomtest4", 'F', "Noir", "Beauceron", "Chien", 1, "Oui", "Oui", true);
+		unAnimal1 = new Animal("nomtest1", 'M', "Blanc", "Dalmatien", "Chien", 1, "Non", "Aucun", true);
+		unAnimal2 = new Animal("nomtest2", 'F', "Beige", "Siamois", "Chat", 2, "Non", "Aucun", true);
+		unAnimal3 = new Animal("nomtest3", 'M', "Gris", "Chartreux", "Chat", 3, "Oui", "Oui", true);
+		unAnimal4 = new Animal("nomtest4", 'F', "Noir", "Beauceron", "Chien", 1, "Oui", "Oui", true);
 		
 		try {
 			// Ajout des animaux
@@ -201,8 +203,7 @@ public class AppliTestDAL {
 			System.out.println("Animal ajouté :" + unAnimal4.toString());
 			
 			// Sélection d'un animal par id
-			id = unAnimal1.getCodeAnimal();
-			System.out.println("Sélection d'un animal par id (" + id + ") :" + animalDAO.selectById(id));
+			System.out.println("Sélection d'un animal par id :" + animalDAO.selectById(3));
 			
 			// Sélection de tous les animaux
 			listAnimaux = animalDAO.selectAll();
@@ -253,15 +254,10 @@ public class AppliTestDAL {
 	
 	public static void testAgenda() {
 		
-		// Déclarations
-		AgendaDAO agendaDAO = DAOFactory.getAgendaDAO();
-		List<Agenda> listAgendas;
-		Date d = new Date();
-		
 		// Jeu d'essai
-		Agenda unAgenda1 = new Agenda(1, 1, d);
-		Agenda unAgenda2 = new Agenda(2, 2, d);
-		Agenda unAgenda3 = new Agenda(3, 3, d);
+		unAgenda1 = new Agenda(1, 1, d);
+		unAgenda2 = new Agenda(2, 2, d);
+		unAgenda3 = new Agenda(3, 3, d);
 		
 		try {
 			// Ajout des agendas
@@ -274,10 +270,9 @@ public class AppliTestDAL {
 			System.out.println("Agenda ajouté :" + unAgenda3.toString());
 			
 			// Sélection d'un agenda par id
-			idV = unAgenda1.getCodeVeto();
-			idA = unAgenda1.getCodeAnimal();
-			System.out.println("Sélection d'un agenda par id (" + id + ") :" + agendaDAO.selectByIds(idV, idA));
-			
+			System.out.print("Sélection d'un agenda par id : ");
+			System.out.println(agendaDAO.selectByIds(unAgenda1.getCodeVeto(), unAgenda1.getCodeAnimal()));
+					
 			// Sélection de tous les agendas
 			listAgendas = agendaDAO.selectAll();
 			System.out.println("Sélection de tous les agendas :\n" + listAgendas.toString());
@@ -324,6 +319,29 @@ public class AppliTestDAL {
 		} catch (DALException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public static void testRaz() {
+		
+		try {
+			agendaDAO.delete(unAgenda1);
+			agendaDAO.delete(unAgenda2);
+			
+			animalDAO.delete(unAnimal1);
+			animalDAO.delete(unAnimal2);
+			animalDAO.delete(unAnimal3);
+			
+			personnelDAO.delete(unPersonnel1);
+			personnelDAO.delete(unPersonnel2);
+			personnelDAO.delete(unPersonnel3);
+			
+			clientDAO.delete(unClient1);
+			clientDAO.delete(unClient2);
+			clientDAO.delete(unClient3);
+		} catch (DALException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 }

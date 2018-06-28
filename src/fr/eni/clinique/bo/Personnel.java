@@ -44,9 +44,9 @@ public class Personnel {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("\n[");
-		sb.append("\n\t").append("CodePers").append("\t\t=\t").append(codePers);
+		sb.append("\n\t").append("CodePers").append("\t=\t").append(codePers);
 		sb.append("\n\t").append("Nom").append("\t\t=\t").append(nom);
-		sb.append("\n\t").append("MotPasse").append("\t\t=\t").append(motPasse);
+		sb.append("\n\t").append("MotPasse").append("\t=\t").append(motPasse);
 		sb.append("\n\t").append("Role").append("\t\t=\t").append(role);
 		sb.append("\n\t").append("Archive").append("\t\t=\t").append(archive);
 		sb.append("\n]");
