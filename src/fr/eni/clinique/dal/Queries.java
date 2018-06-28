@@ -178,6 +178,8 @@ public abstract class Queries {
 	}
 	
 	public static String convertDate(Date d) {
+		//LocalDate date = input.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+		//java.sql.Date sqlDate = java.sql.Date.valueOf(date );
 		return sdf.format(d);
 	}
 	
