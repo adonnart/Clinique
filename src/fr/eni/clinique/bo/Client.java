@@ -92,19 +92,19 @@ public class Client {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("\n[");
-		sb.append("\n\t").append("CodeClient").append("\t\t=\t").append(codeClient);
-		sb.append("\n\t").append("NomClient").append("\t\t=\t").append(nomClient);
-		sb.append("\n\t").append("PrenomClient").append("\t\t=\t").append(prenomClient);
-		sb.append("\n\t").append("Adresse1").append("\t\t=\t").append(adresse1);
-		sb.append("\n\t").append("Adresse2").append("\t\t=\t").append(adresse2);
-		sb.append("\n\t").append("CodePostal").append("\t\t=\t").append(codePostal);
+		sb.append("\n\t").append("CodeClient").append("\t=\t").append(codeClient);
+		sb.append("\n\t").append("NomClient").append("\t=\t").append(nomClient);
+		sb.append("\n\t").append("PrenomClient").append("\t=\t").append(prenomClient);
+		sb.append("\n\t").append("Adresse1").append("\t=\t").append(adresse1);
+		sb.append("\n\t").append("Adresse2").append("\t=\t").append(adresse2);
+		sb.append("\n\t").append("CodePostal").append("\t=\t").append(codePostal);
 		sb.append("\n\t").append("Ville").append("\t\t=\t").append(ville);
 		sb.append("\n\t").append("NumTel").append("\t\t=\t").append(numTel);
-		sb.append("\n\t").append("Assurance").append("\t\t=\t").append(assurance);
+		sb.append("\n\t").append("Assurance").append("\t=\t").append(assurance);
 		sb.append("\n\t").append("Email").append("\t\t=\t").append(email);
-		sb.append("\n\t").append("Remarque").append("\t\t=\t").append(remarque);
+		sb.append("\n\t").append("Remarque").append("\t=\t").append(remarque);
 		sb.append("\n\t").append("Archive").append("\t\t=\t").append(archive);
-		sb.append("\n\t").append("Animaux ?").append("\t\t=\t");
+		sb.append("\n\t").append("Animaux ?").append("\t=\t");
 		sb.append("\n]");
 		
 		return sb.toString();

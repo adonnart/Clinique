@@ -72,15 +72,15 @@ public class Animal {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("\n[");
-		sb.append("\n\t").append("CodeAnimal").append("\t\t=\t").append(codeAnimal);
-		sb.append("\n\t").append("NomAnimal").append("\t\t=\t").append(nomAnimal);
+		sb.append("\n\t").append("CodeAnimal").append("\t=\t").append(codeAnimal);
+		sb.append("\n\t").append("NomAnimal").append("\t=\t").append(nomAnimal);
 		sb.append("\n\t").append("Sexe").append("\t\t=\t").append(sexe);
 		sb.append("\n\t").append("Couleur").append("\t\t=\t").append(couleur);
 		sb.append("\n\t").append("Race").append("\t\t=\t").append(race);
 		sb.append("\n\t").append("Espece").append("\t\t=\t").append(espece);
-		sb.append("\n\t").append("CodeClient").append("\t\t=\t").append(codeClient);
-		sb.append("\n\t").append("Tatouage").append("\t\t=\t").append(tatouage);
-		sb.append("\n\t").append("Antecedents").append("\t\t=\t").append(antecedents);
+		sb.append("\n\t").append("CodeClient").append("\t=\t").append(codeClient);
+		sb.append("\n\t").append("Tatouage").append("\t=\t").append(tatouage);
+		sb.append("\n\t").append("Antecedents").append("\t=\t").append(antecedents);
 		sb.append("\n\t").append("Archive").append("\t\t=\t").append(archive);
 		sb.append("\n]");
 		
