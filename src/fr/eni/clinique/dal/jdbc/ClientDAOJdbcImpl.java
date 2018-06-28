@@ -7,12 +7,12 @@ import java.util.List;
 
 import fr.eni.clinique.bo.Client;
 
-import fr.eni.clinique.dal.DAO;
+import fr.eni.clinique.dal.ClientDAO;
 import fr.eni.clinique.dal.DALException;
 import fr.eni.clinique.dal.JdbcTools;
 import fr.eni.clinique.dal.Queries;
 
-public class ClientDAOJdbcImpl implements DAO<Client> {
+public class ClientDAOJdbcImpl implements ClientDAO {
 
 	private static ResultSet rs = null;
 	

@@ -7,12 +7,12 @@ import java.util.List;
 
 import fr.eni.clinique.bo.Animal;
 
-import fr.eni.clinique.dal.DAO;
+import fr.eni.clinique.dal.AnimalDAO;
 import fr.eni.clinique.dal.DALException;
 import fr.eni.clinique.dal.JdbcTools;
 import fr.eni.clinique.dal.Queries;
 
-public class AnimalDAOJdbcImpl implements DAO<Animal> {
+public class AnimalDAOJdbcImpl implements AnimalDAO {
 
 	private static ResultSet rs = null;
 	

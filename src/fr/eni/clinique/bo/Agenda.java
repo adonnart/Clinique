@@ -1,7 +1,8 @@
 package fr.eni.clinique.bo;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import fr.eni.clinique.dal.Queries;
 
 public class Agenda {
 
@@ -9,8 +10,6 @@ public class Agenda {
 	private Animal a;
 	private Integer codeVeto, codeAnimal;
 	private Date dateRdv;
-
-	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
 	
 	public Agenda() { }
 	
@@ -49,7 +48,7 @@ public class Agenda {
 		sb.append("\n[");
 		sb.append("\n\t").append("CodeVeto").append("\t=\t").append(codeVeto);
 		sb.append("\n\t").append("CodeAnimal").append("\t=\t").append(codeAnimal);
-		sb.append("\n\t").append("DateRdv").append("\t\t=\t").append(sdf.format(dateRdv));
+		sb.append("\n\t").append("DateRdv").append("\t\t=\t").append(Queries.convertDate(dateRdv));
 		sb.append("\n]");
 		
 		return sb.toString();

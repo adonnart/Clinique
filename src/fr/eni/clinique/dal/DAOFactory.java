@@ -1,10 +1,5 @@
 package fr.eni.clinique.dal;
 
-import fr.eni.clinique.bo.Agenda;
-import fr.eni.clinique.bo.Animal;
-import fr.eni.clinique.bo.Client;
-import fr.eni.clinique.bo.Personnel;
-
 import fr.eni.clinique.dal.jdbc.AgendaDAOJdbcImpl;
 import fr.eni.clinique.dal.jdbc.AnimalDAOJdbcImpl;
 import fr.eni.clinique.dal.jdbc.ClientDAOJdbcImpl;
@@ -12,37 +7,25 @@ import fr.eni.clinique.dal.jdbc.PersonnelDAOJdbcImpl;
 
 public class DAOFactory {
 
-	private static DAO<Client> clientDAO;
-	private static DAO<Personnel> personnelDAO;
-	private static DAO<Animal> animalDAO;
-	private static DAO<Agenda> agendaDAO;
+	private static AgendaDAO agendaDAO;
+	private static AnimalDAO animalDAO;
+	private static ClientDAO clientDAO;
+	private static PersonnelDAO personnelDAO;
 	
-	public static DAO<Client> getClientDAO() {
-		if(clientDAO == null) {
-			return new ClientDAOJdbcImpl();
-		}
-		return clientDAO;
+	public static AgendaDAO getAgendaDAO() {
+		return (agendaDAO != null) ? agendaDAO : new AgendaDAOJdbcImpl();
 	}
 	
-	public static DAO<Personnel> getPersonnelDAO() {
-		if(personnelDAO == null) {
-			return new PersonnelDAOJdbcImpl();
-		}
-		return personnelDAO;
+	public static AnimalDAO getAnimalDAO() {
+		return (animalDAO != null) ? animalDAO : new AnimalDAOJdbcImpl();
 	}
 	
-	public static DAO<Animal> getAnimalDAO() {
-		if(animalDAO == null) {
-			return new AnimalDAOJdbcImpl();
-		}
-		return animalDAO;
+	public static ClientDAO getClientDAO() {
+		return (clientDAO != null) ? clientDAO : new ClientDAOJdbcImpl();
 	}
 	
-	public static DAO<Agenda> getAgendaDAO() {
-		if(agendaDAO == null) {
-			return new AgendaDAOJdbcImpl();
-		}
-		return agendaDAO;
+	public static PersonnelDAO getPersonnelDAO() {
+		return (personnelDAO != null) ? personnelDAO : new PersonnelDAOJdbcImpl();
 	}
 
 }

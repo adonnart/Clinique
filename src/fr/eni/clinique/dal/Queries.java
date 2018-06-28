@@ -7,11 +7,12 @@ import fr.eni.clinique.bo.Agenda;
 //import fr.eni.clinique.bo.Race;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public abstract class Queries {
 
 	private static StringBuilder sql;
-	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
+	private static SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy hh:mm");
 	
 	public static String getQuerySelectAll(String table) {
 		return "SELECT * FROM " + table;
@@ -160,7 +161,7 @@ public abstract class Queries {
 	public static String getAgendaQueryUpdate(Agenda ag) {
 		sql = new StringBuilder();
 		sql.append("UPDATE Agendas SET ");
-		sql.append("DateRdv = '").append(sdf.format(ag.getDateRdv())).append("'");
+		sql.append("DateRdv = '").append(convertDate(ag.getDateRdv())).append("'");
 		sql.append(" WHERE CodeVeto = ").append(ag.getCodeVeto());
 		sql.append(" AND CodeAnimal = ").append(ag.getCodeAnimal());
 		
@@ -174,6 +175,10 @@ public abstract class Queries {
 		sql.append(" AND CodeAnimal = ").append(ag.getCodeAnimal());
 		
 		return sql.toString();
+	}
+	
+	public static String convertDate(Date d) {
+		return sdf.format(d);
 	}
 	
 	// Races

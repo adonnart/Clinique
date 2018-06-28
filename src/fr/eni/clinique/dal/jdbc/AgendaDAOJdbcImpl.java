@@ -7,24 +7,24 @@ import java.util.List;
 
 import fr.eni.clinique.bo.Agenda;
 
-import fr.eni.clinique.dal.DAO;
+import fr.eni.clinique.dal.AgendaDAO;
 import fr.eni.clinique.dal.DALException;
 import fr.eni.clinique.dal.JdbcTools;
 import fr.eni.clinique.dal.Queries;
 
-public class AgendaDAOJdbcImpl implements DAO<Agenda> {
+public class AgendaDAOJdbcImpl implements AgendaDAO {
 
 	private static ResultSet rs = null;
 	
-	public Agenda selectById(int id) throws DALException {
+	public Agenda selectByIds(int idV, int idA) throws DALException {
 		Agenda agenda = null;
 		try (Statement stm = JdbcTools.getConnection().createStatement()) {
-			rs = stm.executeQuery(Queries.getAgendaQuerySelectByIds(id, id));
+			rs = stm.executeQuery(Queries.getAgendaQuerySelectByIds(idV, idA));
 			while (rs.next()) {
 				agenda = new Agenda(
 						rs.getInt("CodeVeto"),
 						rs.getInt("CodeAnimal"),
-						rs.getDate("DateRdv")
+						rs.getTimestamp("DateRdv")
 				);
 			}
 		} catch (Exception e) {
@@ -42,7 +42,7 @@ public class AgendaDAOJdbcImpl implements DAO<Agenda> {
 				agendaList.add(new Agenda(
 						rs.getInt("CodeVeto"),
 						rs.getInt("CodeAnimal"),
-						rs.getDate("DateRdv")
+						rs.getTimestamp("DateRdv")
 				));
 			}
 		} catch (Exception e) {

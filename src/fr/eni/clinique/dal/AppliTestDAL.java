@@ -1,6 +1,5 @@
 package fr.eni.clinique.dal;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -11,9 +10,8 @@ import fr.eni.clinique.bo.Agenda;
 
 public class AppliTestDAL {
 
-	private static int id;
+	private static int id, idV, idA;
 	private static StringBuffer sb;
-	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
 	
 	public static void main(String[] args) {
 		
@@ -27,7 +25,7 @@ public class AppliTestDAL {
 	public static void testClient() {
 		
 		// Déclarations
-		DAO<Client> clientDAO = DAOFactory.getClientDAO();
+		ClientDAO clientDAO = DAOFactory.getClientDAO();
 		List<Client> listClients;
 		
 		// Jeu d'essai
@@ -106,7 +104,7 @@ public class AppliTestDAL {
 	public static void testPersonnel() {
 		
 		// Déclarations
-		DAO<Personnel> personnelDAO = DAOFactory.getPersonnelDAO();
+		PersonnelDAO personnelDAO = DAOFactory.getPersonnelDAO();
 		List<Personnel> listPersonnels;
 		
 		// Jeu d'essai
@@ -181,7 +179,7 @@ public class AppliTestDAL {
 	public static void testAnimal() {
 		
 		// Déclarations
-		DAO<Animal> animalDAO = DAOFactory.getAnimalDAO();
+		AnimalDAO animalDAO = DAOFactory.getAnimalDAO();
 		List<Animal> listAnimaux;
 		
 		// Jeu d'essai
@@ -256,7 +254,7 @@ public class AppliTestDAL {
 	public static void testAgenda() {
 		
 		// Déclarations
-		DAO<Agenda> agendaDAO = DAOFactory.getAgendaDAO();
+		AgendaDAO agendaDAO = DAOFactory.getAgendaDAO();
 		List<Agenda> listAgendas;
 		Date d = new Date();
 		
@@ -276,8 +274,9 @@ public class AppliTestDAL {
 			System.out.println("Agenda ajouté :" + unAgenda3.toString());
 			
 			// Sélection d'un agenda par id
-			id = unAgenda1.getCodeAnimal();
-			System.out.println("Sélection d'un agenda par id (" + id + ") :" + agendaDAO.selectById(id));
+			idV = unAgenda1.getCodeVeto();
+			idA = unAgenda1.getCodeAnimal();
+			System.out.println("Sélection d'un agenda par id (" + id + ") :" + agendaDAO.selectByIds(idV, idA));
 			
 			// Sélection de tous les agendas
 			listAgendas = agendaDAO.selectAll();
@@ -302,7 +301,7 @@ public class AppliTestDAL {
 				sb.append(ag.getCodeVeto()).append(" - ");
 				if (ag.getCodeAnimal() < 10) sb.append(" ");
 				sb.append(ag.getCodeAnimal()).append(" - ");
-				sb.append(sdf.format(ag.getDateRdv())).append("\n");
+				sb.append(Queries.convertDate(ag.getDateRdv())).append("\n");
 			}
 			System.out.println(sb.toString());
 			
@@ -318,7 +317,7 @@ public class AppliTestDAL {
 				sb.append(ag.getCodeVeto()).append(" - ");
 				if (ag.getCodeAnimal() < 10) sb.append(" ");
 				sb.append(ag.getCodeAnimal()).append(" - ");
-				sb.append(sdf.format(ag.getDateRdv())).append("\n");
+				sb.append(Queries.convertDate(ag.getDateRdv())).append("\n");
 			}
 			System.out.println(sb.toString());
 			
