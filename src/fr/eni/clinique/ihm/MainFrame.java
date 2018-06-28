@@ -1,6 +1,6 @@
 package fr.eni.clinique.ihm;
 
-import java.awt.Dimension;
+
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -17,6 +17,7 @@ import javax.swing.SwingConstants;
 
 import fr.eni.clinique.ihm.login.EcranLoginController;
 import fr.eni.clinique.ihm.personnel.EcranPersonnel;
+import fr.eni.clinique.ihm.personnel.EcranPersonnelController;
 
 public class MainFrame extends JFrame implements ActionListener {
 
@@ -46,8 +47,7 @@ public class MainFrame extends JFrame implements ActionListener {
 		setJMenuBar(getMenuBarre());
 		
 		//Frame interne exemple		
-		desktopPane.add(getClient());
-		
+		//desktopPane.add(getClient());
 		setLocationRelativeTo(null);
 		setVisible(true);
 		setResizable(false);
@@ -120,7 +120,8 @@ public class MainFrame extends JFrame implements ActionListener {
 			System.out.println("gestion des rendez-vous");
 			break;
 		case "gestion du personnel":
-			getClient().setVisible(true);
+			desktopPane.removeAll();
+			desktopPane.add(EcranPersonnelController.get().openEcranPersonnel());
 			System.out.println("Ouverture frame gestion du personnel");
 			break;
 		case "agenda":
@@ -143,13 +144,6 @@ public class MainFrame extends JFrame implements ActionListener {
 			createMenuBar();
 		}
 		return menuBarre;
-	}
-
-	public EcranPersonnel getClient(){
-		if(frmClient== null){
-			frmClient = new EcranPersonnel();
-		}
-		return frmClient ;
 	}
 
 }
