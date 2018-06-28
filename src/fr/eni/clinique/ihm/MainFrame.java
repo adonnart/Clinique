@@ -117,9 +117,10 @@ public class MainFrame extends JFrame implements ActionListener {
 			System.exit(0);
 			break;
 		case "gestion des rendez-vous":
-			getClient().setVisible(true);
+			System.out.println("gestion des rendez-vous");
 			break;
 		case "gestion du personnel":
+			getClient().setVisible(true);
 			System.out.println("Ouverture frame gestion du personnel");
 			break;
 		case "agenda":
