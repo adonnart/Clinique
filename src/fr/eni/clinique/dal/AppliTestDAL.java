@@ -16,9 +16,9 @@ public class AppliTestDAL {
 	public static void main(String[] args) {
 		
 		testClient();
-		testPersonnel();
+		//testPersonnel();
 		testAnimal();
-		testAgenda();
+		//testAgenda();
 		
 	}
 	
@@ -40,23 +40,23 @@ public class AppliTestDAL {
 			// Ajout des clients
 			System.out.println("Ajout des clients... ");
 			clientDAO.insert(unClient1);
-			System.out.println("Client ajouté :\n\t" + unClient1.toString());
+			System.out.println("Client ajouté :\n" + unClient1.toString());
 			clientDAO.insert(unClient2);
-			System.out.println("Client ajouté :\n\t" + unClient2.toString());
+			System.out.println("Client ajouté :\n" + unClient2.toString());
 			clientDAO.insert(unClient3);
-			System.out.println("Client ajouté :\n\t" + unClient3.toString());
+			System.out.println("Client ajouté :\n" + unClient3.toString());
 			
 			// Sélection d'un client par id
 			id = unClient1.getCodeClient();
 			Client c = clientDAO.selectById(id);
-			System.out.println("Sélection d'un client par id (" + id + ") :\n\t" + c.toString());
+			System.out.println("Sélection d'un client par id (" + id + ") :\n" + c.toString());
 			
 			// Sélection de tous les clients
 			listClients = clientDAO.selectAll();
-			System.out.println("Sélection de tous les clients :\n\t" + listClients.toString());
+			System.out.println("Sélection de tous les clients :\n" + listClients.toString());
 			
 			// Modification d'un client
-			System.out.println("Client avant modification :\n\t" + unClient1.toString());
+			System.out.println("Client avant modification :\n" + unClient1.toString());
 			
 			unClient1.setNomClient("nouveauNom");
 			unClient1.setPrenomClient("nouveauPrenom");
@@ -64,7 +64,7 @@ public class AppliTestDAL {
 			
 			clientDAO.update(unClient1);
 			
-			System.out.println("Client après modification :\n\t" + unClient1.toString());
+			System.out.println("Client après modification :\n" + unClient1.toString());
 			System.out.println(clientDAO.selectById(id));
 			
 			// Suppression d'un client			
@@ -78,7 +78,7 @@ public class AppliTestDAL {
 			}
 			System.out.println(sb.toString());
 			
-			System.out.println("Suppression du client :\n\t" + unClient2.toString() + "\n");
+			System.out.println("Suppression du client :\n" + unClient2.toString() + "\n");
 			clientDAO.delete(unClient2);
 			
 			System.out.println("Liste des clients après suppression :");
@@ -176,31 +176,31 @@ public class AppliTestDAL {
 		List<Animal> listAnimaux;
 		
 		// Jeu d'essai
-		Animal unAnimal1 = new Animal("nomtest1", 'M', "Blanc", "dalmat", "Chien", 1, "Non", "Aucun", true);
-		Animal unAnimal2 = new Animal("nomtest2", 'F', "Noir", "siamois", "Chat", 2, "Non", "Aucun", true);
-		Animal unAnimal3 = new Animal("nomtest3", 'M', "Rose", "lol", "Elephant", 3, "Oui", "Oui", true);
+		Animal unAnimal1 = new Animal("nomtest1", 'M', "Blanc", "Dalmatien", "Chien", 7, "Non", "Aucun", true);
+		Animal unAnimal2 = new Animal("nomtest2", 'F', "Beige", "Siamois", "Chat", 8, "Non", "Aucun", true);
+		Animal unAnimal3 = new Animal("nomtest3", 'M', "Gris", "Chartreux", "Chat", 9, "Oui", "Oui", true);
 		
 		try {
 			// Ajout des animaux
 			System.out.println("Ajout des animaux... ");
 			animalDAO.insert(unAnimal1);
-			System.out.println("Animal ajouté :\n\t" + unAnimal1.toString());
+			System.out.println("Animal ajouté :" + unAnimal1.toString());
 			animalDAO.insert(unAnimal2);
-			System.out.println("Animal ajouté :\n\t" + unAnimal2.toString());
+			System.out.println("Animal ajouté :" + unAnimal2.toString());
 			animalDAO.insert(unAnimal3);
-			System.out.println("Animal ajouté :\n\t" + unAnimal3.toString());
+			System.out.println("Animal ajouté :" + unAnimal3.toString());
 			
 			// Sélection d'un animal par id
 			id = unAnimal1.getCodeAnimal();
 			Animal a = animalDAO.selectById(id);
-			System.out.println("Sélection d'un animal par id (" + id + ") :\n\t" + a.toString());
+			System.out.println("Sélection d'un animal par id (" + id + ") :" + a.toString());
 			
 			// Sélection de tous les animaux
 			listAnimaux = animalDAO.selectAll();
-			System.out.println("Sélection de tous les animaux :\n\t" + listAnimaux.toString());
+			System.out.println("Sélection de tous les animaux :" + listAnimaux.toString());
 			
 			// Modification d'un animal
-			System.out.println("Animal avant modification :\n\t" + unAnimal1.toString());
+			System.out.println("Animal avant modification :" + unAnimal1.toString());
 			
 			unAnimal1.setNomAnimal("nouveauNom");
 			unAnimal1.setCouleur("Beige");
@@ -208,7 +208,7 @@ public class AppliTestDAL {
 			
 			animalDAO.update(unAnimal1);
 			
-			System.out.println("Animal après modification :\n\t" + unAnimal1.toString());
+			System.out.println("Animal après modification :" + unAnimal1.toString());
 			System.out.println(animalDAO.selectById(id));
 			
 			// Suppression d'un animal
@@ -222,7 +222,7 @@ public class AppliTestDAL {
 			}
 			System.out.println(sb.toString());
 			
-			System.out.println("Suppression de l'animal :\n\t" + unAnimal2.toString() + "\n");
+			System.out.println("Suppression de l'animal :" + unAnimal2.toString() + "\n");
 			animalDAO.delete(unAnimal2);
 			
 			System.out.println("Liste des animaux après suppression :");
@@ -256,11 +256,11 @@ public class AppliTestDAL {
 			// Ajout des agendas
 			System.out.println("Ajout des agendas... ");
 			agendaDAO.insert(unAgenda1);
-			System.out.println("Animal ajouté :\n\t" + unAgenda1.toString());
+			System.out.println("Agenda ajouté :\n\t" + unAgenda1.toString());
 			agendaDAO.insert(unAgenda2);
-			System.out.println("Animal ajouté :\n\t" + unAgenda2.toString());
+			System.out.println("Agenda ajouté :\n\t" + unAgenda2.toString());
 			agendaDAO.insert(unAgenda3);
-			System.out.println("Animal ajouté :\n\t" + unAgenda3.toString());
+			System.out.println("Agenda ajouté :\n\t" + unAgenda3.toString());
 			
 			// Sélection d'un agenda par id
 			id = unAgenda1.getCodeAnimal();

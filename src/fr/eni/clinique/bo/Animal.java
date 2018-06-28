@@ -70,9 +70,21 @@ public class Animal {
 	
 	@Override
 	public String toString() {
-		return "Animal [sexe=" + sexe + ", codeAnimal=" + codeAnimal + ", codeClient=" + codeClient + ", archive="
-				+ archive + ", nomAnimal=" + nomAnimal + ", couleur=" + couleur + ", race=" + race + ", espece="
-				+ espece + ", tatouage=" + tatouage + ", antecedents=" + antecedents + "]";
+		StringBuilder sb = new StringBuilder();
+		sb.append("\n[");
+		sb.append("\n\tCodeAnimal\t=\t").append(codeAnimal);
+		sb.append("\n\tNomAnimal\t=\t").append(nomAnimal);
+		sb.append("\n\tSexe\t\t=\t").append(sexe);
+		sb.append("\n\tCouleur\t\t=\t").append(couleur);
+		sb.append("\n\tRace\t\t=\t").append(race);
+		sb.append("\n\tEspece\t\t=\t").append(espece);
+		sb.append("\n\tCodeClient\t=\t").append(codeClient);
+		sb.append("\n\tTatouage\t=\t").append(tatouage);
+		sb.append("\n\tAntecedents\t=\t").append(antecedents);
+		sb.append("\n\tArchive\t\t=\t").append(archive);
+		sb.append("\n]");
+		
+		return sb.toString();
 	}
 
 }

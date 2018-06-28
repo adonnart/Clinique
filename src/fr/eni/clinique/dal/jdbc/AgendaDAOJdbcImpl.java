@@ -54,6 +54,15 @@ public class AgendaDAOJdbcImpl implements DAO<Agenda> {
 	
 	public void insert(Agenda agenda) throws DALException {
 		try (Statement stm = JdbcTools.getConnection().createStatement()) {
+			System.out.println(Queries.getAgendaQueryInsert(agenda));
+			stm.executeUpdate(Queries.getAgendaQueryInsert(agenda));
+		} catch (Exception e) {
+			throw new DALException(e.getMessage());
+		}
+	}
+	/*
+	public void insert(Agenda agenda) throws DALException {
+		try (Statement stm = JdbcTools.getConnection().createStatement()) {
 			if (stm.executeUpdate(Queries.getAgendaQueryInsert(agenda), Statement.RETURN_GENERATED_KEYS) == 1) {
 				rs = stm.getGeneratedKeys();
 				if (rs.next()) {
@@ -64,7 +73,7 @@ public class AgendaDAOJdbcImpl implements DAO<Agenda> {
 			throw new DALException(e.getMessage());
 		}
 	}
-	
+	*/
 	public boolean update(Agenda agenda) throws DALException {
 		try (Statement stm = JdbcTools.getConnection().createStatement()) {
 			stm.executeUpdate(Queries.getAgendaQueryUpdate(agenda));

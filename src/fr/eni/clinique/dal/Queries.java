@@ -106,8 +106,8 @@ public abstract class Queries {
 		sql.append(an.getSexe()).append("', '");
 		sql.append(an.getCouleur()).append("', '");
 		sql.append(an.getRace()).append("', '");
-		sql.append(an.getEspece()).append("', '");
-		sql.append(an.getCodeClient()).append("', '");
+		sql.append(an.getEspece()).append("', ");
+		sql.append(an.getCodeClient()).append(", '");
 		sql.append(an.getTatouage()).append("', '");
 		sql.append(an.getAntecedents()).append("', '");
 		sql.append(an.isArchive()).append("')");
@@ -141,11 +141,11 @@ public abstract class Queries {
 	public static String getAgendaQueryInsert(Agenda ag) {
 		sql = new StringBuilder();
 		sql.append("INSERT INTO Agendas (");
-		sql.append("CodeVeto, CodeAnimal, DateRdv");
-		sql.append(") VALUES ('");
-		sql.append(ag.getCodeVeto()).append("', '");
-		sql.append(ag.getCodeAnimal()).append("', '");
-		sql.append(ag.getDateRdv()).append("')");
+		sql.append("CodeVeto, DateRdv, CodeAnimal");
+		sql.append(") VALUES (");
+		sql.append(ag.getCodeVeto()).append(", ");
+		sql.append(ag.getDateRdv()).append(", ");
+		sql.append(ag.getCodeAnimal()).append(")");
 		
 		return sql.toString();
 	}
