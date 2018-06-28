@@ -19,7 +19,7 @@ public class AgendaDAOJdbcImpl implements DAO<Agenda> {
 	public Agenda selectById(int id) throws DALException {
 		Agenda agenda = null;
 		try (Statement stm = JdbcTools.getConnection().createStatement()) {
-			rs = stm.executeQuery(Queries.getQuerySelectById("Agendas", "CodeVeto", id));
+			rs = stm.executeQuery(Queries.getAgendaQuerySelectByIds(id, id));
 			while (rs.next()) {
 				agenda = new Agenda(
 						rs.getInt("CodeVeto"),
@@ -60,22 +60,10 @@ public class AgendaDAOJdbcImpl implements DAO<Agenda> {
 			throw new DALException(e.getMessage());
 		}
 	}
-	/*
-	public void insert(Agenda agenda) throws DALException {
-		try (Statement stm = JdbcTools.getConnection().createStatement()) {
-			if (stm.executeUpdate(Queries.getAgendaQueryInsert(agenda), Statement.RETURN_GENERATED_KEYS) == 1) {
-				rs = stm.getGeneratedKeys();
-				if (rs.next()) {
-					agenda.setCodeAnimal(rs.getInt(1));
-				}
-			}
-		} catch (Exception e) {
-			throw new DALException(e.getMessage());
-		}
-	}
-	*/
+	
 	public boolean update(Agenda agenda) throws DALException {
 		try (Statement stm = JdbcTools.getConnection().createStatement()) {
+			System.out.println(Queries.getAgendaQueryUpdate(agenda));
 			stm.executeUpdate(Queries.getAgendaQueryUpdate(agenda));
 			return true;
 		} catch (Exception e) {
@@ -85,6 +73,7 @@ public class AgendaDAOJdbcImpl implements DAO<Agenda> {
 	
 	public boolean delete(Agenda agenda) throws DALException {
 		try (Statement stm = JdbcTools.getConnection().createStatement()) {
+			System.out.println(Queries.getAgendaQueryDelete(agenda));
 			stm.executeUpdate(Queries.getAgendaQueryDelete(agenda));
 			return true;
 		} catch (Exception e) {

@@ -1,5 +1,6 @@
 package fr.eni.clinique.dal;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -12,13 +13,14 @@ public class AppliTestDAL {
 
 	private static int id;
 	private static StringBuffer sb;
+	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
 	
 	public static void main(String[] args) {
 		
 		testClient();
 		//testPersonnel();
 		testAnimal();
-		//testAgenda();
+		testAgenda();
 		
 	}
 	
@@ -29,12 +31,14 @@ public class AppliTestDAL {
 		List<Client> listClients;
 		
 		// Jeu d'essai
-		Client unClient1 = new Client("nomtest1", "prenomtest1", "adsfsdf", "adresse2", "35000", "Rennes", 
-				"054215612", "Oui", "test@test.com", "remarque", true);
-		Client unClient2 = new Client("nomtest2", "prenomtest2", "15 rue de ", "15 rue de ", "35000", "Rennes",
-				"054215612", "Oui", "test@test.com", "remarque", true);
-		Client unClient3 = new Client("nomtest3", "prenomtest3", "18 rue de ", "18 rue de ", "35000", "Rennes",
-				"054215612", "Oui", "test@test.com", "remarque", true);
+		Client unClient1 = new Client("nomtest1", "prenomtest1", "1 rue ce", "appt 1", 
+				"35000", "Rennes", "0123456789", "Oui", "test@test.com", "remarque", true);
+		Client unClient2 = new Client("nomtest2", "prenomtest2", "1 rue ce", "appt 1", 
+				"35000", "Rennes", "0123456789", "Oui", "test@test.com", "remarque", true);
+		Client unClient3 = new Client("nomtest3", "prenomtest3", "1 rue ce", "appt 1", 
+				"35000", "Rennes", "0123456789", "Oui", "test@test.com", "remarque", true);
+		Client unClient4 = new Client("nomtest4", "prenomtest4", "1 rue ce", "appt 1", 
+				"35000", "Rennes", "0123456789", "Oui", "test@test.com", "remarque", true);
 		
 		try {
 			// Ajout des clients
@@ -45,6 +49,8 @@ public class AppliTestDAL {
 			System.out.println("Client ajouté :" + unClient2.toString());
 			clientDAO.insert(unClient3);
 			System.out.println("Client ajouté :" + unClient3.toString());
+			clientDAO.insert(unClient4);
+			System.out.println("Client ajouté :" + unClient4.toString());
 			
 			// Sélection d'un client par id
 			id = unClient1.getCodeClient();
@@ -77,8 +83,8 @@ public class AppliTestDAL {
 			}
 			System.out.println(sb.toString());
 			
-			System.out.println("Suppression du client :" + unClient2.toString() + "\n");
-			clientDAO.delete(unClient2);
+			System.out.println("Suppression du client :" + unClient4.toString() + "\n");
+			clientDAO.delete(unClient4);
 			
 			System.out.println("Liste des clients après suppression :");
 			listClients = clientDAO.selectAll();
@@ -104,9 +110,10 @@ public class AppliTestDAL {
 		List<Personnel> listPersonnels;
 		
 		// Jeu d'essai
-		Personnel unPersonnel1 = new Personnel("nomtest1", "pwtest1", "vet", true);
-		Personnel unPersonnel2 = new Personnel("nomtest2", "pwtest2", "sec", true);
-		Personnel unPersonnel3 = new Personnel("nomtest3", "pwtest3", "adm", true);
+		Personnel unPersonnel1 = new Personnel("nomtest1", "pwtest1", "VET", true);
+		Personnel unPersonnel2 = new Personnel("nomtest2", "pwtest2", "SEC", true);
+		Personnel unPersonnel3 = new Personnel("nomtest3", "pwtest3", "ADM", true);
+		Personnel unPersonnel4 = new Personnel("nomtest4", "pwtest4", "SEC", true);
 		
 		try {
 			// Ajout des personnels
@@ -117,6 +124,8 @@ public class AppliTestDAL {
 			System.out.println("Personnel ajouté :" + unPersonnel2.toString());
 			personnelDAO.insert(unPersonnel3);
 			System.out.println("Personnel ajouté :" + unPersonnel3.toString());
+			personnelDAO.insert(unPersonnel4);
+			System.out.println("Personnel ajouté :" + unPersonnel4.toString());
 			
 			// Sélection d'un personnel par id
 			id = unPersonnel1.getCodePers();
@@ -149,8 +158,8 @@ public class AppliTestDAL {
 			}
 			System.out.println(sb.toString());
 			
-			System.out.println("Suppression du personnel :" + unPersonnel2.toString() + "\n");
-			personnelDAO.delete(unPersonnel2);
+			System.out.println("Suppression du personnel :" + unPersonnel4.toString() + "\n");
+			personnelDAO.delete(unPersonnel4);
 			
 			System.out.println("Liste des personnels après suppression :");
 			listPersonnels = personnelDAO.selectAll();
@@ -177,8 +186,9 @@ public class AppliTestDAL {
 		
 		// Jeu d'essai
 		Animal unAnimal1 = new Animal("nomtest1", 'M', "Blanc", "Dalmatien", "Chien", 1, "Non", "Aucun", true);
-		Animal unAnimal2 = new Animal("nomtest2", 'F', "Beige", "Siamois", "Chat", 1, "Non", "Aucun", true);
-		Animal unAnimal3 = new Animal("nomtest3", 'M', "Gris", "Chartreux", "Chat", 1, "Oui", "Oui", true);
+		Animal unAnimal2 = new Animal("nomtest2", 'F', "Beige", "Siamois", "Chat", 2, "Non", "Aucun", true);
+		Animal unAnimal3 = new Animal("nomtest3", 'M', "Gris", "Chartreux", "Chat", 3, "Oui", "Oui", true);
+		Animal unAnimal4 = new Animal("nomtest4", 'F', "Noir", "Beauceron", "Chien", 1, "Oui", "Oui", true);
 		
 		try {
 			// Ajout des animaux
@@ -189,6 +199,8 @@ public class AppliTestDAL {
 			System.out.println("Animal ajouté :" + unAnimal2.toString());
 			animalDAO.insert(unAnimal3);
 			System.out.println("Animal ajouté :" + unAnimal3.toString());
+			animalDAO.insert(unAnimal4);
+			System.out.println("Animal ajouté :" + unAnimal4.toString());
 			
 			// Sélection d'un animal par id
 			id = unAnimal1.getCodeAnimal();
@@ -221,8 +233,8 @@ public class AppliTestDAL {
 			}
 			System.out.println(sb.toString());
 			
-			System.out.println("Suppression de l'animal :" + unAnimal2.toString() + "\n");
-			animalDAO.delete(unAnimal2);
+			System.out.println("Suppression de l'animal :" + unAnimal4.toString() + "\n");
+			animalDAO.delete(unAnimal4);
 			
 			System.out.println("Liste des animaux après suppression :");
 			listAnimaux = animalDAO.selectAll();
@@ -246,11 +258,12 @@ public class AppliTestDAL {
 		// Déclarations
 		DAO<Agenda> agendaDAO = DAOFactory.getAgendaDAO();
 		List<Agenda> listAgendas;
+		Date d = new Date();
 		
 		// Jeu d'essai
-		Agenda unAgenda1 = new Agenda(1, 1, new Date());
-		Agenda unAgenda2 = new Agenda(2, 2, new Date());
-		Agenda unAgenda3 = new Agenda(3, 3, new Date());
+		Agenda unAgenda1 = new Agenda(1, 1, d);
+		Agenda unAgenda2 = new Agenda(2, 2, d);
+		Agenda unAgenda3 = new Agenda(3, 3, d);
 		
 		try {
 			// Ajout des agendas
@@ -273,7 +286,6 @@ public class AppliTestDAL {
 			// Modification d'un agenda
 			System.out.println("Agenda avant modification :" + unAgenda1.toString());
 			
-			unAgenda1.setCodeAnimal(3);
 			unAgenda1.setDateRdv(new Date());
 			
 			agendaDAO.update(unAgenda1);
@@ -290,12 +302,12 @@ public class AppliTestDAL {
 				sb.append(ag.getCodeVeto()).append(" - ");
 				if (ag.getCodeAnimal() < 10) sb.append(" ");
 				sb.append(ag.getCodeAnimal()).append(" - ");
-				sb.append(ag.getDateRdv()).append("\n");
+				sb.append(sdf.format(ag.getDateRdv())).append("\n");
 			}
 			System.out.println(sb.toString());
 			
-			System.out.println("Suppression de l'agenda :" + unAgenda2.toString() + "\n");
-			agendaDAO.delete(unAgenda2);
+			System.out.println("Suppression de l'agenda :" + unAgenda3.toString() + "\n");
+			agendaDAO.delete(unAgenda3);
 			
 			System.out.println("Liste des agendas après suppression :");
 			listAgendas = agendaDAO.selectAll();
@@ -306,7 +318,7 @@ public class AppliTestDAL {
 				sb.append(ag.getCodeVeto()).append(" - ");
 				if (ag.getCodeAnimal() < 10) sb.append(" ");
 				sb.append(ag.getCodeAnimal()).append(" - ");
-				sb.append(ag.getDateRdv()).append("\n");
+				sb.append(sdf.format(ag.getDateRdv())).append("\n");
 			}
 			System.out.println(sb.toString());
 			

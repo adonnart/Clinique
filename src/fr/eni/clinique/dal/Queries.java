@@ -6,9 +6,12 @@ import fr.eni.clinique.bo.Animal;
 import fr.eni.clinique.bo.Agenda;
 //import fr.eni.clinique.bo.Race;
 
+import java.text.SimpleDateFormat;
+
 public abstract class Queries {
 
 	private static StringBuilder sql;
+	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
 	
 	public static String getQuerySelectAll(String table) {
 		return "SELECT * FROM " + table;
@@ -138,14 +141,18 @@ public abstract class Queries {
 	
 	// Agendas
 	
+	public static String getAgendaQuerySelectByIds(int idV, int idA) {
+		return "SELECT * FROM Agendas WHERE CodeVeto = " + idV + " AND CodeAnimal = " + idA;
+	}
+	
 	public static String getAgendaQueryInsert(Agenda ag) {
 		sql = new StringBuilder();
 		sql.append("INSERT INTO Agendas (");
-		sql.append("CodeVeto, DateRdv, CodeAnimal");
+		sql.append("CodeVeto, CodeAnimal, DateRdv");
 		sql.append(") VALUES (");
 		sql.append(ag.getCodeVeto()).append(", ");
-		sql.append(ag.getDateRdv()).append(", ");
-		sql.append(ag.getCodeAnimal()).append(")");
+		sql.append(ag.getCodeAnimal()).append(", '");
+		sql.append(sdf.format(ag.getDateRdv())).append("')");
 		
 		return sql.toString();
 	}
@@ -153,18 +160,18 @@ public abstract class Queries {
 	public static String getAgendaQueryUpdate(Agenda ag) {
 		sql = new StringBuilder();
 		sql.append("UPDATE Agendas SET ");
-		sql.append("DateRdv = '").append(ag.getDateRdv());
-		sql.append("' WHERE CodeVeto = ").append(ag.getCodeVeto());
-		sql.append("' AND CodeAnimal = ").append(ag.getCodeAnimal());
+		sql.append("DateRdv = '").append(sdf.format(ag.getDateRdv())).append("'");
+		sql.append(" WHERE CodeVeto = ").append(ag.getCodeVeto());
+		sql.append(" AND CodeAnimal = ").append(ag.getCodeAnimal());
 		
 		return sql.toString();
 	}
 	
 	public static String getAgendaQueryDelete(Agenda ag) {
 		sql = new StringBuilder();
-		sql.append("DELETE FROM Agendas ");
-		sql.append("WHERE CodeVeto = ").append(ag.getCodeVeto());
-		sql.append("AND CodeAnimal = ").append(ag.getCodeAnimal());
+		sql.append("DELETE FROM Agendas");
+		sql.append(" WHERE CodeVeto = ").append(ag.getCodeVeto());
+		sql.append(" AND CodeAnimal = ").append(ag.getCodeAnimal());
 		
 		return sql.toString();
 	}
