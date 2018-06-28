@@ -1,17 +1,21 @@
 package fr.eni.clinique.ihm;
 
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.SwingConstants;
 
-import fr.eni.clinique.ihm.accueil.Accueil;
+import fr.eni.clinique.ihm.client.EcranClient;
 import fr.eni.clinique.ihm.login.EcranLoginController;
 
 public class MainFrame extends JFrame implements ActionListener {
@@ -21,7 +25,7 @@ public class MainFrame extends JFrame implements ActionListener {
 	private JDesktopPane desktopPane;
 	private JMenuBar menuBarre;
 	private JMenu menuAgenda;
-	private Accueil frmAccueil;
+	private EcranClient frmClient;
 
 
 	public MainFrame() {
@@ -42,10 +46,11 @@ public class MainFrame extends JFrame implements ActionListener {
 		setJMenuBar(getMenuBarre());
 		
 		//Frame interne exemple		
-		desktopPane.add(getAccueil());
+		desktopPane.add(getClient());
 		
 		setLocationRelativeTo(null);
 		setVisible(true);
+		setResizable(false);
 		
 	}
 
@@ -68,11 +73,35 @@ public class MainFrame extends JFrame implements ActionListener {
 		menu.add(menuItem);
 
 		// Menu Agenda
-		menuItem = new JMenuItem("Ecran");
+		menuItem = new JMenuItem("Gestion des rendez-vous");
 		menuBarre.add(menuItem);		
-		menuItem.setActionCommand("ecran");
+		menuItem.setActionCommand("gestion des rendez-vous");
+		menuItem.addActionListener(this);
+		
+		menuItem = new JMenuItem("Agenda");
+		menuBarre.add(menuItem);		
+		menuItem.setActionCommand("agenda");
+		menuItem.addActionListener(this);
+		
+		menuItem = new JMenuItem("Gestion du personnel");
+		menuBarre.add(menuItem);		
+		menuItem.setActionCommand("gestion du personnel");
 		menuItem.addActionListener(this);
 
+		
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(500, 200, 170, 170);
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Administrateur\\Desktop\\Ressource\\Images\\fond_frame.jpg"));
+		getContentPane().add(lblNewLabel);
+		
+		JLabel label = new JLabel("Clinique v\u00E9t\u00E9rinaire");
+		label.setHorizontalTextPosition(SwingConstants.LEFT);
+		label.setHorizontalAlignment(SwingConstants.CENTER);
+		label.setFont(new Font("Arial", Font.BOLD, 20));
+		label.setBounds(500, 100, 182, 24);
+		getContentPane().add(label);
 	}
 
 	// Réagir aux clicks sur les menus
@@ -87,12 +116,15 @@ public class MainFrame extends JFrame implements ActionListener {
 		case "fermer":
 			System.exit(0);
 			break;
-
-		case "ecran":
-			System.out.println("coucou");
-			getAccueil().setVisible(true);
+		case "gestion des rendez-vous":
+			getClient().setVisible(true);
 			break;
-
+		case "gestion du personnel":
+			System.out.println("Ouverture frame gestion du personnel");
+			break;
+		case "agenda":
+			System.err.println("Ouverture page agenda");
+			break;
 		default:
 			System.out.println("Probleme e=" + e);
 		}
@@ -112,11 +144,11 @@ public class MainFrame extends JFrame implements ActionListener {
 		return menuBarre;
 	}
 
-	public Accueil getAccueil(){
-		if(frmAccueil== null){
-			frmAccueil = new Accueil();
+	public EcranClient getClient(){
+		if(frmClient== null){
+			frmClient = new EcranClient();
 		}
-		return frmAccueil;
+		return frmClient ;
 	}
 
 }

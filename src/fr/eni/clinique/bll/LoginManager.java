@@ -4,9 +4,10 @@ import java.util.List;
 import fr.eni.clinique.bo.Personnel;
 import fr.eni.clinique.dal.DAO;
 import fr.eni.clinique.dal.DAOFactory;
+import fr.eni.clinique.dal.PersonnelDAO;
 
 public class LoginManager {
-	private DAO<Personnel> personnelDao = DAOFactory.getPersonnelDAO();
+	private PersonnelDAO personnelDao = DAOFactory.getPersonnelDAO();
 	private static LoginManager loginManager;
 
 	public static synchronized LoginManager getInstance() throws BLLException {
@@ -22,7 +23,7 @@ public class LoginManager {
 			System.out.println(p.getNom()+" - "+p.getMotPasse());
 			for (Personnel pers : personnelList) {
 				if (p.getNom().equalsIgnoreCase(pers.getNom()) && p.getMotPasse().equals(pers.getMotPasse())){ 
-					System.out.println(pers.getNom()+" - "+pers.getMotPasse());
+					System.out.println(pers.getRole());
 					return pers.getRole();
 				}
 			}

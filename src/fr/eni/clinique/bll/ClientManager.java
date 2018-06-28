@@ -1,11 +1,15 @@
 package fr.eni.clinique.bll;
 
+import java.util.List;
+
 import fr.eni.clinique.bo.Client;
+import fr.eni.clinique.dal.ClientDAO;
+import fr.eni.clinique.dal.DALException;
 import fr.eni.clinique.dal.DAO;
 import fr.eni.clinique.dal.DAOFactory;
 
 public class ClientManager {
-	private DAO<Client> clientDao = DAOFactory.getClientDAO();
+	private ClientDAO clientDao = DAOFactory.getClientDAO();
 	private static ClientManager clientManager;
 
 	public ClientManager() {
@@ -26,7 +30,7 @@ public class ClientManager {
 		}
 	}
 
-	public void updateClient(Client client, int index) throws BLLException {
+	public void updateClient(Client client) throws BLLException {
 		try {
 			clientDao.update(client);
 		} catch (Exception e) {
@@ -51,6 +55,16 @@ public class ClientManager {
 		} catch (Exception e) {
 			throw new BLLException(e.getMessage());
 		}
+	}
+	public List<Client> getAllClient() throws BLLException{
+
+		try {
+			return clientDao.selectAll();
+		} catch (DALException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;	
 	}
 
 }
