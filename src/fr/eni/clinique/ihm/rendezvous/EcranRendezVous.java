@@ -14,17 +14,21 @@ import javax.swing.BorderFactory;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
+//import javafx.scene.control.DatePicker;
+
 public class EcranRendezVous extends JInternalFrame {
 
 	private static final long serialVersionUID = -4668576527947146408L;
 	
 	private static Container CON_Main;
-	private static JPanel PAN_Pour, PAN_Par, PAN_Quand, PAN_Client, PAN_Animal, PAN_Veto;
+	private static JPanel PAN_Pour, PAN_Par, PAN_Quand, PAN_Client, PAN_Animal, PAN_Veto, PAN_Calendar;
 	private static JButton BTN_AddClient, BTN_AddAnimal, BTN_Supprimer, BTN_Valider;
 	private static JComboBox<String> CMB_Client, CMB_Animal, CMB_Veto;
 	private static TitledBorder BOR_TitledEmpty, BOR_TitledLine;
-	private static Font FON_TitledLine;
+	private static Font FON_ArialBold;
 	private static JTable TAB_Agenda;
+	
+	//private final DatePicker datePicker = new DatePicker();
 	
 	public EcranRendezVous() {
 		
@@ -36,23 +40,23 @@ public class EcranRendezVous extends JInternalFrame {
 		
 		CON_Main = this.getContentPane();
 		
-		FON_TitledLine = new Font("Arial", Font.BOLD, 12);
+		FON_ArialBold = new Font("Arial", Font.BOLD, 12);
 		
 		BOR_TitledEmpty = new TitledBorder(BorderFactory.createEmptyBorder());
 		BOR_TitledLine = new TitledBorder(BorderFactory.createLineBorder(Color.black, 2));
 		
 		PAN_Pour = new JPanel();
-		PAN_Pour.setBorder(new TitledBorder(BOR_TitledLine, "Pour", 0, 0, FON_TitledLine));
+		PAN_Pour.setBorder(new TitledBorder(BOR_TitledLine, "Pour", 0, 0, FON_ArialBold));
 		PAN_Pour.setBounds(25, 25, 250, 150);
 		PAN_Pour.setLayout(null);
 		
 		PAN_Par = new JPanel();
-		PAN_Par.setBorder(new TitledBorder(BOR_TitledLine, "Par", 0, 0, FON_TitledLine));
+		PAN_Par.setBorder(new TitledBorder(BOR_TitledLine, "Par", 0, 0, FON_ArialBold));
 		PAN_Par.setBounds(300, 25, 250, 150);
 		PAN_Par.setLayout(null);
 		
 		PAN_Quand = new JPanel();
-		PAN_Quand.setBorder(new TitledBorder(BOR_TitledLine, "Quand", 0, 0, FON_TitledLine));
+		PAN_Quand.setBorder(new TitledBorder(BOR_TitledLine, "Quand", 0, 0, FON_ArialBold));
 		PAN_Quand.setBounds(575, 25, 250, 150);
 		PAN_Quand.setLayout(null);
 		
@@ -71,19 +75,24 @@ public class EcranRendezVous extends JInternalFrame {
 		PAN_Veto.setBounds(20, 30, 210, 50);
 		PAN_Veto.setLayout(null);
 		
+		PAN_Calendar = new JPanel();
+		PAN_Calendar.setBorder(new TitledBorder(BOR_TitledEmpty, "Date / Heure", 0, 0));
+		PAN_Calendar.setBounds(20, 30, 210, 100);
+		PAN_Calendar.setLayout(null);
+		
 		CMB_Client = new JComboBox<String>();
 		CMB_Client.setBounds(6, 16, 150, 25);
 		
 		BTN_AddClient = new JButton("+");
 		BTN_AddClient.setBounds(175, 16, 25, 25);
-		BTN_AddClient.setFont(FON_TitledLine);
+		BTN_AddClient.setFont(FON_ArialBold);
 		
 		CMB_Animal = new JComboBox<String>();
 		CMB_Animal.setBounds(6, 16, 150, 25);
 		
 		BTN_AddAnimal = new JButton("+");
 		BTN_AddAnimal.setBounds(175, 16, 25, 25);
-		BTN_AddAnimal.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		BTN_AddClient.setFont(FON_ArialBold);
 		
 		CMB_Veto = new JComboBox<String>();
 		CMB_Veto.setBounds(6, 16, 150, 25);
@@ -107,6 +116,7 @@ public class EcranRendezVous extends JInternalFrame {
 		PAN_Pour.add(PAN_Client);
 		PAN_Pour.add(PAN_Animal);
 		PAN_Par.add(PAN_Veto);
+		PAN_Quand.add(PAN_Calendar);
 		
 		CON_Main.add(PAN_Pour);
 		CON_Main.add(PAN_Par);
