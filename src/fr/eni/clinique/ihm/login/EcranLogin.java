@@ -39,7 +39,7 @@ public class EcranLogin extends JFrame {
 		
 		setResizable(false);
 		setTitle("Connexion");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Administrateur\\Desktop\\Ressource\\Images\\ico_veto.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(EcranLogin.class.getResource("/fr/eni/clinique/ihm/img/ico_veto.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

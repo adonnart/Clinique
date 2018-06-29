@@ -36,7 +36,7 @@ public class MainFrame extends JFrame implements ActionListener {
 
 	//	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		setBounds(0, 0, 1200, 800);
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Administrateur\\Desktop\\Ressource\\Images\\ico_veto.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MainFrame.class.getResource("/fr/eni/clinique/ihm/img/ico_veto.png")));
 
 		// initialiser l'ecran MDI
 		desktopPane = new JDesktopPane();
@@ -94,7 +94,7 @@ public class MainFrame extends JFrame implements ActionListener {
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setBounds(500, 200, 170, 170);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Administrateur\\Desktop\\Ressource\\Images\\fond_frame.jpg"));
+		lblNewLabel.setIcon(new ImageIcon(MainFrame.class.getResource("/fr/eni/clinique/ihm/img/fond_frame.jpg")));
 		getContentPane().add(lblNewLabel);
 		
 		JLabel label = new JLabel("Clinique v\u00E9t\u00E9rinaire");

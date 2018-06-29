@@ -5,13 +5,11 @@ import java.util.List;
 import fr.eni.clinique.bll.BLLException;
 import fr.eni.clinique.bll.PersonnelManager;
 import fr.eni.clinique.bo.Personnel;
-import fr.eni.clinique.ihm.MainFrame;
-import fr.eni.clinique.ihm.personnel.EcranPersonnel;
+
 import fr.eni.clinique.ihm.personnel.EcranPersonnelController;
 
 public class FormulaireController {
 	private Formulaire ecrFormulaire;
-	private MainFrame ecrMain;
 	private List<Personnel> listPersonnel;
 	// Attributs
 	private PersonnelManager mger;
