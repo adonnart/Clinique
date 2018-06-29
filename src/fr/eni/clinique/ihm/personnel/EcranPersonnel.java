@@ -69,17 +69,17 @@ public class EcranPersonnel extends JInternalFrame {
 		});
       
         
-		btnAjouter.setIcon(new ImageIcon("C:\\Users\\Administrateur\\Desktop\\Ressource\\Images\\plus.png"));
+		btnAjouter.setIcon(new ImageIcon(EcranPersonnel.class.getResource("/fr/eni/clinique/ihm/img/plus.png")));
 		btnAjouter.setBounds(40, 11, 38, 37);
 		panel.add(btnAjouter);
 		
 		JButton btnSurpprimer = new JButton("");
-		btnSurpprimer.setIcon(new ImageIcon("C:\\Users\\Administrateur\\Desktop\\Ressource\\Images\\minus.png"));
+		btnSurpprimer.setIcon(new ImageIcon(EcranPersonnel.class.getResource("/fr/eni/clinique/ihm/img/minus.png")));
 		btnSurpprimer.setBounds(140, 11, 38, 37);
 		panel.add(btnSurpprimer);
 		
 		JButton btnReinitialiser = new JButton("");
-		btnReinitialiser.setIcon(new ImageIcon("C:\\Users\\Administrateur\\Desktop\\Ressource\\Images\\lock_open.png"));
+		btnReinitialiser.setIcon(new ImageIcon(EcranPersonnel.class.getResource("/fr/eni/clinique/ihm/img/lock_open.png")));
 		btnReinitialiser.setBounds(240, 11, 38, 37);
 		panel.add(btnReinitialiser);
 		

@@ -43,5 +43,4 @@ public class MainFrameController {
 			ecrMain.getDesktopPane().removeAll();
 			ecrMain.getDesktopPane().add(EcranPersonnelController.get().openEcranPersonnel());
 		}
-
 }
