@@ -1,124 +1,120 @@
 package fr.eni.clinique.ihm.rendezvous;
 
+import java.awt.Font;
+import java.awt.Color;
+import java.awt.Container;
 
 import javax.swing.JInternalFrame;
 
 import javax.swing.JPanel;
-import javax.swing.JLabel;
 import javax.swing.JButton;
-import javax.swing.ImageIcon;
 import javax.swing.JTable;
-import java.awt.Font;
-import javax.swing.border.MatteBorder;
-import java.awt.Color;
-import javax.swing.border.LineBorder;
-import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
+import javax.swing.BorderFactory;
+import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
 public class EcranRendezVous extends JInternalFrame {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -4668576527947146408L;
-	private JTable table;
-
-
+	
+	private static Container CON_Main;
+	private static JPanel PAN_Pour, PAN_Par, PAN_Quand, PAN_Client, PAN_Animal, PAN_Veto;
+	private static JButton BTN_AddClient, BTN_AddAnimal, BTN_Supprimer, BTN_Valider;
+	private static JComboBox<String> CMB_Client, CMB_Animal, CMB_Veto;
+	private static TitledBorder BOR_TitledEmpty, BOR_TitledLine;
+	private static Font FON_TitledLine;
+	private static JTable TAB_Agenda;
+	
 	public EcranRendezVous() {
-		setTitle("Prise de rendez-vous");
-		setResizable(false);
-		setBorder(null);
-		setBounds(0,-22,850, 550);
-		getContentPane().setLayout(null);
 		
-		JPanel PAN_Pour = new JPanel();
-		PAN_Pour.setToolTipText("");
-		PAN_Pour.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		this.setTitle("Prise de rendez-vous");
+		this.setResizable(true);
+		this.setBorder(null);
+		this.setBounds(0, 0, 850, 550);
+		this.getContentPane().setLayout(null);
+		
+		CON_Main = this.getContentPane();
+		
+		FON_TitledLine = new Font("Arial", Font.BOLD, 12);
+		
+		BOR_TitledEmpty = new TitledBorder(BorderFactory.createEmptyBorder());
+		BOR_TitledLine = new TitledBorder(BorderFactory.createLineBorder(Color.black, 2));
+		
+		PAN_Pour = new JPanel();
+		PAN_Pour.setBorder(new TitledBorder(BOR_TitledLine, "Pour", 0, 0, FON_TitledLine));
 		PAN_Pour.setBounds(25, 25, 250, 150);
-		getContentPane().add(PAN_Pour);
 		PAN_Pour.setLayout(null);
 		
-		JPanel PAN_Client = new JPanel();
-		PAN_Client.setBorder(new TitledBorder(null, "JPanel title", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		PAN_Client.setBounds(19, 34, 210, 50);
-		PAN_Pour.add(PAN_Client);
-		PAN_Client.setLayout(null);
-		
-		JComboBox CMB_Client = new JComboBox();
-		CMB_Client.setBounds(6, 16, 150, 25);
-		PAN_Client.add(CMB_Client);
-		
-		JButton BTN_Client = new JButton("+");
-		BTN_Client.setBounds(175, 16, 25, 25);
-		PAN_Client.add(BTN_Client);
-		BTN_Client.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		
-		JLabel lblPour = new JLabel("Pour");
-		lblPour.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblPour.setBounds(10, 10, 50, 15);
-		PAN_Pour.add(lblPour);
-		
-		JPanel PAN_Animal = new JPanel();
-		PAN_Animal.setBorder(new TitledBorder(null, "JPanel title", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		PAN_Animal.setBounds(19, 84, 210, 50);
-		PAN_Pour.add(PAN_Animal);
-		PAN_Animal.setLayout(null);
-		
-		JComboBox CMB_Animal = new JComboBox();
-		CMB_Animal.setBounds(6, 16, 150, 25);
-		PAN_Animal.add(CMB_Animal);
-		
-		JButton BTN_Animal = new JButton("+");
-		BTN_Animal.setBounds(175, 16, 25, 25);
-		PAN_Animal.add(BTN_Animal);
-		BTN_Animal.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		
-		JPanel PAN_Par = new JPanel();
-		PAN_Par.setToolTipText("");
-		PAN_Par.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		PAN_Par = new JPanel();
+		PAN_Par.setBorder(new TitledBorder(BOR_TitledLine, "Par", 0, 0, FON_TitledLine));
 		PAN_Par.setBounds(300, 25, 250, 150);
-		getContentPane().add(PAN_Par);
 		PAN_Par.setLayout(null);
 		
-		JLabel lblPar = new JLabel("Par");
-		lblPar.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblPar.setBounds(10, 10, 50, 15);
-		PAN_Par.add(lblPar);
-		
-		JPanel PAN_Veto = new JPanel();
-		PAN_Veto.setLayout(null);
-		PAN_Veto.setBorder(new TitledBorder(null, "JPanel title", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		PAN_Veto.setBounds(19, 34, 210, 50);
-		PAN_Par.add(PAN_Veto);
-		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(6, 16, 150, 25);
-		PAN_Veto.add(comboBox);
-		
-		JPanel PAN_Quand = new JPanel();
-		PAN_Quand.setToolTipText("");
-		PAN_Quand.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		PAN_Quand = new JPanel();
+		PAN_Quand.setBorder(new TitledBorder(BOR_TitledLine, "Quand", 0, 0, FON_TitledLine));
 		PAN_Quand.setBounds(575, 25, 250, 150);
-		getContentPane().add(PAN_Quand);
 		PAN_Quand.setLayout(null);
 		
-		JLabel lblQuand = new JLabel("Quand");
-		lblQuand.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblQuand.setBounds(10, 10, 50, 15);
-		PAN_Quand.add(lblQuand);
+		PAN_Client = new JPanel();
+		PAN_Client.setBorder(new TitledBorder(BOR_TitledEmpty, "Client", 0, 0));
+		PAN_Client.setBounds(20, 30, 210, 50);
+		PAN_Client.setLayout(null);
 		
-		table = new JTable();
-		table.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		table.setBounds(25, 200, 800, 250);
-		getContentPane().add(table);
+		PAN_Animal = new JPanel();
+		PAN_Animal.setBorder(new TitledBorder(BOR_TitledEmpty, "Animal", 0, 0));
+		PAN_Animal.setBounds(20, 80, 210, 50);
+		PAN_Animal.setLayout(null);
 		
-		JButton btnSupprimer = new JButton("Supprimer");
-		btnSupprimer.setBounds(600, 470, 100, 30);
-		getContentPane().add(btnSupprimer);
+		PAN_Veto = new JPanel();
+		PAN_Veto.setBorder(new TitledBorder(BOR_TitledEmpty, "Vétérinaire", 0, 0));
+		PAN_Veto.setBounds(20, 30, 210, 50);
+		PAN_Veto.setLayout(null);
 		
-		JButton btnValider = new JButton("Valider");
-		btnValider.setBounds(725, 470, 100, 30);
-		getContentPane().add(btnValider);
-	}		
+		CMB_Client = new JComboBox<String>();
+		CMB_Client.setBounds(6, 16, 150, 25);
+		
+		BTN_AddClient = new JButton("+");
+		BTN_AddClient.setBounds(175, 16, 25, 25);
+		BTN_AddClient.setFont(FON_TitledLine);
+		
+		CMB_Animal = new JComboBox<String>();
+		CMB_Animal.setBounds(6, 16, 150, 25);
+		
+		BTN_AddAnimal = new JButton("+");
+		BTN_AddAnimal.setBounds(175, 16, 25, 25);
+		BTN_AddAnimal.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		
+		CMB_Veto = new JComboBox<String>();
+		CMB_Veto.setBounds(6, 16, 150, 25);
+		
+		TAB_Agenda = new JTable();
+		TAB_Agenda.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		TAB_Agenda.setBounds(25, 200, 800, 250);
+		
+		BTN_Supprimer = new JButton("Supprimer");
+		BTN_Supprimer.setBounds(600, 470, 100, 30);
+		
+		BTN_Valider = new JButton("Valider");
+		BTN_Valider.setBounds(725, 470, 100, 30);
+		
+		PAN_Client.add(CMB_Client);
+		PAN_Client.add(BTN_AddClient);
+		PAN_Animal.add(CMB_Animal);
+		PAN_Animal.add(BTN_AddAnimal);
+		PAN_Veto.add(CMB_Veto);
+		
+		PAN_Pour.add(PAN_Client);
+		PAN_Pour.add(PAN_Animal);
+		PAN_Par.add(PAN_Veto);
+		
+		CON_Main.add(PAN_Pour);
+		CON_Main.add(PAN_Par);
+		CON_Main.add(PAN_Quand);
+		CON_Main.add(TAB_Agenda);
+		CON_Main.add(BTN_Supprimer);
+		CON_Main.add(BTN_Valider);
+		
+	}
+
 }
