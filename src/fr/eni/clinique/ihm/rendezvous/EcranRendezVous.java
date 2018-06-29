@@ -1,23 +1,23 @@
 package fr.eni.clinique.ihm.rendezvous;
 
 import java.awt.Font;
-import java.util.Properties;
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Dimension;
 
-import javax.swing.JInternalFrame;
+import java.util.Properties;
 
 import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.JComboBox;
 import javax.swing.BorderFactory;
+import javax.swing.JInternalFrame;
 import javax.swing.border.TitledBorder;
 
+import org.jdatepicker.impl.UtilDateModel;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
-import org.jdatepicker.impl.UtilDateModel;
-import java.awt.Dimension;
 
 public class EcranRendezVous extends JInternalFrame {
 
