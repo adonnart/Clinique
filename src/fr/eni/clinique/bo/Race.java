@@ -7,7 +7,6 @@ public class Race {
 	public Race() { }
 	
 	public Race(String race, String espece) {
-		super();
 		setRace(race);
 		setEspece(espece);
 	}

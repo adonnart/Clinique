@@ -9,7 +9,6 @@ public class Personnel {
 	public Personnel() { }
 	
 	public Personnel(Integer codePers,String nom, String motPasse, String role, boolean archive) {
-		super();
 		setCodePers(codePers);
 		setNom(nom);
 		setMotPasse(motPasse);
@@ -18,7 +17,6 @@ public class Personnel {
 	}
 	
 	public Personnel(String nom, String motPasse, String role, boolean archive) {
-		super();
 		setNom(nom);
 		setMotPasse(motPasse);
 		setRole(role);

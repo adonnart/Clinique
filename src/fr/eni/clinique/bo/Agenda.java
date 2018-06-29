@@ -14,14 +14,12 @@ public class Agenda {
 	public Agenda() { }
 	
 	public Agenda(Personnel p, Animal a, Date dateRdv) {
-		super();
 		setCodeVeto(p.getCodePers());
 		setCodeAnimal(a.getCodeAnimal());
 		setDateRdv(dateRdv);
 	}
 	
 	public Agenda(Integer codeV, Integer codeA, Date dateRdv) {
-		super();
 		setCodeVeto(codeVeto);
 		setCodeAnimal(codeAnimal);
 		setDateRdv(dateRdv);
