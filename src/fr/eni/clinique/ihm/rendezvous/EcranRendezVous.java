@@ -40,9 +40,9 @@ public class EcranRendezVous extends JInternalFrame {
 		this.setResizable(true);
 		this.setBorder(null);
 		this.setBounds(0, 0, 850, 550);
-		this.getContentPane().setLayout(null);
 		
 		CON_Main = this.getContentPane();
+		CON_Main.setLayout(null);
 		
 		FON_ArialBold = new Font("Arial", Font.BOLD, 12);
 		
@@ -119,8 +119,8 @@ public class EcranRendezVous extends JInternalFrame {
 		DAT_DatePanel = new JDatePanelImpl(new UtilDateModel(), PRO_Perties);
 		
 		DAT_DatePicker = new JDatePickerImpl(DAT_DatePanel, new DateLabelFormatter());
-		DAT_DatePicker.getJFormattedTextField().setBackground(Color.WHITE);
 		DAT_DatePicker.getJFormattedTextField().setPreferredSize(new Dimension(175, 25));
+		DAT_DatePicker.getJFormattedTextField().setBackground(Color.WHITE);
 		DAT_DatePicker.setBorder(null);
 		DAT_DatePicker.setSize(200, 25);
 		DAT_DatePicker.setLocation(5, 15);
