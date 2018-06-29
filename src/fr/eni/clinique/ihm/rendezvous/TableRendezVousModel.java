@@ -11,7 +11,7 @@ public class TableRendezVousModel extends AbstractTableModel {
 	private static final long serialVersionUID = 1L;
 	
 	private List<Agenda> listAgenda;
-	String[] entetes = {"Heure", "Nom du client", "Animal", "Race"};
+	String[] entetes = {"Heure", "Nom Client", "Animal", "Race"};
 	
 	public TableRendezVousModel(List<Agenda> listAgenda) {
 		this.listAgenda = listAgenda;
@@ -48,6 +48,7 @@ public class TableRendezVousModel extends AbstractTableModel {
 			case 0 : return String.class;
 			case 1 : return String.class;
 			case 2 : return String.class;
+			case 3 : return String.class;
 			default: return Object.class;
 		}
 	}

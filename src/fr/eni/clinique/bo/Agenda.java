@@ -1,8 +1,8 @@
 package fr.eni.clinique.bo;
 
-import java.util.Date;
-
 import fr.eni.clinique.dal.Queries;
+
+import java.util.Date;
 
 public class Agenda {
 
@@ -15,16 +15,16 @@ public class Agenda {
 	
 	public Agenda(Personnel p, Animal a, Date dateRdv) {
 		super();
-		this.codeVeto = p.getCodePers();
-		this.codeAnimal = a.getCodeAnimal();
-		this.dateRdv = dateRdv;
+		setCodeVeto(p.getCodePers());
+		setCodeAnimal(a.getCodeAnimal());
+		setDateRdv(dateRdv);
 	}
 	
 	public Agenda(Integer codeV, Integer codeA, Date dateRdv) {
 		super();
-		this.codeVeto = codeV;
-		this.codeAnimal = codeA;
-		this.dateRdv = dateRdv;
+		setCodeVeto(codeVeto);
+		setCodeAnimal(codeAnimal);
+		setDateRdv(dateRdv);
 	}
 	
 	public Personnel getPersonnel() { return p; }

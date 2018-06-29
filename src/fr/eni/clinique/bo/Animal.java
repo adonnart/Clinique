@@ -12,30 +12,30 @@ public class Animal {
 	public Animal(Integer codeAnimal, String nomAnimal, char sexe, String couleur, String race, 
 				  String espece, Integer codeClient, String tatouage, String antecedents, boolean archive) {
 		super();
-		this.codeAnimal = codeAnimal;
-		this.nomAnimal = nomAnimal;
-		this.sexe = sexe;
-		this.couleur = couleur;
-		this.race = race;
-		this.espece = espece;
-		this.codeClient = codeClient;
-		this.tatouage = tatouage;
-		this.antecedents = antecedents;
-		this.archive = archive;
+		setCodeAnimal(codeAnimal);
+		setNomAnimal(nomAnimal);
+		setSexe(sexe);
+		setCouleur(couleur);
+		setRace(race);
+		setEspece(espece);
+		setCodeClient(codeClient);
+		setTatouage(tatouage);
+		setAntecedents(antecedents);
+		setArchive(archive);
 	}
 	
 	public Animal(String nomAnimal, char sexe, String couleur, String race, 
 				  String espece, Integer codeClient, String tatouage, String antecedents, boolean archive) {
 		super();
-		this.nomAnimal = nomAnimal;
-		this.sexe = sexe;
-		this.couleur = couleur;
-		this.race = race;
-		this.espece = espece;
-		this.codeClient = codeClient;
-		this.tatouage = tatouage;
-		this.antecedents = antecedents;
-		this.archive = archive;
+		setNomAnimal(nomAnimal);
+		setSexe(sexe);
+		setCouleur(couleur);
+		setRace(race);
+		setEspece(espece);
+		setCodeClient(codeClient);
+		setTatouage(tatouage);
+		setAntecedents(antecedents);
+		setArchive(archive);
 	}
 	
 	public Integer getCodeAnimal() { return codeAnimal; }

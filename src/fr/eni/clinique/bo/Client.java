@@ -16,38 +16,36 @@ public class Client {
 				  String adresse1, String adresse2, String codePostal, String ville, 
 				  String numTel, String assurance, String email, String remarque, boolean archive) {
 		super();
-		this.codeClient = codeClient;
-		this.nomClient = nomClient;
-		this.prenomClient = prenomClient;
-		this.adresse1 = adresse1;
-		this.adresse2 = adresse2;
-		this.codePostal = codePostal;
-		this.ville = ville;
-		this.numTel = numTel;
-		this.assurance = assurance;
-		this.email = email;
-		this.remarque = remarque;
-		this.archive = archive;
+		setCodeClient(codeClient);
+		setNomClient(nomClient);
+		setPrenomClient(prenomClient);
+		setAdresse1(adresse1);
+		setAdresse2(adresse2);
+		setCodePostal(codePostal);
+		setVille(ville);
+		setNumTel(numTel);
+		setAssurance(assurance);
+		setEmail(email);
+		setRemarque(remarque);
+		setArchive(archive);
 	}
 	
 	public Client(String nomClient, String prenomClient, 
 				  String adresse1, String adresse2, String codePostal, String ville, 
 				  String numTel, String assurance, String email, String remarque, boolean archive) {
 		super();
-		this.nomClient = nomClient;
-		this.prenomClient = prenomClient;
-		this.adresse1 = adresse1;
-		this.adresse2 = adresse2;
-		this.codePostal = codePostal;
-		this.ville = ville;
-		this.numTel = numTel;
-		this.assurance = assurance;
-		this.email = email;
-		this.remarque = remarque;
-		this.archive = archive;
+		setNomClient(nomClient);
+		setPrenomClient(prenomClient);
+		setAdresse1(adresse1);
+		setAdresse2(adresse2);
+		setCodePostal(codePostal);
+		setVille(ville);
+		setNumTel(numTel);
+		setAssurance(assurance);
+		setEmail(email);
+		setRemarque(remarque);
+		setArchive(archive);
 	}
-	
-	public void addAnimal(Animal animal){ listAnimal.add(animal); }
 	
 	public Integer getCodeClient() { return codeClient; }
 	public void setCodeClient(Integer codeClient) { this.codeClient = codeClient; }
@@ -87,6 +85,8 @@ public class Client {
 	
 	public List<Animal> getListAnimal() { return listAnimal; }
 	public void setListAnimal(List<Animal> listAnimal) { this.listAnimal = listAnimal; }
+	
+	public void addAnimal(Animal animal){ listAnimal.add(animal); }
 	
 	@Override
 	public String toString() {
