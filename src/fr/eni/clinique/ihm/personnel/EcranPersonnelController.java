@@ -27,7 +27,7 @@ public class EcranPersonnelController {
 
 		try {
 			mger = PersonnelManager.getInstance();	
-			listPersonnel = mger.getAllPersonnel();
+			
 		} catch (fr.eni.clinique.bll.BLLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -40,11 +40,17 @@ public class EcranPersonnelController {
 	}
 	
 	public List<Personnel> getListPersonnel() {
+		try {
+			listPersonnel = mger.getAllPersonnel();
+		} catch (BLLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return listPersonnel;
 	}
 	
 	public void refresh(){
-			
+		ecrPersonnel.dispose();	
 	}
 	public EcranPersonnel getEcranPersonnel() {
 		return ecrPersonnel;

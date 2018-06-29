@@ -53,10 +53,14 @@ public class FormulaireController {
 			p.setRole(ecrFormulaire.getTxtRole().getText());
 			mger.addPersonnel(p);
 			ecrFormulaire.dispose();
-			MainFrameController.get().gestionPersonnel();
+			refreshtabPersonnel();
 		} catch (BLLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	} 
+	public void refreshtabPersonnel(){
+		EcranPersonnelController.get().refresh();
+		MainFrameController.get().gestionPersonnel();	
+	}
 }
