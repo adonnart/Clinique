@@ -15,6 +15,7 @@ public class Client {
 	public Client(Integer codeClient,String nomClient, String prenomClient, 
 				  String adresse1, String adresse2, String codePostal, String ville, 
 				  String numTel, String assurance, String email, String remarque, boolean archive) {
+		super();
 		setCodeClient(codeClient);
 		setNomClient(nomClient);
 		setPrenomClient(prenomClient);
@@ -32,6 +33,7 @@ public class Client {
 	public Client(String nomClient, String prenomClient, 
 				  String adresse1, String adresse2, String codePostal, String ville, 
 				  String numTel, String assurance, String email, String remarque, boolean archive) {
+		super();
 		setNomClient(nomClient);
 		setPrenomClient(prenomClient);
 		setAdresse1(adresse1);

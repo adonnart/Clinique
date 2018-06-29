@@ -11,6 +11,7 @@ public class Animal {
 	
 	public Animal(Integer codeAnimal, String nomAnimal, char sexe, String couleur, String race, 
 				  String espece, Integer codeClient, String tatouage, String antecedents, boolean archive) {
+		super();
 		setCodeAnimal(codeAnimal);
 		setNomAnimal(nomAnimal);
 		setSexe(sexe);
@@ -25,6 +26,7 @@ public class Animal {
 	
 	public Animal(String nomAnimal, char sexe, String couleur, String race, 
 				  String espece, Integer codeClient, String tatouage, String antecedents, boolean archive) {
+		super();
 		setNomAnimal(nomAnimal);
 		setSexe(sexe);
 		setCouleur(couleur);
