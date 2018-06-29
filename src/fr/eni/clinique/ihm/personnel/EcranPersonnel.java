@@ -74,6 +74,11 @@ public class EcranPersonnel extends JInternalFrame {
 		panel.add(btnAjouter);
 		
 		JButton btnSurpprimer = new JButton("");
+		btnSurpprimer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				EcranPersonnelController.get().supprimer();
+			}
+		});
 		btnSurpprimer.setIcon(new ImageIcon(EcranPersonnel.class.getResource("/fr/eni/clinique/ihm/img/minus.png")));
 		btnSurpprimer.setBounds(140, 11, 38, 37);
 		panel.add(btnSurpprimer);
@@ -103,5 +108,6 @@ public class EcranPersonnel extends JInternalFrame {
 		}
 		return modele;
 	}
+
 	
 }

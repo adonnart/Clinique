@@ -55,4 +55,13 @@ public class EcranPersonnelController {
 	public EcranPersonnel getEcranPersonnel() {
 		return ecrPersonnel;
 	}
+	public void supprimer(){
+		Personnel p = new Personnel();
+		try {
+			mger.removePersonnel(p,1);
+		} catch (BLLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
