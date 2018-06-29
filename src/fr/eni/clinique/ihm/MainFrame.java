@@ -15,6 +15,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.SwingConstants;
 
+import fr.eni.clinique.ihm.login.EcranLogin;
 import fr.eni.clinique.ihm.login.EcranLoginController;
 import fr.eni.clinique.ihm.personnel.EcranPersonnel;
 import fr.eni.clinique.ihm.personnel.EcranPersonnelController;
@@ -117,9 +118,11 @@ public class MainFrame extends JFrame implements ActionListener {
 			System.exit(0);
 			break;
 		case "gestion des rendez-vous":
+			desktopPane.removeAll();
 			System.out.println("gestion des rendez-vous");
 			break;
 		case "gestion du personnel":
+
 			desktopPane.removeAll();
 			desktopPane.add(EcranPersonnelController.get().openEcranPersonnel());
 			System.out.println("Ouverture frame gestion du personnel");

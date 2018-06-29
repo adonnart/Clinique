@@ -21,7 +21,7 @@ public class PersonnelManager {
 		return personnelManager;
 	}
 
-	public void addClient(Personnel personnel) throws BLLException {
+	public void addPersonnel(Personnel personnel) throws BLLException {
 		try {
 			personnelDao.insert(personnel);
 		} catch (Exception e) {
@@ -29,7 +29,7 @@ public class PersonnelManager {
 		}
 	}
 
-	public void updateClient(Personnel personnel) throws BLLException {
+	public void updatePersonnel(Personnel personnel) throws BLLException {
 		try {
 			personnelDao.update(personnel);
 		} catch (Exception e) {
@@ -37,15 +37,15 @@ public class PersonnelManager {
 		}
 	}
 
-	public void selectClient(int codeclient) throws BLLException {
+	public void selectPersonnel(int codepersonnel) throws BLLException {
 		try {
-			personnelDao.selectById(codeclient);
+			personnelDao.selectById(codepersonnel);
 		} catch (Exception e) {
 			throw new BLLException(e.getMessage());
 		}
 	}
 
-	public void removeClient(Personnel personnel, int index) throws BLLException {
+	public void removePersonnel(Personnel personnel, int index) throws BLLException {
 		try {
 			if (index < 0) {
 				throw new BLLException("'id' ne doit pas être à 0");
