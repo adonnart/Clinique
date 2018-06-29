@@ -97,14 +97,12 @@ public class EcranRendezVous extends JInternalFrame {
 		
 		BTN_AddClient = new JButton("+");
 		BTN_AddClient.setBounds(175, 15, 25, 25);
-		//BTN_AddClient.setFont(FON_ArialBold);
 		
 		CMB_Animal = new JComboBox<String>();
 		CMB_Animal.setBounds(5, 15, 150, 25);
 		
 		BTN_AddAnimal = new JButton("+");
 		BTN_AddAnimal.setBounds(175, 15, 25, 25);
-		//BTN_AddAnimal.setFont(FON_ArialBold);
 		
 		CMB_Veto = new JComboBox<String>();
 		CMB_Veto.setBounds(5, 15, 150, 25);
