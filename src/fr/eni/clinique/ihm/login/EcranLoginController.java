@@ -6,6 +6,7 @@ import fr.eni.clinique.bll.BLLException;
 import fr.eni.clinique.bll.LoginManager;
 import fr.eni.clinique.bo.Personnel;
 import fr.eni.clinique.ihm.MainFrame;
+import fr.eni.clinique.ihm.MainFrameController;
 
 public class EcranLoginController implements ILoginObserver {
 
@@ -66,8 +67,7 @@ public class EcranLoginController implements ILoginObserver {
 			}
 			if(mger.checkConnexion(p).equalsIgnoreCase("adm")){
 				JOptionPane.showMessageDialog(ecrLogin,"Login Administrateur","Connexion",JOptionPane.PLAIN_MESSAGE);
-				ecrMain = new MainFrame();
-				ecrMain.setVisible(true);
+				MainFrameController.get().openMainFrame();
 				ecrLogin.setVisible(false);
 			}
 		} catch (BLLException e) {

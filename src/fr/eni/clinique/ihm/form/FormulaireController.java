@@ -5,7 +5,8 @@ import java.util.List;
 import fr.eni.clinique.bll.BLLException;
 import fr.eni.clinique.bll.PersonnelManager;
 import fr.eni.clinique.bo.Personnel;
-
+import fr.eni.clinique.ihm.MainFrameController;
+import fr.eni.clinique.ihm.personnel.EcranPersonnel;
 import fr.eni.clinique.ihm.personnel.EcranPersonnelController;
 
 public class FormulaireController {
@@ -14,11 +15,11 @@ public class FormulaireController {
 	// Attributs
 	private PersonnelManager mger;
 
-	private static EcranPersonnelController instance;
+	private static FormulaireController instance;
 
-	public static synchronized EcranPersonnelController get() {
+	public static synchronized FormulaireController get() {
 		if (instance == null) {
-			instance = new EcranPersonnelController();
+			instance = new FormulaireController();
 		}
 		return instance;
 	}
@@ -43,13 +44,16 @@ public class FormulaireController {
 		return listPersonnel;
 	}
 
-	public void AjouterPersonnel() {
-		Personnel p = new Personnel();
-		p.setNom(ecrFormulaire.getTxtNom().getText());
-		p.setMotPasse(ecrFormulaire.getTxtPassword().getText());
-		p.setRole(ecrFormulaire.getTxtRole().getText());
-		try {
+	public void ajouterPersonnel() {
+
+		try {	
+			Personnel p = new Personnel();
+			p.setNom(ecrFormulaire.getTxtNom().getText());
+			p.setMotPasse(ecrFormulaire.getTxtPassword().getText());
+			p.setRole(ecrFormulaire.getTxtRole().getText());
 			mger.addPersonnel(p);
+			ecrFormulaire.dispose();
+			MainFrameController.get().gestionPersonnel();
 		} catch (BLLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

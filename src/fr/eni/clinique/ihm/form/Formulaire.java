@@ -29,6 +29,7 @@ public class Formulaire extends JDialog {
 	 * Create the dialog.
 	 */
 	public Formulaire() {
+		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Formulaire.class.getResource("/fr/eni/clinique/ihm/img/ico_veto.png")));
 		setTitle("Ajouter personnel");
 		setBounds(100, 100, 361, 299);
@@ -77,8 +78,7 @@ public class Formulaire extends JDialog {
 				JButton okButton = new JButton("OK");
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
-						FormulaireController.get().ajouter();
-						setVisible(false);
+						FormulaireController.get().ajouterPersonnel();
 					}
 				});
 				okButton.setActionCommand("OK");
@@ -87,6 +87,11 @@ public class Formulaire extends JDialog {
 			}
 			{
 				JButton cancelButton = new JButton("Cancel");
+				cancelButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						dispose();
+					}
+				});
 				cancelButton.setActionCommand("Cancel");
 				buttonPane.add(cancelButton);
 			}

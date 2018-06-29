@@ -42,12 +42,11 @@ public class EcranPersonnelController {
 	public List<Personnel> getListPersonnel() {
 		return listPersonnel;
 	}
-
-	public void ajouter() {
-		Formulaire ecrForm = new Formulaire();
-		ecrForm.setVisible(true);
-	} 
 	
-	
-
+	public void refresh(){
+			
+	}
+	public EcranPersonnel getEcranPersonnel() {
+		return ecrPersonnel;
+	}
 }
