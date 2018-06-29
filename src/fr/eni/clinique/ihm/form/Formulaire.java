@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
 
 public class Formulaire extends JDialog {
 
@@ -28,6 +29,7 @@ public class Formulaire extends JDialog {
 	 * Create the dialog.
 	 */
 	public Formulaire() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Formulaire.class.getResource("/fr/eni/clinique/ihm/img/ico_veto.png")));
 		setTitle("Ajouter personnel");
 		setBounds(100, 100, 361, 299);
 		getContentPane().setLayout(new BorderLayout());
