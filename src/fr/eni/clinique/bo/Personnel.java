@@ -10,19 +10,19 @@ public class Personnel {
 	
 	public Personnel(Integer codePers,String nom, String motPasse, String role, boolean archive) {
 		super();
-		this.codePers= codePers;
-		this.nom = nom;
-		this.motPasse = motPasse;
-		this.role = role;
-		this.archive = archive;
+		setCodePers(codePers);
+		setNom(nom);
+		setMotPasse(motPasse);
+		setRole(role);
+		setArchive(archive);
 	}
 	
 	public Personnel(String nom, String motPasse, String role, boolean archive) {
 		super();
-		this.nom = nom;
-		this.motPasse = motPasse;
-		this.role = role;
-		this.archive = archive;
+		setNom(nom);
+		setMotPasse(motPasse);
+		setRole(role);
+		setArchive(archive);
 	}
 	
 	public Integer getCodePers() { return codePers; }
@@ -35,7 +35,7 @@ public class Personnel {
 	public void setMotPasse(String motPasse) { this.motPasse = motPasse; }
 	
 	public String getRole() { return role; }
-	public void setRole(String role) { this.role = role; }
+	public void setRole(String role) { this.role = role.toUpperCase(); }
 	
 	public boolean isArchive() { return archive; }
 	public void setArchive(Boolean archive) { this.archive = archive; }
