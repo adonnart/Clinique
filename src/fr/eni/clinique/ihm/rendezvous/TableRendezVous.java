@@ -3,7 +3,6 @@ package fr.eni.clinique.ihm.rendezvous;
 import fr.eni.clinique.bo.Agenda;
 
 import java.awt.Dimension;
-
 import java.util.List;
 
 import javax.swing.JTable;

@@ -1,8 +1,8 @@
 package fr.eni.clinique.ihm.rendezvous;
 
-import java.util.List;
-
 import fr.eni.clinique.bo.Agenda;
+
+import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
