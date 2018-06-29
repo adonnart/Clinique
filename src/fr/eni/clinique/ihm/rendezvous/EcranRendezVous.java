@@ -1,23 +1,23 @@
 package fr.eni.clinique.ihm.rendezvous;
 
 import java.awt.Font;
-import java.util.Properties;
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Dimension;
 
-import javax.swing.JInternalFrame;
+import java.util.Properties;
 
 import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.JComboBox;
 import javax.swing.BorderFactory;
+import javax.swing.JInternalFrame;
 import javax.swing.border.TitledBorder;
 
+import org.jdatepicker.impl.UtilDateModel;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
-import org.jdatepicker.impl.UtilDateModel;
-import java.awt.Dimension;
 
 public class EcranRendezVous extends JInternalFrame {
 
@@ -40,9 +40,9 @@ public class EcranRendezVous extends JInternalFrame {
 		this.setResizable(true);
 		this.setBorder(null);
 		this.setBounds(0, 0, 850, 550);
-		this.getContentPane().setLayout(null);
 		
 		CON_Main = this.getContentPane();
+		CON_Main.setLayout(null);
 		
 		FON_ArialBold = new Font("Arial", Font.BOLD, 12);
 		
@@ -119,8 +119,8 @@ public class EcranRendezVous extends JInternalFrame {
 		DAT_DatePanel = new JDatePanelImpl(new UtilDateModel(), PRO_Perties);
 		
 		DAT_DatePicker = new JDatePickerImpl(DAT_DatePanel, new DateLabelFormatter());
-		DAT_DatePicker.getJFormattedTextField().setBackground(Color.WHITE);
 		DAT_DatePicker.getJFormattedTextField().setPreferredSize(new Dimension(175, 25));
+		DAT_DatePicker.getJFormattedTextField().setBackground(Color.WHITE);
 		DAT_DatePicker.setBorder(null);
 		DAT_DatePicker.setSize(200, 25);
 		DAT_DatePicker.setLocation(5, 15);
