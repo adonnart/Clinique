@@ -33,7 +33,6 @@ public class MainFrame extends JFrame implements ActionListener {
 	public MainFrame() {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 	//	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		setBounds(0, 0, 1200, 800);
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Administrateur\\Desktop\\Ressource\\Images\\ico_veto.png"));

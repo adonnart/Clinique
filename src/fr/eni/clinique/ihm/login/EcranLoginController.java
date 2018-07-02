@@ -12,7 +12,7 @@ public class EcranLoginController implements ILoginObserver {
 
 	private EcranLogin ecrLogin;
 	private MainFrame ecrMain;
-	// Attributs
+	Personnel p ;
 	private LoginManager mger;
 
 	private static EcranLoginController instance;
@@ -44,13 +44,13 @@ public class EcranLoginController implements ILoginObserver {
 	@Override
 	public void valider() {
 		System.out.println("test valider");
-		Personnel p = new Personnel();
+		p = new Personnel();
 		p.setNom(ecrLogin.getTxtNom().getText());	
 		p.setMotPasse(new String(ecrLogin.getPassField().getPassword()));
 		
 		try {
-			System.out.println(mger.checkConnexion(p).getRole());
-			if (mger.checkConnexion(p).equals(null)) {
+			System.out.println(mger.checkConnexion(p));
+			if (mger.checkConnexion(p) == null) {
 				ecrLogin.msgErreur("Login ERROR");
 			}
 			if(mger.checkConnexion(p).getRole().equalsIgnoreCase("sec")){
@@ -75,5 +75,14 @@ public class EcranLoginController implements ILoginObserver {
 			e.printStackTrace();
 		}
 
+	}
+	public Personnel getPersonnelConnected(){
+		try {
+			return mger.checkConnexion(p);
+		} catch (BLLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 }
