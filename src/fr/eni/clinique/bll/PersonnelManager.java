@@ -1,5 +1,6 @@
 package fr.eni.clinique.bll;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import fr.eni.clinique.bo.Personnel;
@@ -58,7 +59,14 @@ public class PersonnelManager {
 	public List<Personnel> getAllPersonnel() throws BLLException{
 
 		try {
-			return personnelDao.selectAll();
+			List<Personnel> listPersonnel = personnelDao.selectAll();
+			List<Personnel>	listNonArchive = new ArrayList<Personnel>();
+			for (Personnel p : listPersonnel){
+				if(p.isArchive() == false){
+					listNonArchive.add(p);
+				}
+			}
+			return listNonArchive;
 		} catch (DALException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

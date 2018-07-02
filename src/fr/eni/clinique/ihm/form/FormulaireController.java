@@ -37,6 +37,7 @@ public class FormulaireController {
 	public Formulaire openFormulaire() {
 		ecrFormulaire = new Formulaire();
 		ecrFormulaire.setVisible(true);
+		EcranPersonnelController.get().getEcranPersonnel().setEnabled(false);
 		return ecrFormulaire;
 	}
 	

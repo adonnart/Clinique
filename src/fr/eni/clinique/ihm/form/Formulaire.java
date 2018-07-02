@@ -29,6 +29,7 @@ public class Formulaire extends JDialog {
 	 * Create the dialog.
 	 */
 	public Formulaire() {
+		setModal(true);
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Formulaire.class.getResource("/fr/eni/clinique/ihm/img/ico_veto.png")));
 		setTitle("Ajouter personnel");

@@ -64,5 +64,5 @@ public class TablePersonnelModel extends AbstractTableModel {
 				return Object.class;
 		}
 	}
-
+	
 }

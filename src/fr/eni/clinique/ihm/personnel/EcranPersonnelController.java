@@ -5,6 +5,7 @@ import fr.eni.clinique.bll.BLLException;
 import fr.eni.clinique.bll.PersonnelManager;
 import fr.eni.clinique.bo.Personnel;
 import fr.eni.clinique.ihm.MainFrame;
+import fr.eni.clinique.ihm.MainFrameController;
 import fr.eni.clinique.ihm.form.Formulaire;
 
 public class EcranPersonnelController {
@@ -56,9 +57,15 @@ public class EcranPersonnelController {
 		return ecrPersonnel;
 	}
 	public void supprimer(){
-		Personnel p = new Personnel();
+
 		try {
-			mger.removePersonnel(p,1);
+		    int selectedRow = ecrPersonnel.getTablePersonnel().getSelectedRow();
+		    System.out.println(selectedRow);
+		    	Personnel p = listPersonnel.get(selectedRow);
+		    	p.setArchive(true);
+			mger.updatePersonnel(p);;
+			refresh();
+			MainFrameController.get().gestionPersonnel();	
 		} catch (BLLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -47,25 +47,25 @@ public class EcranLoginController implements ILoginObserver {
 		Personnel p = new Personnel();
 		p.setNom(ecrLogin.getTxtNom().getText());	
 		p.setMotPasse(new String(ecrLogin.getPassField().getPassword()));
-		System.out.println(new String(ecrLogin.getPassField().getPassword()));
+		
 		try {
-			
-			if (mger.checkConnexion(p).equalsIgnoreCase("false")) {
+			System.out.println(mger.checkConnexion(p).getRole());
+			if (mger.checkConnexion(p).equals(null)) {
 				ecrLogin.msgErreur("Login ERROR");
 			}
-			if(mger.checkConnexion(p).equalsIgnoreCase("sec")){
+			if(mger.checkConnexion(p).getRole().equalsIgnoreCase("sec")){
 				JOptionPane.showMessageDialog(ecrLogin,"Login Secretaire","Connexion",JOptionPane.PLAIN_MESSAGE);
 				ecrMain = new MainFrame();
 				ecrMain.setVisible(true);
 				ecrLogin.setVisible(false);
 			}
-			if(mger.checkConnexion(p).equalsIgnoreCase("vet")){
+			if(mger.checkConnexion(p).getRole().equalsIgnoreCase("vet")){
 				JOptionPane.showMessageDialog(ecrLogin,"Login Veterinaire","Connexion",JOptionPane.PLAIN_MESSAGE);
 				ecrMain = new MainFrame();
 				ecrMain.setVisible(true);
 				ecrLogin.setVisible(false);
 			}
-			if(mger.checkConnexion(p).equalsIgnoreCase("adm")){
+			if(mger.checkConnexion(p).getRole().equalsIgnoreCase("adm")){
 				JOptionPane.showMessageDialog(ecrLogin,"Login Administrateur","Connexion",JOptionPane.PLAIN_MESSAGE);
 				MainFrameController.get().openMainFrame();
 				ecrLogin.setVisible(false);

@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import java.awt.Font;
+import java.awt.Frame;
 import java.awt.GridLayout;
 
 import javax.swing.border.MatteBorder;
@@ -76,7 +77,10 @@ public class EcranPersonnel extends JInternalFrame {
 		JButton btnSurpprimer = new JButton("");
 		btnSurpprimer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				EcranPersonnelController.get().supprimer();
+				 int a=JOptionPane.showConfirmDialog(new Frame(),"Voulez vous vraiment supprimer ce personnel?","Supprimer", JOptionPane.YES_NO_OPTION);  
+				 if(a==JOptionPane.YES_OPTION){  
+					EcranPersonnelController.get().supprimer();	
+				 }
 			}
 		});
 		btnSurpprimer.setIcon(new ImageIcon(EcranPersonnel.class.getResource("/fr/eni/clinique/ihm/img/minus.png")));

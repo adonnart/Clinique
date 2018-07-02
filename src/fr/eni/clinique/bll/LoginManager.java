@@ -17,20 +17,18 @@ public class LoginManager {
 		return loginManager;
 	}
 
-	public String checkConnexion(Personnel p) throws BLLException {
+	public Personnel checkConnexion(Personnel p) throws BLLException {
 		try {
 			List<Personnel> personnelList = personnelDao.selectAll();
-			System.out.println(p.getNom()+" - "+p.getMotPasse());
 			for (Personnel pers : personnelList) {
-				if (p.getNom().equalsIgnoreCase(pers.getNom()) && p.getMotPasse().equals(pers.getMotPasse())){ 
-					System.out.println(pers.getRole());
-					return pers.getRole();
+				if (p.getNom().equalsIgnoreCase(pers.getNom()) && p.getMotPasse().equals(pers.getMotPasse()) && p.isArchive() == false){ 
+					return pers;
 				}
 			}
 		} catch (Exception e) {
 			throw new BLLException(e.getMessage());
 		}
-		return "False";
+		return null;
 	}
 
 }
