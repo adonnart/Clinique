@@ -71,4 +71,17 @@ public class EcranPersonnelController {
 			e.printStackTrace();
 		}
 	}
+	public void changer(){
+		int selectedRow = ecrPersonnel.getTablePersonnel().getSelectedRow();
+		Personnel p = listPersonnel.get(selectedRow);
+		p.setMotPasse(ChangerMDPController.get().nouveauMDP());
+		try {
+			mger.updatePersonnel(p);
+		} catch (BLLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};
+		refresh();
+		MainFrameController.get().gestionPersonnel();	
+	}
 }

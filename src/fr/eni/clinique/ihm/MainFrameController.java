@@ -4,6 +4,8 @@ import java.util.List;
 
 import fr.eni.clinique.bll.PersonnelManager;
 import fr.eni.clinique.bo.Personnel;
+import fr.eni.clinique.ihm.client.EcranClient;
+import fr.eni.clinique.ihm.client.EcranClientController;
 import fr.eni.clinique.ihm.login.EcranLoginController;
 import fr.eni.clinique.ihm.personnel.EcranPersonnel;
 import fr.eni.clinique.ihm.personnel.EcranPersonnelController;
@@ -46,10 +48,15 @@ public class MainFrameController {
 			ecrMain.getDesktopPane().removeAll();
 			ecrMain.getDesktopPane().add(EcranRendezVousController.get().startFrame());
 		}
+		public void gestionClient(){
+			ecrMain.getDesktopPane().removeAll();
+			ecrMain.getDesktopPane().add(EcranClientController.get().startFrame());	
+		}
 		
 		public void agenda(){
 			
 		}
+		
 		public void gestionPersonnel(){
 			ecrMain.getDesktopPane().removeAll();
 			ecrMain.getDesktopPane().add(EcranPersonnelController.get().openEcranPersonnel());

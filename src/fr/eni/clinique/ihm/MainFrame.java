@@ -28,6 +28,7 @@ public class MainFrame extends JFrame implements ActionListener {
 	private JMenuBar menuBarre;
 	private JMenu menuAgenda;
 	private EcranPersonnel frmClient;
+	private JMenuItem mntmGestionDesClients;
 
 
 	public MainFrame() {
@@ -56,8 +57,9 @@ public class MainFrame extends JFrame implements ActionListener {
 
 		// Menu Fichier
 		JMenu menu = new JMenu("Fichier");
+		JMenu menu2 = new JMenu("Gestion des rendez-vous");
 		menuBarre.add(menu);
-
+		menuBarre.add(menu2);
 		// Sous menu DÃ©connexion
 		JMenuItem menuItem = new JMenuItem("Déconnexion");
 		menuItem.setActionCommand("deconnexion");
@@ -70,12 +72,17 @@ public class MainFrame extends JFrame implements ActionListener {
 		menuItem.addActionListener(this);
 		menu.add(menuItem);
 
-		// Menu Agenda
-		menuItem = new JMenuItem("Gestion des rendez-vous");
-		menuBarre.add(menuItem);		
-		menuItem.setActionCommand("gestion des rendez-vous");
+		// Menu Gestion des rendez-vous
+		menuItem = new JMenuItem("Prise de rendez-vous");		
+		menuItem.setActionCommand("prise de rendez-vous");
 		menuItem.addActionListener(this);
+		menu2.add(menuItem);
 		
+		menuItem = new JMenuItem("Gestion des clients");	
+		menuItem.setActionCommand("gestion des clients");
+		menuItem.addActionListener(this);
+		menu2.add(menuItem);
+		// Menu Agenda
 		menuItem = new JMenuItem("Agenda");
 		menuBarre.add(menuItem);		
 		menuItem.setActionCommand("agenda");
@@ -85,6 +92,7 @@ public class MainFrame extends JFrame implements ActionListener {
 		menuBarre.add(menuItem);		
 		menuItem.setActionCommand("gestion du personnel");
 		menuItem.addActionListener(this);
+
 
 		
 		
@@ -114,10 +122,14 @@ public class MainFrame extends JFrame implements ActionListener {
 		case "fermer":
 			System.exit(0);
 			break;
-		case "gestion des rendez-vous":
+		case "prise de rendez-vous":
 			desktopPane.removeAll();
 			MainFrameController.get().gestionRdv();
 			break;
+		case "gestion des clients":
+			desktopPane.removeAll();
+			MainFrameController.get().gestionClient();
+			break;	
 		case "gestion du personnel":
 			desktopPane.removeAll();
 			MainFrameController.get().gestionPersonnel();

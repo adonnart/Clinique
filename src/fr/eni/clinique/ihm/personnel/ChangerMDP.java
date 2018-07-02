@@ -7,59 +7,78 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import fr.eni.clinique.bll.BLLException;
+import fr.eni.clinique.bll.LoginManager;
+import fr.eni.clinique.bll.PersonnelManager;
+import fr.eni.clinique.bo.Personnel;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class ChangerMDP extends JDialog {
 
-	private final JPanel contentPanel = new JPanel();
-	private JTextField textField;
-
 	/**
-	 * Launch the application.
+	 * 
 	 */
-	public static void main(String[] args) {
-		try {
-			ChangerMDP dialog = new ChangerMDP();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+	private static final long serialVersionUID = 1L;
+	private final JPanel contentPanel = new JPanel();
+	private JTextField txtMDP;
+
 
 	/**
 	 * Create the dialog.
 	 */
 	public ChangerMDP() {
+		setModal(true);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(ChangerMDP.class.getResource("/fr/eni/clinique/ihm/img/ico_veto.png")));
 		setTitle("Changer mot de pass");
 		setBounds(100, 100, 310, 158);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		setLocationRelativeTo(null);
 		contentPanel.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBounds(42, 33, 202, 20);
-		contentPanel.add(textField);
-		textField.setColumns(10);
+		txtMDP = new JTextField();
+		txtMDP.setBounds(42, 33, 202, 20);
+		contentPanel.add(txtMDP);
+		txtMDP.setColumns(10);
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton okButton = new JButton("OK");
+				okButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						EcranPersonnelController.get().changer();
+						dispose();
+					}
+				});
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
 			}
 			{
 				JButton cancelButton = new JButton("Cancel");
+				cancelButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						dispose();
+					}
+				});
 				cancelButton.setActionCommand("Cancel");
 				buttonPane.add(cancelButton);
 			}
 		}
+	}
+	public JTextField getTxtMDP() {
+		if(txtMDP == null) {
+			txtMDP= new JTextField(30);
+		}
+		return txtMDP;
 	}
 }

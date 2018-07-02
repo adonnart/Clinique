@@ -1,11 +1,15 @@
 package fr.eni.clinique.ihm.form;
 
+import java.awt.Frame;
 import java.util.List;
+
+import javax.swing.JOptionPane;
 
 import fr.eni.clinique.bll.BLLException;
 import fr.eni.clinique.bll.PersonnelManager;
 import fr.eni.clinique.bo.Personnel;
 import fr.eni.clinique.ihm.MainFrameController;
+import fr.eni.clinique.ihm.login.EcranLogin;
 import fr.eni.clinique.ihm.personnel.EcranPersonnel;
 import fr.eni.clinique.ihm.personnel.EcranPersonnelController;
 
@@ -37,7 +41,6 @@ public class FormulaireController {
 	public Formulaire openFormulaire() {
 		ecrFormulaire = new Formulaire();
 		ecrFormulaire.setVisible(true);
-		EcranPersonnelController.get().getEcranPersonnel().setEnabled(false);
 		return ecrFormulaire;
 	}
 	
@@ -52,6 +55,12 @@ public class FormulaireController {
 			p.setNom(ecrFormulaire.getTxtNom().getText());
 			p.setMotPasse(ecrFormulaire.getTxtPassword().getText());
 			p.setRole(ecrFormulaire.getTxtRole().getText());
+			p.setArchive(false);
+			for (Personnel pers :listPersonnel){
+				if (p.getNom().equalsIgnoreCase(pers.getNom())){
+					JOptionPane.showMessageDialog(ecrFormulaire, "Ce personnel existe déjà", "", JOptionPane.ERROR_MESSAGE);	
+				}
+			}			
 			mger.addPersonnel(p);
 			ecrFormulaire.dispose();
 			refreshtabPersonnel();

@@ -41,7 +41,7 @@ public class EcranPersonnel extends JInternalFrame {
 	public EcranPersonnel() {
 		setResizable(false);
 		setBorder(null);
-		setBounds(0,-25,1200, 600);
+		setBounds(0,-25,1200, 800);
 		getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
@@ -77,10 +77,14 @@ public class EcranPersonnel extends JInternalFrame {
 		JButton btnSurpprimer = new JButton("");
 		btnSurpprimer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				 int a=JOptionPane.showConfirmDialog(new Frame(),"Voulez vous vraiment supprimer ce personnel?","Supprimer", JOptionPane.YES_NO_OPTION);  
-				 if(a==JOptionPane.YES_OPTION){  
-					EcranPersonnelController.get().supprimer();	
-				 }
+				if(getTablePersonnel().getSelectedRow()>= 0){
+					 int a=JOptionPane.showConfirmDialog(new Frame(),"Voulez vous vraiment supprimer ce personnel?","Supprimer", JOptionPane.YES_NO_OPTION);  
+					 if(a==JOptionPane.YES_OPTION){  
+						EcranPersonnelController.get().supprimer();	
+					 }
+				}
+				else
+					JOptionPane.showMessageDialog(new Frame(), "Il faut choisir un personnel pour le supprimer", "", JOptionPane.ERROR_MESSAGE);
 			}
 		});
 		btnSurpprimer.setIcon(new ImageIcon(EcranPersonnel.class.getResource("/fr/eni/clinique/ihm/img/minus.png")));
@@ -88,6 +92,14 @@ public class EcranPersonnel extends JInternalFrame {
 		panel.add(btnSurpprimer);
 		
 		JButton btnReinitialiser = new JButton("");
+		btnReinitialiser.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(getTablePersonnel().getSelectedRow()>= 0)
+					ChangerMDPController.get().openChangerMDP();
+				else
+					JOptionPane.showMessageDialog(new Frame(), "Il faut choisir un personnel pour changer son MDP", "", JOptionPane.ERROR_MESSAGE);
+			}
+		});
 		btnReinitialiser.setIcon(new ImageIcon(EcranPersonnel.class.getResource("/fr/eni/clinique/ihm/img/lock_open.png")));
 		btnReinitialiser.setBounds(240, 11, 38, 37);
 		panel.add(btnReinitialiser);

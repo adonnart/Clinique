@@ -56,6 +56,20 @@ public class PersonnelManager {
 			throw new BLLException(e.getMessage());
 		}
 	}
+	public List<Personnel> getAll() throws BLLException{
+
+		try {
+			List<Personnel> listPersonnel = personnelDao.selectAll();
+			for (Personnel p : listPersonnel){
+				listPersonnel.add(p);
+				}
+			
+			return listPersonnel;
+		} catch (DALException e) {
+			// TODO Auto-generated catch block
+			throw new BLLException(e.getMessage());
+		}}
+		
 	public List<Personnel> getAllPersonnel() throws BLLException{
 
 		try {
@@ -69,9 +83,10 @@ public class PersonnelManager {
 			return listNonArchive;
 		} catch (DALException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new BLLException(e.getMessage());
 		}
-		return null;	
+		
+	//	return null;	
 	}
 
 }
