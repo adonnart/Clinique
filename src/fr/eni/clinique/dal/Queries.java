@@ -21,6 +21,9 @@ public abstract class Queries {
 	public static String getQuerySelectById(String table, String code, int id) {
 		return "SELECT * FROM " + table + " WHERE " + code + " = " + id;
 	}
+	public static String getQuerySelectByName(String table, String nom ) {
+		return "SELECT * FROM " + table + " WHERE NomClient like '%" + nom+"%'";
+	}
 	
 	// Clients
 	

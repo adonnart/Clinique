@@ -19,6 +19,8 @@ import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class EcranClient extends JInternalFrame {
 
@@ -34,6 +36,7 @@ public class EcranClient extends JInternalFrame {
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private JTextField textField_6;
+	private JTextField textSearch;
 
 	/**
 	 * Launch the application.
@@ -53,6 +56,11 @@ public class EcranClient extends JInternalFrame {
 		panel.setLayout(null);
 		
 		JButton button = new JButton("");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EcranSearchController.get().openEcranSearch();
+			}
+		});
 		button.setIcon(new ImageIcon(EcranClient.class.getResource("/fr/eni/clinique/ihm/img/magnifying_glass.png")));
 		button.setBounds(10, 26, 38, 37);
 		panel.add(button);
@@ -76,6 +84,11 @@ public class EcranClient extends JInternalFrame {
 		button_4.setIcon(new ImageIcon(EcranClient.class.getResource("/fr/eni/clinique/ihm/img/arrow_circle.png")));
 		button_4.setBounds(866, 26, 38, 37);
 		panel.add(button_4);
+		
+		textSearch = new JTextField();
+		textSearch.setBounds(56, 33, 258, 20);
+		panel.add(textSearch);
+		textSearch.setColumns(10);
 		
 		JLabel lblGestionDesClients = new JLabel("Gestion des clients");
 		lblGestionDesClients.setFont(new Font("Tahoma", Font.BOLD, 22));
@@ -161,5 +174,8 @@ public class EcranClient extends JInternalFrame {
 			modele= new TableAnimal(EcranClientController.get().getListAnimal());
 		}
 		return modele;
+	}
+	public JTextField  getTextSearch(){
+		return textSearch;
 	}
 }

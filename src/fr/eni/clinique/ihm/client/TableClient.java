@@ -20,7 +20,7 @@ public class TableClient extends JTable  {
 	
 public TableClient(List<Client> listClient) {
 		
-		super(new TableClientModel(listClient));	
+		super(new TableClientModel(listClient));
         setPreferredScrollableViewportSize(new Dimension(500, 70));
         setFillsViewportHeight(true);
         this.getColumnModel().getColumn(COL_NOM ).setPreferredWidth(10);

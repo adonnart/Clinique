@@ -1,23 +1,24 @@
 package fr.eni.clinique.ihm.client;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
-import fr.eni.clinique.bo.Animal;
 import fr.eni.clinique.bo.Client;
 
 public class TableClientModel extends AbstractTableModel {
 
 	String[] entetes = {"Nom", "Prenom", "Code postal","Ville"};
 	private List<Client> listClient;
+	private List<Client> listTest;
 	private static final long serialVersionUID = 1L;
 
 	
 	public TableClientModel(List<Client> listClient) {
-			this.listClient = listClient;
+			this.listClient = listClient;		
 	}
-	
+
 	@Override
 	public int getColumnCount() {
 		// TODO Auto-generated method stub
@@ -68,5 +69,9 @@ public class TableClientModel extends AbstractTableModel {
 				return Object.class;
 		}
 	}
+    @Override
+    public void fireTableDataChanged() {
+        super.fireTableDataChanged();
+    }
 	
 }

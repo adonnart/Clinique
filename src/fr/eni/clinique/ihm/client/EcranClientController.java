@@ -5,12 +5,14 @@ import java.util.List;
 import fr.eni.clinique.bll.AnimalManager;
 import fr.eni.clinique.bll.BLLException;
 import fr.eni.clinique.bo.Animal;
+import fr.eni.clinique.bo.Client;
 
 public class EcranClientController {
 	private static EcranClientController instance;
 	EcranClient ecrClient;
 	private List<Animal> listAnimal;
 	private AnimalManager mger;
+	private Client client;
 
 	public static synchronized EcranClientController get() {
 		if (instance == null) {
@@ -43,5 +45,11 @@ public class EcranClientController {
 		}
 		return listAnimal;
 	}
+	public void setClient(Client client){
+		this.client = client;
+	}
 	
+	public void refresh(){
+		ecrClient.dispose();	
+	}
 }

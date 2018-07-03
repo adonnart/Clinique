@@ -100,4 +100,31 @@ public class ClientDAOJdbcImpl implements ClientDAO {
 		}
 	}
 
+	@Override
+	public List<Client> selectByName(String nom) throws DALException {
+		List<Client> clientList = new ArrayList<>();
+		try (Statement stm = JdbcTools.getConnection().createStatement()) {
+			rs = stm.executeQuery(Queries.getQuerySelectByName("Clients",nom));
+			while (rs.next()) {
+				System.out.println(rs);
+				clientList.add(new Client(
+						rs.getString("NomClient"),
+						rs.getString("PrenomClient"),
+						rs.getString("Adresse1"),
+						rs.getString("Adresse2"),
+						rs.getString("CodePostal"),
+						rs.getString("Ville"),
+						rs.getString("NumTel"),
+						rs.getString("Assurance"),
+						rs.getString("Email"),
+						rs.getString("Remarque"),
+						rs.getBoolean("Archive")
+				));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return clientList;
+	}
+
 }

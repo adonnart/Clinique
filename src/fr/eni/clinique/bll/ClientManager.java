@@ -66,5 +66,12 @@ public class ClientManager {
 		}
 		return null;	
 	}
-
+	public List<Client> selectClientByName(String nom) throws BLLException {
+		try {
+			clientDao.selectAll();
+			return clientDao.selectByName(nom);
+		} catch (Exception e) {
+			throw new BLLException(e.getMessage());
+		}
+	}
 }
