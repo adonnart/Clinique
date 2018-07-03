@@ -1,6 +1,5 @@
 package fr.eni.clinique.ihm.personnel;
 
-import fr.eni.clinique.bll.BLLException;
 import fr.eni.clinique.bll.PersonnelManager;
 
 public class ChangerMDPController {

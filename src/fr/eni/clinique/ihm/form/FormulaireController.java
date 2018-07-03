@@ -58,7 +58,10 @@ public class FormulaireController {
 			p.setArchive(false);
 			for (Personnel pers :listPersonnel){
 				if (p.getNom().equalsIgnoreCase(pers.getNom())){
-					JOptionPane.showMessageDialog(ecrFormulaire, "Ce personnel existe déjà", "", JOptionPane.ERROR_MESSAGE);	
+					JOptionPane.showMessageDialog(ecrFormulaire, "Ce personnel existe déjà", "", JOptionPane.ERROR_MESSAGE);
+					mger.addPersonnel(p);
+					ecrFormulaire.dispose();
+					refreshtabPersonnel();
 				}
 			}			
 			mger.addPersonnel(p);
