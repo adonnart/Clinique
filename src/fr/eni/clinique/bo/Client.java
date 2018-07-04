@@ -81,7 +81,7 @@ public class Client {
 	public void setRemarque(String remarque) { this.remarque = remarque; }
 	
 	public boolean isArchive() { return archive; }
-	public void setArchive(Boolean archive) { this.archive = archive; }
+	public void setArchive(boolean archive) { this.archive = archive; }
 	
 	public List<Animal> getListAnimal() { return listAnimal; }
 	public void setListAnimal(List<Animal> listAnimal) { this.listAnimal = listAnimal; }

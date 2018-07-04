@@ -5,7 +5,6 @@ import java.util.List;
 import fr.eni.clinique.bo.Client;
 import fr.eni.clinique.dal.ClientDAO;
 import fr.eni.clinique.dal.DALException;
-import fr.eni.clinique.dal.DAO;
 import fr.eni.clinique.dal.DAOFactory;
 
 public class ClientManager {
@@ -68,7 +67,6 @@ public class ClientManager {
 	}
 	public List<Client> selectClientByName(String nom) throws BLLException {
 		try {
-			clientDao.selectAll();
 			return clientDao.selectByName(nom);
 		} catch (Exception e) {
 			throw new BLLException(e.getMessage());

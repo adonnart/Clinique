@@ -7,6 +7,7 @@ import fr.eni.clinique.bll.BLLException;
 import fr.eni.clinique.bll.ClientManager;
 import fr.eni.clinique.bo.Animal;
 import fr.eni.clinique.bo.Client;
+import fr.eni.clinique.ihm.MainFrameController;
 
 public class EcranClientController {
 	private static EcranClientController instance;
@@ -26,7 +27,8 @@ public class EcranClientController {
 
 	public EcranClientController() {
 		try {
-			mger = AnimalManager.getInstance();	
+			mger = AnimalManager.getInstance();
+			climger = ClientManager.getInstance();
 			
 		} catch (fr.eni.clinique.bll.BLLException e) {
 			// TODO Auto-generated catch block
@@ -70,15 +72,16 @@ public class EcranClientController {
 	}
 
 	public void supprimer() {
-		client.setArchive(true);
+		System.out.println(client);
 		try {
-			
+			client.setArchive(true);
 			climger.updateClient(client);
 		} catch (BLLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		refresh();
+		MainFrameController.get().gestionClient();
 	}
 	public void ajouter(){
 		AjouterClientController.get().startFrame();

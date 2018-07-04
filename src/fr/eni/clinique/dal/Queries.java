@@ -22,7 +22,7 @@ public abstract class Queries {
 		return "SELECT * FROM " + table + " WHERE " + code + " = " + id;
 	}
 	public static String getQuerySelectByName(String table, String nom ) {
-		return "SELECT * FROM " + table + " WHERE NomClient like '%" + nom+"%'";
+		return "SELECT * FROM " + table + " WHERE NomClient like '%" + nom+"%' and archive = 'false'";
 	}
 	
 	// Clients
@@ -61,6 +61,7 @@ public abstract class Queries {
 		sql.append("', Assurance = '").append(cl.getAssurance());
 		sql.append("', Email = '").append(cl.getEmail());
 		sql.append("', Remarque = '").append(cl.getRemarque());
+		sql.append("', Archive = '").append(cl.isArchive());
 		sql.append("' WHERE CodeClient = ").append(cl.getCodeClient());
 		
 		return sql.toString();

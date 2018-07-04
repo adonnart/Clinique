@@ -75,10 +75,10 @@ public class AppliTestDAL {
 			unClient1.setNomClient("nouveauNom");
 			unClient1.setPrenomClient("nouveauPrenom");
 			unClient1.setVille("Nantes");
-			
+			unClient1.setArchive(false);
 			clientDAO.update(unClient1);
 			
-			System.out.println("Client après modification :" + unClient1.toString());
+			System.out.println("Client après modification :" + clientDAO.selectById(unClient1.getCodeClient()));
 			
 			// Suppression d'un client			
 			System.out.println("Liste des clients avant suppression :");

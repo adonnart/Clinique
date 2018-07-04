@@ -7,9 +7,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.MatteBorder;
 
-import fr.eni.clinique.ihm.personnel.EcranPersonnelController;
-import fr.eni.clinique.ihm.personnel.TablePersonnel;
-
 import java.awt.Color;
 import java.awt.Dimension;
 
@@ -50,7 +47,7 @@ public class EcranClient extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public EcranClient() {
-		setBounds(0,-28,1200, 800);
+		setBounds(0,-25,1200, 800);
 		getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
@@ -63,7 +60,6 @@ public class EcranClient extends JInternalFrame {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				EcranSearchController.get().openEcranSearch();
-				dispose();
 			}
 		});
 		button.setIcon(new ImageIcon(EcranClient.class.getResource("/fr/eni/clinique/ihm/img/magnifying_glass.png")));
@@ -83,7 +79,7 @@ public class EcranClient extends JInternalFrame {
 		JButton button_2 = new JButton("");
 		button_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(EcranClientController.get().getClient().getCodeClient() != 0){
+				if(EcranClientController.get().getClient().getCodeClient() != null){
 				 int a=JOptionPane.showConfirmDialog(new Frame(),"Voulez vous vraiment supprimer ce client?","Supprimer", JOptionPane.YES_NO_OPTION);  
 				 if(a==JOptionPane.YES_OPTION){  
 					 EcranClientController.get().supprimer();
@@ -207,11 +203,40 @@ public class EcranClient extends JInternalFrame {
 		JPanel panel_2 = new JPanel();
 		panel_2.setBounds(593, 209, 516, 380);
 		getContentPane().add(panel_2);
+		panel_2.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane(getTableAnimal());
+		scrollPane.setBounds(-1, 5, 519, 260);
 		scrollPane.setPreferredSize(new Dimension(519, 260));
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		panel_2.add(scrollPane);
+		
+		JButton button_6 = new JButton("");
+		button_6.setIcon(new ImageIcon(EcranClient.class.getResource("/fr/eni/clinique/ihm/img/minus.png")));
+		button_6.setBounds(384, 276, 38, 37);
+		panel_2.add(button_6);
+		
+		JButton button_5 = new JButton("");
+		button_5.setIcon(new ImageIcon(EcranClient.class.getResource("/fr/eni/clinique/ihm/img/plus.png")));
+		button_5.setBounds(310, 276, 38, 37);
+		panel_2.add(button_5);
+		
+		JButton button_7 = new JButton("");
+		button_7.setIcon(new ImageIcon(EcranClient.class.getResource("/fr/eni/clinique/ihm/img/edit_text.png")));
+		button_7.setBounds(450, 276, 38, 37);
+		panel_2.add(button_7);
+		
+		JLabel lblNewLabel = new JLabel("Ajouter");
+		lblNewLabel.setBounds(310, 324, 46, 14);
+		panel_2.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Supprimer");
+		lblNewLabel_1.setBounds(384, 324, 56, 14);
+		panel_2.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("Modifier");
+		lblNewLabel_2.setBounds(450, 324, 46, 14);
+		panel_2.add(lblNewLabel_2);
 
 	}
 	public TableAnimal getTableAnimal() {
