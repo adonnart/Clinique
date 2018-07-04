@@ -55,7 +55,7 @@ public class EcranClient extends JInternalFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
-		panel.setBounds(106, 81, 1001, 88);
+		panel.setBounds(106, 81, 1003, 88);
 		getContentPane().add(panel);
 		panel.setLayout(null);
 		
@@ -71,6 +71,11 @@ public class EcranClient extends JInternalFrame {
 		panel.add(button);
 		
 		JButton button_1 = new JButton("");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EcranClientController.get().ajouter();
+			}
+		});
 		button_1.setIcon(new ImageIcon(EcranClient.class.getResource("/fr/eni/clinique/ihm/img/plus.png")));
 		button_1.setBounds(390, 26, 38, 37);
 		panel.add(button_1);
@@ -78,11 +83,12 @@ public class EcranClient extends JInternalFrame {
 		JButton button_2 = new JButton("");
 		button_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(EcranClientController.get().getClient().getCodeClient() != 0){
 				 int a=JOptionPane.showConfirmDialog(new Frame(),"Voulez vous vraiment supprimer ce client?","Supprimer", JOptionPane.YES_NO_OPTION);  
 				 if(a==JOptionPane.YES_OPTION){  
 					 EcranClientController.get().supprimer();
 				 }
-			}
+			}}
 		});
 		button_2.setIcon(new ImageIcon(EcranClient.class.getResource("/fr/eni/clinique/ihm/img/minus.png")));
 		button_2.setBounds(477, 26, 38, 37);

@@ -80,4 +80,7 @@ public class EcranClientController {
 		}
 		
 	}
+	public void ajouter(){
+		AjouterClientController.get().startFrame();
+	}
 }
