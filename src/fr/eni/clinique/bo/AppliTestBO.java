@@ -6,11 +6,11 @@ public class AppliTestBO {
 
 	public static void main(String[] args) {
 		
-		Animal unAnimal = new Animal("testnomanimal", 'M', "Blanc", "dalmat", "Chien", 1, "Non", "Aucun", true);
+
 		
 		Client unClient = new Client("nomtest", "prenomtest", "15 rue de ", "15 rue de ", "35000", "Rennes", 
-				"054215612", "Oui", "test@test.com", "remarque", true);
-		
+				"054215612", "Oui", "test@test.com", "remarque", false);
+		Animal unAnimal = new Animal("testnomanimal", 'M', "Blanc", "dalmat", "Chien", 1, "Non", "Aucun", false);
 		unClient.addAnimal(unAnimal);
 		
 		System.out.println(unClient);

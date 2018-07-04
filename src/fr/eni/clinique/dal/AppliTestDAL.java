@@ -42,13 +42,13 @@ public class AppliTestDAL {
 		
 		// Jeu d'essai
 		unClient1 = new Client("nomtest1", "prenomtest1", "1 rue ce", "appt 1", 
-				"35000", "Rennes", "0123456789", "Oui", "test@test.com", "remarque", true);
+				"35000", "Rennes", "0123456789", "Oui", "test@test.com", "remarque", false);
 		unClient2 = new Client("nomtest2", "prenomtest2", "1 rue ce", "appt 1", 
-				"35000", "Rennes", "0123456789", "Oui", "test@test.com", "remarque", true);
+				"35000", "Rennes", "0123456789", "Oui", "test@test.com", "remarque", false);
 		unClient3 = new Client("nomtest3", "prenomtest3", "1 rue ce", "appt 1", 
-				"35000", "Rennes", "0123456789", "Oui", "test@test.com", "remarque", true);
+				"35000", "Rennes", "0123456789", "Oui", "test@test.com", "remarque", false);
 		unClient4 = new Client("nomtest4", "prenomtest4", "1 rue ce", "appt 1", 
-				"35000", "Rennes", "0123456789", "Oui", "test@test.com", "remarque", true);
+				"35000", "Rennes", "0123456789", "Oui", "test@test.com", "remarque", false);
 		
 		try {
 			// Ajout des clients
@@ -185,10 +185,10 @@ public class AppliTestDAL {
 	public static void testAnimal() {
 		
 		// Jeu d'essai
-		unAnimal1 = new Animal("nomtest1", 'M', "Blanc", "Dalmatien", "Chien", 1, "Non", "Aucun", true);
-		unAnimal2 = new Animal("nomtest2", 'F', "Beige", "Siamois", "Chat", 2, "Non", "Aucun", true);
-		unAnimal3 = new Animal("nomtest3", 'M', "Gris", "Chartreux", "Chat", 3, "Oui", "Oui", true);
-		unAnimal4 = new Animal("nomtest4", 'F', "Noir", "Beauceron", "Chien", 1, "Oui", "Oui", true);
+		unAnimal1 = new Animal("nomtest1", 'M', "Blanc", "Dalmatien", "Chien", unClient1.getCodeClient(), "Non", "Aucun", false);
+		unAnimal2 = new Animal("nomtest2", 'F', "Beige", "Siamois", "Chat", unClient1.getCodeClient(), "Non", "Aucun", false);
+		unAnimal3 = new Animal("nomtest3", 'M', "Gris", "Chartreux", "Chat", unClient1.getCodeClient(), "Oui", "Oui", false);
+		unAnimal4 = new Animal("nomtest4", 'F', "Noir", "Beauceron", "Chien", unClient2.getCodeClient(), "Oui", "Oui", false);
 		
 		try {
 			// Ajout des animaux

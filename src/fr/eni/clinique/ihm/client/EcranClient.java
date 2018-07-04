@@ -47,6 +47,7 @@ public class EcranClient extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public EcranClient() {
+		setBorder(null);
 		setBounds(0,-25,1200, 800);
 		getContentPane().setLayout(null);
 		
