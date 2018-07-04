@@ -26,7 +26,11 @@ public class MainFrame extends JFrame implements ActionListener {
 	
 	private JDesktopPane desktopPane;
 	private JMenuBar menuBarre;
-	private JMenu menuAgenda;
+	private JMenuItem menuAgenda;
+	private JMenuItem menuGestionClient;
+	private JMenuItem menuPriseRdv;
+	private JMenuItem menuGestionPersonnel;
+	private JMenu menu2;
 	private EcranPersonnel frmClient;
 	private JMenuItem mntmGestionDesClients;
 
@@ -57,7 +61,7 @@ public class MainFrame extends JFrame implements ActionListener {
 
 		// Menu Fichier
 		JMenu menu = new JMenu("Fichier");
-		JMenu menu2 = new JMenu("Gestion des rendez-vous");
+		menu2 = new JMenu("Gestion des rendez-vous");
 		menuBarre.add(menu);
 		menuBarre.add(menu2);
 		// Sous menu Déconnexion
@@ -73,28 +77,26 @@ public class MainFrame extends JFrame implements ActionListener {
 		menu.add(menuItem);
 
 		// Menu Gestion des rendez-vous
-		menuItem = new JMenuItem("Prise de rendez-vous");		
-		menuItem.setActionCommand("prise de rendez-vous");
-		menuItem.addActionListener(this);
-		menu2.add(menuItem);
+		menuPriseRdv = new JMenuItem("Prise de rendez-vous");		
+		menuPriseRdv.setActionCommand("prise de rendez-vous");
+		menuPriseRdv.addActionListener(this);
+		menu2.add(menuPriseRdv);
 		
-		menuItem = new JMenuItem("Gestion des clients");	
-		menuItem.setActionCommand("gestion des clients");
-		menuItem.addActionListener(this);
-		menu2.add(menuItem);
+		menuGestionClient = new JMenuItem("Gestion des clients");	
+		menuGestionClient.setActionCommand("gestion des clients");
+		menuGestionClient.addActionListener(this);
+		menu2.add(menuGestionClient);
 		// Menu Agenda
-		menuItem = new JMenuItem("Agenda");
-		menuBarre.add(menuItem);		
-		menuItem.setActionCommand("agenda");
-		menuItem.addActionListener(this);
+		menuAgenda= new JMenuItem("Agenda");
+		menuBarre.add(menuAgenda);		
+		menuAgenda.setActionCommand("agenda");
+		menuAgenda.addActionListener(this);
 		
-		menuItem = new JMenuItem("Gestion du personnel");
-		menuBarre.add(menuItem);		
-		menuItem.setActionCommand("gestion du personnel");
-		menuItem.addActionListener(this);
+		menuGestionPersonnel = new JMenuItem("Gestion du personnel");
+		menuBarre.add(menuGestionPersonnel);		
+		menuGestionPersonnel.setActionCommand("gestion du personnel");
+		menuGestionPersonnel.addActionListener(this);
 
-
-		
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setBounds(500, 200, 170, 170);
@@ -133,7 +135,6 @@ public class MainFrame extends JFrame implements ActionListener {
 		case "gestion du personnel":
 			desktopPane.removeAll();
 			MainFrameController.get().gestionPersonnel();
-			//desktopPane.add(EcranPersonnelController.get().openEcranPersonnel());
 			System.out.println("Ouverture frame gestion du personnel");
 			break;
 		case "agenda":
@@ -158,4 +159,28 @@ public class MainFrame extends JFrame implements ActionListener {
 		return menuBarre;
 	}
 
+	public JMenuItem getMenuAgenda(){
+		if (menuAgenda == null) {
+			menuAgenda= new JMenuItem();
+		}
+		return menuAgenda;
+	}
+	public JMenuItem getmenuGestionClient(){
+		return menuGestionClient;
+	}
+	public JMenuItem getmenuPriseRdv(){
+		return menuPriseRdv;
+	}
+	public JMenuItem getmenuGestionPersonnel(){
+		if(menuGestionPersonnel == null){
+			menuGestionPersonnel = new JMenuItem();
+		}
+		return menuGestionPersonnel;
+	}
+	public JMenu getMenuGestionRdv(){
+		if(menu2 == null){
+			menu2 = new JMenu();
+		}
+		return menu2;
+	}
 }

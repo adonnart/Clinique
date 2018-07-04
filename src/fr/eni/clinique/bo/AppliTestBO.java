@@ -26,7 +26,7 @@ public class AppliTestBO {
 		System.out.println(unAgenda2);
 		System.out.println(unAgenda2.getCodeVeto());
 		unAgenda2.getCodeVeto();
-		
+		System.out.println("test code client"+unClient.getCodeClient());
 	}
 
 }

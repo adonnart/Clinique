@@ -106,8 +106,8 @@ public class ClientDAOJdbcImpl implements ClientDAO {
 		try (Statement stm = JdbcTools.getConnection().createStatement()) {
 			rs = stm.executeQuery(Queries.getQuerySelectByName("Clients",nom));
 			while (rs.next()) {
-				System.out.println(rs);
 				clientList.add(new Client(
+						rs.getInt("CodeClient"),
 						rs.getString("NomClient"),
 						rs.getString("PrenomClient"),
 						rs.getString("Adresse1"),

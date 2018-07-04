@@ -55,14 +55,12 @@ public class EcranLoginController implements ILoginObserver {
 			}
 			if(mger.checkConnexion(p).getRole().equalsIgnoreCase("sec")){
 				JOptionPane.showMessageDialog(ecrLogin,"Login Secretaire","Connexion",JOptionPane.PLAIN_MESSAGE);
-				ecrMain = new MainFrame();
-				ecrMain.setVisible(true);
+				MainFrameController.get().openMainFrame();
 				ecrLogin.setVisible(false);
 			}
 			if(mger.checkConnexion(p).getRole().equalsIgnoreCase("vet")){
 				JOptionPane.showMessageDialog(ecrLogin,"Login Veterinaire","Connexion",JOptionPane.PLAIN_MESSAGE);
-				ecrMain = new MainFrame();
-				ecrMain.setVisible(true);
+				MainFrameController.get().openMainFrame();
 				ecrLogin.setVisible(false);
 			}
 			if(mger.checkConnexion(p).getRole().equalsIgnoreCase("adm")){

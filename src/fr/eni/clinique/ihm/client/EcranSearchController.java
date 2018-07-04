@@ -70,12 +70,15 @@ import fr.eni.clinique.ihm.personnel.EcranPersonnelController;
 		}
 
 		public void selectClient() {
+			
 			int selectedRow = ecrSearch.getTableClient().getSelectedRow();
 			Client p= listClient.get(selectedRow);
 			EcranClientController.get().refresh();
+			EcranClientController.get().setCodeClient(p.getCodeClient());
 			MainFrameController.get().gestionClient();
-			EcranClientController.get().setClient(p);
+			EcranClientController.get().loadClient(p);
 			ecrSearch.dispose();
+			
 		}
 		
 		

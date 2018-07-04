@@ -14,7 +14,11 @@ import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
+import java.awt.Frame;
+
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
@@ -29,13 +33,13 @@ public class EcranClient extends JInternalFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private TableAnimal modele ;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
+	private JTextField textCode;
+	private JTextField textPrenom;
+	private JTextField textNom;
+	private JTextField textAdresse;
+	private JTextField textAdresse2;
+	private JTextField textCP;
+	private JTextField textVille;
 	private JTextField textSearch;
 
 	/**
@@ -59,6 +63,7 @@ public class EcranClient extends JInternalFrame {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				EcranSearchController.get().openEcranSearch();
+				dispose();
 			}
 		});
 		button.setIcon(new ImageIcon(EcranClient.class.getResource("/fr/eni/clinique/ihm/img/magnifying_glass.png")));
@@ -71,6 +76,14 @@ public class EcranClient extends JInternalFrame {
 		panel.add(button_1);
 		
 		JButton button_2 = new JButton("");
+		button_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 int a=JOptionPane.showConfirmDialog(new Frame(),"Voulez vous vraiment supprimer ce client?","Supprimer", JOptionPane.YES_NO_OPTION);  
+				 if(a==JOptionPane.YES_OPTION){  
+					 EcranClientController.get().supprimer();
+				 }
+			}
+		});
 		button_2.setIcon(new ImageIcon(EcranClient.class.getResource("/fr/eni/clinique/ihm/img/minus.png")));
 		button_2.setBounds(477, 26, 38, 37);
 		panel.add(button_2);
@@ -81,6 +94,11 @@ public class EcranClient extends JInternalFrame {
 		panel.add(button_3);
 		
 		JButton button_4 = new JButton("");
+		button_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				EcranClientController.get().loadClient(EcranClientController.get().getClient());
+			}
+		});
 		button_4.setIcon(new ImageIcon(EcranClient.class.getResource("/fr/eni/clinique/ihm/img/arrow_circle.png")));
 		button_4.setBounds(866, 26, 38, 37);
 		panel.add(button_4);
@@ -89,6 +107,26 @@ public class EcranClient extends JInternalFrame {
 		textSearch.setBounds(56, 33, 258, 20);
 		panel.add(textSearch);
 		textSearch.setColumns(10);
+		
+		JLabel lblRechercher = new JLabel("Rechercher");
+		lblRechercher.setBounds(10, 63, 70, 14);
+		panel.add(lblRechercher);
+		
+		JLabel lblAjouter = new JLabel("Ajouter");
+		lblAjouter.setBounds(390, 63, 46, 14);
+		panel.add(lblAjouter);
+		
+		JLabel lblSupprimer = new JLabel("Supprimer");
+		lblSupprimer.setBounds(477, 63, 56, 14);
+		panel.add(lblSupprimer);
+		
+		JLabel lblValider = new JLabel("Valider");
+		lblValider.setBounds(771, 63, 46, 14);
+		panel.add(lblValider);
+		
+		JLabel lblAnnuler = new JLabel("Annuler");
+		lblAnnuler.setBounds(866, 63, 46, 14);
+		panel.add(lblAnnuler);
 		
 		JLabel lblGestionDesClients = new JLabel("Gestion des clients");
 		lblGestionDesClients.setFont(new Font("Tahoma", Font.BOLD, 22));
@@ -100,40 +138,41 @@ public class EcranClient extends JInternalFrame {
 		getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBounds(165, 39, 223, 20);
-		panel_1.add(textField);
-		textField.setColumns(10);
+		textCode = new JTextField();
+		textCode.setEditable(false);
+		textCode.setBounds(165, 39, 223, 20);
+		panel_1.add(textCode);
+		textCode.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(165, 183, 223, 20);
-		panel_1.add(textField_1);
+		textPrenom = new JTextField();
+		textPrenom.setColumns(10);
+		textPrenom.setBounds(165, 183, 223, 20);
+		panel_1.add(textPrenom);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(165, 105, 223, 20);
-		panel_1.add(textField_2);
+		textNom = new JTextField();
+		textNom.setColumns(10);
+		textNom.setBounds(165, 105, 223, 20);
+		panel_1.add(textNom);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(165, 256, 223, 20);
-		panel_1.add(textField_3);
+		textAdresse = new JTextField();
+		textAdresse.setColumns(10);
+		textAdresse.setBounds(165, 256, 223, 20);
+		panel_1.add(textAdresse);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(165, 298, 223, 20);
-		panel_1.add(textField_4);
+		textAdresse2 = new JTextField();
+		textAdresse2.setColumns(10);
+		textAdresse2.setBounds(165, 298, 223, 20);
+		panel_1.add(textAdresse2);
 		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(165, 378, 223, 20);
-		panel_1.add(textField_5);
+		textCP = new JTextField();
+		textCP.setColumns(10);
+		textCP.setBounds(165, 378, 223, 20);
+		panel_1.add(textCP);
 		
-		textField_6 = new JTextField();
-		textField_6.setColumns(10);
-		textField_6.setBounds(165, 447, 223, 20);
-		panel_1.add(textField_6);
+		textVille = new JTextField();
+		textVille.setColumns(10);
+		textVille.setBounds(165, 447, 223, 20);
+		panel_1.add(textVille);
 		
 		JLabel lblCode = new JLabel("Code");
 		lblCode.setBounds(32, 42, 46, 14);
@@ -177,5 +216,27 @@ public class EcranClient extends JInternalFrame {
 	}
 	public JTextField  getTextSearch(){
 		return textSearch;
+	}
+
+	public JTextField  getTextCode(){
+		return textCode;
+	}
+	public JTextField  getTextPrenom(){
+		return textPrenom;
+	}
+	public JTextField  getTextnom(){
+		return textNom;
+	}
+	public JTextField  getTextAdresse(){
+		return textAdresse;
+	}
+	public JTextField  getTextAdresse2(){
+		return textAdresse2;
+	}
+	public JTextField  getTextCP(){
+		return textCP;
+	}
+	public JTextField  getTextVille(){
+		return textVille;
 	}
 }
