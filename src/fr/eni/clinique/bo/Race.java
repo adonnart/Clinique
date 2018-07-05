@@ -17,4 +17,9 @@ public class Race {
 	public String getEspece() { return espece; }
 	public void setEspece(String espece) { this.espece = espece; }
 
+	@Override
+	public String toString() {
+		return "Race [race=" + race + ", espece=" + espece + "]";
+	}
+
 }

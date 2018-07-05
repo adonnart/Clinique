@@ -18,10 +18,10 @@ public class RaceDAOJdbcImpl implements RaceDAO{
 	public List<Race> selectAll() throws DALException {
 		List<Race> raceList = new ArrayList<>();
 		try (Statement stm = JdbcTools.getConnection().createStatement()) {
-			rs = stm.executeQuery(Queries.getQuerySelectAll("Race"));
+			rs = stm.executeQuery(Queries.getQuerySelectByEspece("Races"));
 			while (rs.next()) {
 				raceList.add(new Race(
-						rs.getString("Race"),
+						"test",
 						rs.getString("Espece")
 				));
 			}
@@ -30,6 +30,21 @@ public class RaceDAOJdbcImpl implements RaceDAO{
 		}
 		return raceList;
 	}
+	public List<Race> selectAllRace(String espece) throws DALException{
+		List<Race> raceList = new ArrayList<>();
+		try (Statement stm = JdbcTools.getConnection().createStatement()) {
+			rs = stm.executeQuery(Queries.getQuerySelectByRace("Races","Espece",espece));
+			while (rs.next()) {
+				raceList.add(new Race(
+						rs.getString("Race"), espece
+				));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return raceList;
+	}
+	
 
 	@Override
 	public boolean update(Race data) throws DALException {

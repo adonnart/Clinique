@@ -113,4 +113,20 @@ public class EcranClientController {
 		EcranAnimauxController.get().setAnimal(a);
 		EcranAnimauxController.get().startFrame();
 	}
+
+	public void validerclient() {
+		client.setAdresse1(ecrClient.getTextAdresse().getText());
+		client.setAdresse2(ecrClient.getTextAdresse2().getText());
+		client.setNomClient(ecrClient.getTextnom().getText());
+		client.setPrenomClient(ecrClient.getTextPrenom().getText());
+		client.setCodePostal(ecrClient.getTextCP().getText());
+		client.setVille(ecrClient.getTextVille().getText());
+		try {
+			climger.updateClient(client);
+		} catch (BLLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 }

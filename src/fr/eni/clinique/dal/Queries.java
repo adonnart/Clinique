@@ -27,7 +27,12 @@ public abstract class Queries {
 	public static String getQuerySelectByCodeClient(String table, int CodeClient ) {
 		return "SELECT * FROM " + table + " WHERE CodeClient = "+CodeClient+"' and archive = 'false'";
 	}
-	
+	public static String getQuerySelectByEspece(String table) {
+		return "SELECT DISTINCT ESPECE FROM " + table;
+	}
+	public static String getQuerySelectByRace(String table, String column, String espece) {
+		return "SELECT DISTINCT RACE FROM " + table + " WHERE " + column + " = '" + espece+"'";
+	}
 	// Clients
 	
 	public static String getClientQueryInsert(Client cl) {

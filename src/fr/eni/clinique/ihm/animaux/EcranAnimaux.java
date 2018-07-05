@@ -17,6 +17,8 @@ import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 
 public class EcranAnimaux extends JDialog {
 
@@ -103,15 +105,21 @@ public class EcranAnimaux extends JDialog {
 		contentPanel.add(textCodeAnimal);
 		
 		cbEspece = new JComboBox();
-		cbEspece.setBounds(147, 218, 28, 20);
+		cbEspece.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent arg0) {
+				EcranAnimauxController.get().setCbRace();
+			}
+		});
+		cbEspece.setBounds(147, 218, 112, 20);
 		contentPanel.add(cbEspece);
 		
 		cbRace = new JComboBox();
-		cbRace.setBounds(312, 218, 28, 20);
+		cbRace.setBounds(336, 218, 88, 20);
 		contentPanel.add(cbRace);
 		
 		JLabel lblRace = new JLabel("Race");
-		lblRace.setBounds(256, 221, 46, 14);
+		lblRace.setBounds(296, 221, 46, 14);
 		contentPanel.add(lblRace);
 		
 		JComboBox comboBox_2 = new JComboBox();

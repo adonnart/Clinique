@@ -24,6 +24,7 @@ import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Cursor;
 
 public class EcranClient extends JInternalFrame {
 
@@ -60,6 +61,7 @@ public class EcranClient extends JInternalFrame {
 		panel.setLayout(null);
 		
 		JButton button = new JButton("");
+		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				EcranSearchController.get().openEcranSearch();
@@ -70,6 +72,7 @@ public class EcranClient extends JInternalFrame {
 		panel.add(button);
 		
 		JButton button_1 = new JButton("");
+		button_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				EcranClientController.get().ajouter();
@@ -80,6 +83,7 @@ public class EcranClient extends JInternalFrame {
 		panel.add(button_1);
 		
 		JButton button_2 = new JButton("");
+		button_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		button_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(EcranClientController.get().getClient().getCodeClient() != null){
@@ -90,15 +94,27 @@ public class EcranClient extends JInternalFrame {
 			}}
 		});
 		button_2.setIcon(new ImageIcon(EcranClient.class.getResource("/fr/eni/clinique/ihm/img/minus.png")));
-		button_2.setBounds(477, 26, 38, 37);
+		button_2.setBounds(486, 26, 38, 37);
 		panel.add(button_2);
 		
 		JButton button_3 = new JButton("");
+		button_3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		button_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(EcranClientController.get().getClient().getCodeClient() != null){
+				 int a=JOptionPane.showConfirmDialog(new Frame(),"Voulez vous vraiment valider les modifications?","Supprimer", JOptionPane.YES_NO_OPTION);  
+				 if(a==JOptionPane.YES_OPTION){  
+					 EcranClientController.get().validerclient();
+				 }
+				}
+			}
+		});
 		button_3.setIcon(new ImageIcon(EcranClient.class.getResource("/fr/eni/clinique/ihm/img/check.png")));
 		button_3.setBounds(771, 26, 38, 37);
 		panel.add(button_3);
 		
 		JButton button_4 = new JButton("");
+		button_4.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		button_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				EcranClientController.get().loadClient(EcranClientController.get().getClient());
@@ -118,11 +134,11 @@ public class EcranClient extends JInternalFrame {
 		panel.add(lblRechercher);
 		
 		JLabel lblAjouter = new JLabel("Ajouter");
-		lblAjouter.setBounds(390, 63, 46, 14);
+		lblAjouter.setBounds(390, 63, 59, 14);
 		panel.add(lblAjouter);
 		
 		JLabel lblSupprimer = new JLabel("Supprimer");
-		lblSupprimer.setBounds(477, 63, 56, 14);
+		lblSupprimer.setBounds(476, 63, 70, 14);
 		panel.add(lblSupprimer);
 		
 		JLabel lblValider = new JLabel("Valider");
@@ -215,11 +231,13 @@ public class EcranClient extends JInternalFrame {
 		panel_2.add(scrollPane);
 		
 		JButton button_6 = new JButton("");
+		button_6.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		button_6.setIcon(new ImageIcon(EcranClient.class.getResource("/fr/eni/clinique/ihm/img/minus.png")));
 		button_6.setBounds(384, 276, 38, 37);
 		panel_2.add(button_6);
 		
 		JButton button_5 = new JButton("");
+		button_5.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		button_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				EcranClientController.get().ajouterAnimal();
@@ -230,6 +248,7 @@ public class EcranClient extends JInternalFrame {
 		panel_2.add(button_5);
 		
 		JButton button_7 = new JButton("");
+		button_7.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		button_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				EcranClientController.get().modifierAnimal();
@@ -244,7 +263,7 @@ public class EcranClient extends JInternalFrame {
 		panel_2.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Supprimer");
-		lblNewLabel_1.setBounds(384, 324, 56, 14);
+		lblNewLabel_1.setBounds(378, 324, 62, 14);
 		panel_2.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Modifier");

@@ -1,7 +1,10 @@
 package fr.eni.clinique.ihm.animaux;
 
+import java.util.List;
+
 import fr.eni.clinique.bll.AnimalManager;
 import fr.eni.clinique.bll.BLLException;
+import fr.eni.clinique.bll.RaceManager;
 import fr.eni.clinique.bo.Animal;
 import fr.eni.clinique.bo.Client;
 import fr.eni.clinique.bo.Race;
@@ -13,6 +16,7 @@ public class EcranAnimauxController {
 	private static EcranAnimauxController instance;
 	private EcranAnimaux ecrAnimaux;
 	private AnimalManager animger;
+	private RaceManager racemger;
 	private Client client;
 	private Race race;
 	private Animal animal;
@@ -27,6 +31,7 @@ public class EcranAnimauxController {
 	public EcranAnimauxController() {
 		try {
 			animger = AnimalManager.getInstance();
+			racemger = RaceManager.getInstance();
 			
 		} catch (fr.eni.clinique.bll.BLLException e) {
 			// TODO Auto-generated catch block
@@ -54,6 +59,12 @@ public class EcranAnimauxController {
 		}
 		
 		ecrAnimaux.getTextNomClient().setText(client.getNomClient());
+		List<Race> listE = racemger.getAllEspece();
+		for(Race r :listE ){
+			ecrAnimaux.getCbEspece().addItem(r.getEspece());
+			}
+
+		
 		return animal;
 	}
 
@@ -91,5 +102,16 @@ public class EcranAnimauxController {
 		EcranClientController.get().setCodeClient(client.getCodeClient());
 		MainFrameController.get().gestionClient();
 		EcranClientController.get().loadClient(client);
+	}
+
+	public void setCbRace() {
+		ecrAnimaux.getCbRace().removeAllItems();
+		String espece = ecrAnimaux.getCbEspece().getSelectedItem().toString();
+		System.out.println(espece);
+		List<Race> listR = racemger.getAllRace(espece);
+		System.out.println(listR);
+		for (Race r : listR){
+			ecrAnimaux.getCbRace().addItem(r.getRace());
+		}
 	}
 }

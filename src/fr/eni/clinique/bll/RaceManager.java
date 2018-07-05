@@ -20,7 +20,7 @@ public class RaceManager {
 		}
 		return raceManager;
 	}
-	public List<Race> getAllRace(){
+	public List<Race> getAllEspece(){
 		try {
 			return raceDao.selectAll();
 		} catch (DALException e) {
@@ -29,4 +29,14 @@ public class RaceManager {
 		}
 		return null;
 	}
+	public List<Race> getAllRace(String espece){
+		try {
+			return raceDao.selectAllRace(espece);
+		} catch (DALException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 }
