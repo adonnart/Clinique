@@ -7,6 +7,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.MatteBorder;
 
+import fr.eni.clinique.ihm.animaux.EcranAnimauxController;
+
 import java.awt.Color;
 import java.awt.Dimension;
 
@@ -218,11 +220,21 @@ public class EcranClient extends JInternalFrame {
 		panel_2.add(button_6);
 		
 		JButton button_5 = new JButton("");
+		button_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				EcranClientController.get().ajouterAnimal();
+			}
+		});
 		button_5.setIcon(new ImageIcon(EcranClient.class.getResource("/fr/eni/clinique/ihm/img/plus.png")));
 		button_5.setBounds(310, 276, 38, 37);
 		panel_2.add(button_5);
 		
 		JButton button_7 = new JButton("");
+		button_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EcranClientController.get().modifierAnimal();
+			}
+		});
 		button_7.setIcon(new ImageIcon(EcranClient.class.getResource("/fr/eni/clinique/ihm/img/edit_text.png")));
 		button_7.setBounds(450, 276, 38, 37);
 		panel_2.add(button_7);

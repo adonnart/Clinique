@@ -1,28 +1,24 @@
 package fr.eni.clinique.ihm.client;
 
-import java.awt.Dimension;
-import java.util.ArrayList;
+
 import java.util.List;
 
-import javax.swing.JScrollPane;
-import javax.swing.ScrollPaneConstants;
+
 
 import fr.eni.clinique.bll.BLLException;
 import fr.eni.clinique.bll.ClientManager;
 import fr.eni.clinique.bo.Client;
-import fr.eni.clinique.bo.Personnel;
 import fr.eni.clinique.ihm.MainFrameController;
-import fr.eni.clinique.ihm.personnel.EcranPersonnelController;
 
 
 	public class EcranSearchController {
 
 		private static EcranSearchController instance;
 
-		EcranSearch ecrSearch;
-		ClientManager mger;
-		List<Client> listClient;
-		List<Client> listContains;
+		private EcranSearch ecrSearch;
+		private 	ClientManager mger;
+		private List<Client> listClient;
+		private 	List<Client> listContains;
 		public static synchronized EcranSearchController get() {
 			if (instance == null) {
 				instance = new EcranSearchController();

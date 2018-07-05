@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.eni.clinique.bo.Animal;
-
+import fr.eni.clinique.bo.Client;
 import fr.eni.clinique.dal.AnimalDAO;
 import fr.eni.clinique.dal.DALException;
 import fr.eni.clinique.dal.JdbcTools;
@@ -94,6 +94,31 @@ public class AnimalDAOJdbcImpl implements AnimalDAO {
 		} catch (Exception e) {
 			throw new DALException(e.getMessage());
 		}
+	}
+
+	@Override
+	public List<Animal> selectAnimalByClient(int codeClient) {
+		List<Animal> animalList = new ArrayList<>();
+		try (Statement stm = JdbcTools.getConnection().createStatement()) {
+			rs = stm.executeQuery(Queries.getQuerySelectByCodeClient("Animaux",codeClient));
+			while (rs.next()) {
+				animalList.add(new Animal(
+						rs.getInt("CodeAnimal"),
+						rs.getString("NomAnimal"),
+						rs.getString("Sexe").charAt(0),
+						rs.getString("Couleur"),
+						rs.getString("Race"),
+						rs.getString("Espece"),
+						rs.getInt("CodeClient"),
+						rs.getString("Tatouage"),
+						rs.getString("Antecedents"),
+						rs.getBoolean("Archive")
+				));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return animalList;
 	}
 
 }

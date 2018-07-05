@@ -24,6 +24,9 @@ public abstract class Queries {
 	public static String getQuerySelectByName(String table, String nom ) {
 		return "SELECT * FROM " + table + " WHERE NomClient like '%" + nom+"%' and archive = 'false'";
 	}
+	public static String getQuerySelectByCodeClient(String table, int CodeClient ) {
+		return "SELECT * FROM " + table + " WHERE CodeClient = "+CodeClient+"' and archive = 'false'";
+	}
 	
 	// Clients
 	
@@ -186,7 +189,8 @@ public abstract class Queries {
 		//java.sql.Date sqlDate = java.sql.Date.valueOf(date );
 		return sdf.format(d);
 	}
-	
+
+
 	// Races
 
 }

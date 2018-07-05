@@ -55,19 +55,19 @@ public class Formulaire extends JDialog {
 			contentPanel.add(lblPassword);
 		}
 		{
-			textNom = new JTextField();
+			textNom = new JTextField(30);
 			textNom.setBounds(133, 51, 154, 20);
 			contentPanel.add(textNom);
 			textNom.setColumns(10);
 		}
 		{
-			textRole = new JTextField();
+			textRole = new JTextField(3);
 			textRole.setBounds(133, 116, 154, 20);
 			contentPanel.add(textRole);
 			textRole.setColumns(10);
 		}
 		
-		textPassword = new JTextField();
+		textPassword = new JTextField(10);
 		textPassword.setBounds(133, 178, 154, 20);
 		contentPanel.add(textPassword);
 		textPassword.setColumns(10);
