@@ -2,11 +2,8 @@ package fr.eni.clinique.bll;
 
 import java.util.List;
 import fr.eni.clinique.bo.Personnel;
-import fr.eni.clinique.dal.DAOFactory;
-import fr.eni.clinique.dal.PersonnelDAO;
 
 public class LoginManager {
-	private PersonnelDAO personnelDao = DAOFactory.getPersonnelDAO();
 	private static LoginManager loginManager;
 
 	public static synchronized LoginManager getInstance() throws BLLException {

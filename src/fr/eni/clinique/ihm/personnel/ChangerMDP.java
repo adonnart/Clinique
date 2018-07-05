@@ -7,13 +7,6 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import fr.eni.clinique.bll.BLLException;
-import fr.eni.clinique.bll.LoginManager;
-import fr.eni.clinique.bll.PersonnelManager;
-import fr.eni.clinique.bo.Personnel;
-
-import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;

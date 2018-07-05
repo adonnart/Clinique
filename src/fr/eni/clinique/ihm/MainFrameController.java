@@ -1,21 +1,14 @@
 package fr.eni.clinique.ihm;
 
-import java.util.List;
 
-import fr.eni.clinique.bll.PersonnelManager;
 import fr.eni.clinique.bo.Personnel;
-import fr.eni.clinique.ihm.client.EcranClient;
 import fr.eni.clinique.ihm.client.EcranClientController;
 import fr.eni.clinique.ihm.login.EcranLoginController;
-import fr.eni.clinique.ihm.personnel.EcranPersonnel;
 import fr.eni.clinique.ihm.personnel.EcranPersonnelController;
 import fr.eni.clinique.ihm.rendezvous.EcranRendezVousController;
 
 public class MainFrameController {
-		private EcranPersonnel ecrPersonnel;
 		private MainFrame ecrMain;
-		private List<Personnel> listPersonnel;
-		private PersonnelManager mger;
 		private static MainFrameController instance;
 
 		public static synchronized MainFrameController get() {

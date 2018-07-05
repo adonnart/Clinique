@@ -14,11 +14,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.SwingConstants;
-
-import fr.eni.clinique.ihm.login.EcranLogin;
 import fr.eni.clinique.ihm.login.EcranLoginController;
-import fr.eni.clinique.ihm.personnel.EcranPersonnel;
-import fr.eni.clinique.ihm.personnel.EcranPersonnelController;
 
 public class MainFrame extends JFrame implements ActionListener {
 
@@ -31,8 +27,7 @@ public class MainFrame extends JFrame implements ActionListener {
 	private JMenuItem menuPriseRdv;
 	private JMenuItem menuGestionPersonnel;
 	private JMenu menu2;
-	private EcranPersonnel frmClient;
-	private JMenuItem mntmGestionDesClients;
+
 
 
 	public MainFrame() {
@@ -40,7 +35,7 @@ public class MainFrame extends JFrame implements ActionListener {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	//	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		setBounds(0, 0, 1200, 800);
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Administrateur\\Desktop\\Ressource\\Images\\ico_veto.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MainFrame.class.getResource("/fr/eni/clinique/ihm/img/ico_veto.png")));
 
 		// initialiser l'ecran MDI
 		desktopPane = new JDesktopPane();
@@ -101,7 +96,7 @@ public class MainFrame extends JFrame implements ActionListener {
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setBounds(500, 200, 170, 170);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Administrateur\\Desktop\\Ressource\\Images\\fond_frame.jpg"));
+		lblNewLabel.setIcon(new ImageIcon(MainFrame.class.getResource("/fr/eni/clinique/ihm/img/fond_frame.jpg")));
 		getContentPane().add(lblNewLabel);
 		
 		JLabel label = new JLabel("Clinique v\u00E9t\u00E9rinaire");

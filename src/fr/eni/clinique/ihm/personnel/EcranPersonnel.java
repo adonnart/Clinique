@@ -4,28 +4,16 @@ package fr.eni.clinique.ihm.personnel;
 import javax.swing.JInternalFrame;
 
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
-import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import java.awt.Font;
 import java.awt.Frame;
-import java.awt.GridLayout;
-
 import javax.swing.border.MatteBorder;
-
-import com.sun.xml.internal.ws.wsdl.OperationDispatcher;
-
-import fr.eni.clinique.ihm.form.FormulaireController;
-import fr.eni.clinique.ihm.login.EcranLoginController;
-
-import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.ScrollPaneConstants;
-import javax.swing.SwingConstants;
 
 import java.awt.Dimension;
 import java.awt.event.ActionListener;

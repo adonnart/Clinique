@@ -5,13 +5,11 @@ import javax.swing.JOptionPane;
 import fr.eni.clinique.bll.BLLException;
 import fr.eni.clinique.bll.LoginManager;
 import fr.eni.clinique.bo.Personnel;
-import fr.eni.clinique.ihm.MainFrame;
 import fr.eni.clinique.ihm.MainFrameController;
 
 public class EcranLoginController implements ILoginObserver {
 
 	private EcranLogin ecrLogin;
-	private MainFrame ecrMain;
 	Personnel p ;
 	private LoginManager mger;
 

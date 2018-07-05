@@ -1,4 +1,4 @@
-package fr.eni.clinique.ihm.form;
+package fr.eni.clinique.ihm.personnel;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;

@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.eni.clinique.bo.Animal;
-import fr.eni.clinique.bo.Client;
-import fr.eni.clinique.bo.Personnel;
 import fr.eni.clinique.dal.AnimalDAO;
 import fr.eni.clinique.dal.DALException;
 import fr.eni.clinique.dal.DAOFactory;
